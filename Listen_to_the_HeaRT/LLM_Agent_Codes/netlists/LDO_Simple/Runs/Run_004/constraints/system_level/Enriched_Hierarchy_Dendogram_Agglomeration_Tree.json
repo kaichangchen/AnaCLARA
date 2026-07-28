@@ -1,0 +1,126 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_bias_generator_reference",
+      "class_category": "Bias Network",
+      "role_hint": "Bias generation network using diode-connected PMOS M1. An external sink current at iref_snk establishes the PMOS current-source gate bias that biases M2 and M5.",
+      "role_description": "Bias generation network using diode-connected PMOS M1. An external sink current at iref_snk establishes the PMOS current-source gate bias that biases M2 and M5.",
+      "netlist": ".subckt pmos_bias_generator_reference iref_snk vdd\nM1 iref_snk iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends pmos_bias_generator_reference",
+      "port_info_keyed_by_name": {
+        "iref_snk": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "level_1_cluster_1",
+      "children": [
+        {
+          "unique_name": "error_amplifier_input_stage",
+          "class_category": "Amplifier",
+          "role_hint": "Core error-amplifier input stage. M2 provides PMOS tail/source bias, M3-M4 form the PMOS differential input pair comparing vin against fb, and M7-M8 form the NMOS current-mirror active load producing the single-ended internal output net7.",
+          "role_description": "Core error-amplifier input stage. M2 provides PMOS tail/source bias, M3-M4 form the PMOS differential input pair comparing vin against fb, and M7-M8 form the NMOS current-mirror active load producing the single-ended internal output net7.",
+          "netlist": ".subckt error_amplifier_input_stage gnd iref_snk vdd vin fb net7\nM4 net7 vin net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM3 net6 fb net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM2 net5 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\nM8 net6 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\nM7 net7 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\n.ends error_amplifier_input_stage",
+          "port_info_keyed_by_name": {
+            "iref_snk": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vin": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "fb": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "net7": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "ldo_pass_device_feedback_stage",
+          "class_category": "Amplifier",
+          "role_hint": "LDO power output and feedback network. M0 is the PMOS pass transistor controlled by net2, while R1-R2 sense the regulated output vo and generate the feedback voltage fb for the error amplifier.",
+          "role_description": "LDO power output and feedback network. M0 is the PMOS pass transistor controlled by net2, while R1-R2 sense the regulated output vo and generate the feedback voltage fb for the error amplifier.",
+          "netlist": ".subckt ldo_pass_device_feedback_stage gnd vdd net2 vo fb\nM0 vo net2 vdd vdd pmos l=l_power_p w=w_power_p*1 m=1 nf=1\nR1 vo fb res r1\nR2 fb gnd res r2\n.ends ldo_pass_device_feedback_stage",
+          "port_info_keyed_by_name": {
+            "net2": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "fb": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_load_capacitor",
+          "class_category": "Passive Load",
+          "role_hint": "Output load capacitor connected from the regulated output node vo to ground, modeling the external or on-chip LDO load capacitance.",
+          "role_description": "Output load capacitor connected from the regulated output node vo to ground, modeling the external or on-chip LDO load capacitance.",
+          "netlist": ".subckt output_load_capacitor vo GND\nCL vo GND cap cload\n.ends output_load_capacitor",
+          "port_info_keyed_by_name": {
+            "vo": {
+              "port_type": "signal",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "pmos_gate_driver_stage",
+          "class_category": "Amplifier",
+          "role_hint": "Second signal-path gain/level-shift gate-driver stage. M5 supplies bias current from vdd using the iref_snk PMOS bias voltage, while M6 converts the error-amplifier output net7 into the pass-device gate-drive node net2.",
+          "role_description": "Second signal-path gain/level-shift gate-driver stage. M5 supplies bias current from vdd using the iref_snk PMOS bias voltage, while M6 converts the error-amplifier output net7 into the pass-device gate-drive node net2.",
+          "netlist": ".subckt pmos_gate_driver_stage gnd iref_snk vdd net7 net2\nM6 gnd net7 net2 vdd pmos l=l_eab_p w=w_eab_p*1 m=1 nf=1 sd=220.0n\nM5 net2 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends pmos_gate_driver_stage",
+          "port_info_keyed_by_name": {
+            "iref_snk": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "net7": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "net2": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "series_rc_miller_compensation",
+          "class_category": "Miller Compensation",
+          "role_hint": "Series RC compensation network from the error-amplifier internal node net7 to the LDO output vo. It provides frequency compensation and zero placement for regulator loop stability.",
+          "role_description": "Series RC compensation network from the error-amplifier internal node net7 to the LDO output vo. It provides frequency compensation and zero placement for regulator loop stability.",
+          "netlist": ".subckt series_rc_miller_compensation net7 vo\nC0 net7 net1 cap c0\nR0 net1 vo res r0\n.ends series_rc_miller_compensation",
+          "port_info_keyed_by_name": {
+            "net7": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

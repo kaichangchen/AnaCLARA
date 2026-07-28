@@ -1,0 +1,105 @@
+{
+  "unique_name": "level_1_cluster_0",
+  "children": [
+    {
+      "unique_name": "dynamic_internal_node_capacitive_loads",
+      "class_category": "Passive Load",
+      "role_hint": "Capacitive loading and dynamic storage on the internal latch and differential pair nodes of the clocked comparator.",
+      "role_description": "Capacitive loading and dynamic storage on the internal latch and differential pair nodes of the clocked comparator.",
+      "netlist": ".subckt dynamic_internal_node_capacitive_loads vss Vx Vy VP VQ\nC3 Vy vss cap C3\nC2 Vx vss cap C2\nC0 VP vss cap C0\nC1 VQ vss cap C1\n.ends dynamic_internal_node_capacitive_loads",
+      "port_info_keyed_by_name": {
+        "vx": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vy": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vp": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vq": {
+          "port_type": "signal",
+          "direction": "input"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "dynamic_strongarm_latch_comparator_core",
+      "class_category": "Comparator",
+      "role_hint": "Clocked dynamic StrongARM-style comparator core containing the differential input pair, tail evaluation switch, precharge devices, and regenerative cross-coupled latch devices. It evaluates Vin versus Vip during the clocked evaluation phase and develops internal differential latch nodes Vx/Vy and VP/VQ.",
+      "role_description": "Clocked dynamic StrongARM-style comparator core containing the differential input pair, tail evaluation switch, precharge devices, and regenerative cross-coupled latch devices. It evaluates Vin versus Vip during the clocked evaluation phase and develops internal differential latch nodes Vx/Vy and VP/VQ.",
+      "netlist": ".subckt dynamic_strongarm_latch_comparator_core vss vdd Vin Vip clk Vx Vy VP VQ\nMN2 VQ Vin net17 vss nmos w=W2 l=L2 nf=1 m=1\nMN4 Vx Vy VP vss nmos w=W3 l=L3 nf=1 m=1\nMN1 net17 clk vss vss nmos w=W l=L1 nf=1 m=1\nMN3 Vy Vx VQ vss nmos w=W3 l=L3 nf=1 m=1\nMN0 VP Vip net17 vss nmos w=W2 l=L2 nf=1 m=1\nMN10 VP clk vdd vdd pmos w=W6 l=L6 nf=1 m=1\nMN8 Vy clk vdd vdd pmos w=W5 l=L5 nf=1 m=1\nMN6 Vx Vy vdd vdd pmos w=W4 l=L4 nf=1 m=1\nMN5 Vy Vx vdd vdd pmos w=W4 l=L4 nf=1 m=1\nMN7 Vx clk vdd vdd pmos w=W5 l=L5 nf=1 m=1\nMN9 VQ clk vdd vdd pmos w=W6 l=L6 nf=1 m=1\n.ends dynamic_strongarm_latch_comparator_core",
+      "port_info_keyed_by_name": {
+        "vin": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vip": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "clk": {
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        "vx": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vy": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vp": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vq": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "negative_output_cmos_inverter_buffer",
+      "class_category": "Digital logic",
+      "role_hint": "CMOS inverter output buffer driven by internal comparator node Vy, producing the rail-to-rail output Von.",
+      "role_description": "CMOS inverter output buffer driven by internal comparator node Vy, producing the rail-to-rail output Von.",
+      "netlist": ".subckt negative_output_cmos_inverter_buffer vss vdd Vy Von\nM16 Von Vy vdd vdd pmos w=120n l=60n nf=1 m=1\nM3 Von Vy vss vss nmos w=120n l=60n nf=1 m=1\n.ends negative_output_cmos_inverter_buffer",
+      "port_info_keyed_by_name": {
+        "vy": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "von": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "positive_output_cmos_inverter_buffer",
+      "class_category": "Digital logic",
+      "role_hint": "CMOS inverter output buffer driven by internal comparator node Vx, producing the rail-to-rail output Vop.",
+      "role_description": "CMOS inverter output buffer driven by internal comparator node Vx, producing the rail-to-rail output Vop.",
+      "netlist": ".subckt positive_output_cmos_inverter_buffer vss vdd Vx Vop\nM17 Vop Vx vdd vdd pmos w=120n l=60n nf=1 m=1\nM2 Vop Vx vss vss nmos w=120n l=60n nf=1 m=1\n.ends positive_output_cmos_inverter_buffer",
+      "port_info_keyed_by_name": {
+        "vx": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vop": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    }
+  ]
+}

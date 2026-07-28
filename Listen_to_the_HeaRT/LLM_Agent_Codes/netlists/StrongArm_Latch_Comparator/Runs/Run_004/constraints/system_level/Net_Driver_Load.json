@@ -1,0 +1,38 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "vp",
+      "driver_block_name": "dynamic_comparator_latch_core",
+      "load_block_names": [
+        "dynamic_node_capacitive_loads"
+      ],
+      "reason": "Splitter annotation: 'dynamic_comparator_latch_core' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vq",
+      "driver_block_name": "dynamic_comparator_latch_core",
+      "load_block_names": [
+        "dynamic_node_capacitive_loads"
+      ],
+      "reason": "Splitter annotation: 'dynamic_comparator_latch_core' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vx",
+      "driver_block_name": "dynamic_comparator_latch_core",
+      "load_block_names": [
+        "dynamic_node_capacitive_loads",
+        "vop_output_cmos_inverter"
+      ],
+      "reason": "Splitter annotation: 'dynamic_comparator_latch_core' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vy",
+      "driver_block_name": "dynamic_comparator_latch_core",
+      "load_block_names": [
+        "dynamic_node_capacitive_loads",
+        "von_output_cmos_inverter"
+      ],
+      "reason": "Splitter annotation: 'dynamic_comparator_latch_core' has direction=output; others are inputs/unknown."
+    }
+  ]
+}

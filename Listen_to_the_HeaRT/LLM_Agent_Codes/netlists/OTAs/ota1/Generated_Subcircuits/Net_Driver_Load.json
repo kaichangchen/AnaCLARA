@@ -1,0 +1,48 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "intm",
+      "driver_block_name": "first_stage_diffpair_active_load",
+      "load_block_names": [
+        "miller_compensation_network",
+        "output_stage_half_outp"
+      ],
+      "reason": "The first-stage differential pair generates the internal node; the second-stage half and compensation network receive it."
+    },
+    {
+      "net_name": "intp",
+      "driver_block_name": "first_stage_diffpair_active_load",
+      "load_block_names": [
+        "miller_compensation_network",
+        "output_stage_half_outm"
+      ],
+      "reason": "The first-stage differential pair generates the internal node; the opposite second-stage half and compensation network receive it."
+    },
+    {
+      "net_name": "outm",
+      "driver_block_name": "output_stage_half_outm",
+      "load_block_names": [
+        "cmfb_pmos_diffpair_amp",
+        "miller_compensation_network"
+      ],
+      "reason": "The second-stage OUTM half drives the output; CMFB senses it and the Miller network loads it."
+    },
+    {
+      "net_name": "outp",
+      "driver_block_name": "output_stage_half_outp",
+      "load_block_names": [
+        "cmfb_pmos_diffpair_amp",
+        "miller_compensation_network"
+      ],
+      "reason": "The second-stage OUTP half drives the output; CMFB senses it and the Miller network loads it."
+    },
+    {
+      "net_name": "vcmfb",
+      "driver_block_name": "cmfb_pmos_diffpair_amp",
+      "load_block_names": [
+        "first_stage_diffpair_active_load"
+      ],
+      "reason": "The CMFB engine generates vcmfb that biases/controls the first-stage tail branch."
+    }
+  ]
+}

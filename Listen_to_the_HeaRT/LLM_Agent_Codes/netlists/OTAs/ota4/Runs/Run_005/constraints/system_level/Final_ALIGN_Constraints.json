@@ -1,0 +1,211 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "nmos_input_pair",
+    "instances": [
+      "m1",
+      "m0"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_input_pair",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_current_mirror",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m1",
+      "m0"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m1",
+        "m0"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m1",
+        "m0"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vo",
+    "net2": "net2",
+    "direction": "V"
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m4",
+      "m3"
+    ],
+    "line": "center",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m1",
+      "m0"
+    ],
+    "line": "center",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m4",
+      "m1"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m3",
+      "m0"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m5",
+      "m6"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m5",
+      "m4",
+      "m1",
+      "m2"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m5",
+      "m3",
+      "m0",
+      "m2"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ib_sink",
+      "vin",
+      "vip"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  }
+]

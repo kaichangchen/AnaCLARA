@@ -1,0 +1,155 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m3",
+      "m2",
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m0",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m3",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m1",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m1",
+      "m3"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "gnd",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m1",
+        "m0"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net2",
+    "net2": "vo",
+    "direction": "V"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ib_sink",
+      "vin",
+      "vip"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "v",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m1",
+        "m0"
+      ]
+    ]
+  }
+]

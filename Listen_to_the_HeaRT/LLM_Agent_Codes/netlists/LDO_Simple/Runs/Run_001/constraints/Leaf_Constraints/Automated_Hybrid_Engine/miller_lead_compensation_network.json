@@ -1,0 +1,71 @@
+[
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net7",
+    "net2": "inn",
+    "direction": "v"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_rdiv",
+    "instances": [
+      "r0",
+      "r1"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "r0",
+      "r1"
+    ],
+    "line": "bottom",
+    "direction": "vertical"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r0",
+      "r1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_res_chain",
+    "instances": [
+      "r0",
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "r0",
+      "r1",
+      "r2"
+    ],
+    "line": "bottom",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r0",
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net7",
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

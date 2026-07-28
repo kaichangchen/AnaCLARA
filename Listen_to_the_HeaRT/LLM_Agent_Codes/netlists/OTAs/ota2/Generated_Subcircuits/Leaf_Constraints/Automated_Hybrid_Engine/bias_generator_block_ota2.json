@@ -1,0 +1,130 @@
+[
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "gnd",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m16",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m16",
+      "m25"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m2",
+      "m19",
+      "m15",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m15",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m2",
+      "m19"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m15",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m2",
+        "m4"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m32",
+      "m24"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m33",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m2",
+      "m4",
+      "m15",
+      "m16"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m3",
+      "m13"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m14",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ibias",
+      "vcm",
+      "nbias_tail",
+      "pcas",
+      "incm2"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "level_2_cluster_0": {
+    "net_to_endpoint_blocks": {},
+    "net_to_endpoint_orbit_signature": {},
+    "net_to_driver_orbit_signature": {},
+    "structural_symmetric_net_candidates": []
+  }
+}

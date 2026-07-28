@@ -1,0 +1,20 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_TGATE",
+        "instances": ["MN", "MP"]
+    },
+    {
+        "constraint": "Align",
+        "instances": ["MN", "MP"],
+        "line": "h_center"
+    },
+    {
+        "constraint": "PowerPorts",
+        "ports": ["VDD"]
+    },
+    {
+        "constraint": "GroundPorts",
+        "ports": ["VSS"]
+    }
+]

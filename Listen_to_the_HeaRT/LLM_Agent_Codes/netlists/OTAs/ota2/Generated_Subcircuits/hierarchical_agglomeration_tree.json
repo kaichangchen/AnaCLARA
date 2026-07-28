@@ -1,0 +1,44 @@
+{
+  "unique_name": "ota2 (Top-Level OTA)",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "Amplifier Signal Path",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "folded_cascode_core_ota2",
+          "class_category": "Amplifier",
+          "children": []
+        },
+        {
+          "unique_name": "Output Stage with CMFB (Closed-Loop)",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "output_stage_pushpull_ota2",
+              "class_category": "Amplifier",
+              "children": []
+            },
+            {
+              "unique_name": "output_cmfb_block_ota2",
+              "class_category": "Feedback",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unique_name": "Bias Network",
+      "class_category": "Bias",
+      "children": [
+        {
+          "unique_name": "bias_generator_block_ota2",
+          "class_category": "Bias",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

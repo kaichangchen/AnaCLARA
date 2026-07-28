@@ -1,0 +1,17 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_RATIO_MIRROR",
+        "instances": ["M0", "M1"]
+    },
+    {
+        "constraint": "Align",
+        "instances": ["M0", "M1"],
+        "line": "h_bottom"
+    },
+    {
+        "constraint": "Generator",
+        "name": "MOS",
+        "parameters": {"pattern": "ratio_devices"}
+    }
+]

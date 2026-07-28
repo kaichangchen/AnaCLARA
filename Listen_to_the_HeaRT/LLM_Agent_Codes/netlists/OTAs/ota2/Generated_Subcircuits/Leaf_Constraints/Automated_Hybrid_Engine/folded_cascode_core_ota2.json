@@ -1,0 +1,137 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_sc_cell",
+    "instances": [
+      "m17",
+      "c1",
+      "m18"
+    ]
+  },
+  {
+    "constraint": "ClockPorts",
+    "ports": [
+      "ibias",
+      "ibias"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m10",
+        "m8"
+      ]
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "gnd",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "ibias",
+    "net2": "ibias",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vo1p",
+    "net2": "vo1m",
+    "direction": "v"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m34",
+        "m35"
+      ],
+      [
+        "m10",
+        "m8"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m34",
+      "m35"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m26",
+      "m27"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m10",
+      "m8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m17",
+      "m18"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r12",
+      "r5"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c1",
+      "c0"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vip",
+      "vim",
+      "ibias",
+      "nbias_tail",
+      "pcas"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo1p",
+      "vo1m"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

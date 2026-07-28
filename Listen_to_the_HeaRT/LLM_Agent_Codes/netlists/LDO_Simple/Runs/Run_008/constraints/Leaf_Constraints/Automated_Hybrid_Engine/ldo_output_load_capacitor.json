@@ -1,0 +1,25 @@
+[
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vo",
+    "net2": "inn",
+    "direction": "v"
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

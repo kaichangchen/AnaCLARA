@@ -1,0 +1,25 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_CASCODE_MIRROR",
+        "instances": ["M0", "M1", "M2", "M3"]
+    },
+    {
+        "constraint": "SymmetricBlocks",
+        "direction": "V",
+        "pairs": [["M0", "M1"], ["M2", "M3"]]
+    },
+    {
+        "constraint": "Order",
+        "direction": "top_to_bottom",
+        "instances": ["M2", "M0"]
+    },
+    {
+        "constraint": "SameTemplate",
+        "instances": ["M0", "M1"]
+    },
+    {
+        "constraint": "SameTemplate",
+        "instances": ["M2", "M3"]
+    }
+]

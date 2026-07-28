@@ -1,0 +1,180 @@
+{
+  "top_level_port_names": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBIAS_P",
+    "VDD",
+    "VREF",
+    "VSS"
+  ],
+  "mixed_signal_flag": "False",
+  "subcircuits": [
+    {
+      "id": "first_stage_diffpair_active_load",
+      "netlist": ".subckt first_stage_diffpair_active_load INM INP intp intm vbias_n vcmfb VBIAS_P VDD VSS\nMP1b intp VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nMP1a intm VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nM10 net7 vbias_n VSS VSS nch_lvt l=120.0n w=2u m=16\nM11 net7 vcmfb VSS VSS nch_lvt l=120.0n w=2u m=4\nM0 intp INM net7 VSS nch_25ud18 l=500n w=5u m=12\nM2 intm INP net7 VSS nch_25ud18 l=500n w=5u m=12\n.ends first_stage_diffpair_active_load",
+      "ports": [
+        "INM",
+        "INP",
+        "intp",
+        "intm",
+        "vbias_n",
+        "vcmfb",
+        "VBIAS_P",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "INM",
+        "INP",
+        "intp",
+        "intm",
+        "vbias_n",
+        "vcmfb",
+        "VBIAS_P"
+      ],
+      "role_hint": "Differential NMOS input stage with PMOS active-load current sources; tail current includes CMFB-controlled branch.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in diff-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "output_stage_half_outm",
+      "netlist": ".subckt output_stage_half_outm intp OUTM vbias_n VDD VSS\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outm",
+      "ports": [
+        "intp",
+        "OUTM",
+        "vbias_n",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "intp",
+        "OUTM",
+        "vbias_n"
+      ],
+      "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTM.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "single-in single-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "output_stage_half_outp",
+      "netlist": ".subckt output_stage_half_outp intm OUTP vbias_n VDD VSS\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outp",
+      "ports": [
+        "intm",
+        "OUTP",
+        "vbias_n",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "intm",
+        "OUTP",
+        "vbias_n"
+      ],
+      "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTP.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "single-in single-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "cmfb_pmos_diffpair_amp",
+      "netlist": ".subckt cmfb_pmos_diffpair_amp OUTM OUTP VREF vcmfb VBIAS_P VDD VSS\nM20 net028 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nMP1c net020 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM18 vcmfb OUTM net028 VDD pch_lvt l=120.0n w=2u m=8\nM15 vcmfb OUTP net020 VDD pch_lvt l=120.0n w=2u m=8\nM19 net025 VREF net028 VDD pch_lvt l=120.0n w=2u m=8\nM17 net025 VREF net020 VDD pch_lvt l=120.0n w=2u m=8\nM13 vcmfb vcmfb VSS VSS nch_lvt l=120.0n w=2u m=2\nM12 net025 net025 VSS VSS nch_lvt l=120.0n w=2u m=2\n.ends cmfb_pmos_diffpair_amp",
+      "ports": [
+        "OUTM",
+        "OUTP",
+        "VREF",
+        "vcmfb",
+        "VBIAS_P",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "OUTM",
+        "OUTP",
+        "VREF",
+        "vcmfb",
+        "VBIAS_P"
+      ],
+      "role_hint": "Common-mode feedback engine using duplicated PMOS differential pairs comparing OUTP/OUTM against VREF to generate vcmfb; includes local PMOS current sources.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in single-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "bias_generator_vbiasn",
+      "netlist": ".subckt bias_generator_vbiasn VBIAS_P vbias_n VDD VSS\nM5 VBIAS_P VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM7 vbias_n VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM4 vbias_n vbias_n VSS VSS nch_lvt l=120.0n w=2u m=4\n.ends bias_generator_vbiasn",
+      "ports": [
+        "VBIAS_P",
+        "vbias_n",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "VBIAS_P",
+        "vbias_n"
+      ],
+      "role_hint": "Generates NMOS bias voltage vbias_n from external PMOS bias VBIAS_P via a PMOS mirror into a diode-connected NMOS.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "bias_only",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "miller_compensation_network",
+      "netlist": ".subckt miller_compensation_network OUTP OUTM intm intp VDD VSS\nM23 net047 VSS intm VDD pch_lvt l=120.0n w=2u m=12\nM25 net037 VSS intp VDD pch_lvt l=120.0n w=2u m=12\nC0 OUTP net047 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nC1 OUTM net037 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\n.ends miller_compensation_network",
+      "ports": [
+        "OUTP",
+        "OUTM",
+        "intm",
+        "intp",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "OUTP",
+        "OUTM",
+        "intm",
+        "intp"
+      ],
+      "role_hint": "Miller compensation network coupling outputs to internal high-impedance nodes via always-on PMOS pass devices and metal capacitors.",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in diff-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    }
+  ],
+  "Verilog_A_Wrapper_Full_Circuit": null,
+  "Full_Circuit_Role_Class": null,
+  "Loops": null
+}

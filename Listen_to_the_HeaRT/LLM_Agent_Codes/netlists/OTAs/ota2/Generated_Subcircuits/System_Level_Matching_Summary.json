@@ -1,0 +1,113 @@
+{
+  "level_2_cluster_0": {
+    "lca_name": "level_2_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "bias_generator_block_ota2",
+        "node_b": "folded_cascode_core_ota2",
+        "edge_key": "bias_generator_block_ota2|folded_cascode_core_ota2|ibias",
+        "net_name": "ibias",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M17",
+            "M18",
+            "M19"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "nch_lvt.D-S",
+            "nch_lvt.D-S",
+            "SUPPLY:gnd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota2",
+        "node_b": "folded_cascode_core_ota2",
+        "edge_key": "bias_generator_block_ota2|folded_cascode_core_ota2|nbias_tail",
+        "net_name": "nbias_tail",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M1",
+            "M2",
+            "M3",
+            "M4"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:gnd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota2",
+        "node_b": "output_cmfb_block_ota2",
+        "edge_key": "bias_generator_block_ota2|output_cmfb_block_ota2|nbias_tail",
+        "net_name": "nbias_tail",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M2",
+            "M3",
+            "M4",
+            "M7"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:gnd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota2",
+        "node_b": "output_cmfb_block_ota2",
+        "edge_key": "bias_generator_block_ota2|output_cmfb_block_ota2|vcm",
+        "net_name": "vcm",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M13",
+            "M15",
+            "M16",
+            "M20",
+            "M21"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "nch_lvt.D-S",
+            "SUPPLY:gnd"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  },
+  "level_1_cluster_1": {
+    "lca_name": "level_1_cluster_1",
+    "matching_edge_summaries": [
+      {
+        "node_a": "folded_cascode_core_ota2",
+        "node_b": "output_cmfb_block_ota2",
+        "edge_key": "folded_cascode_core_ota2|output_cmfb_block_ota2|nbias_tail",
+        "net_name": "nbias_tail",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M1",
+            "M7"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:gnd"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_inv",
+    "instances": [
+      "m7",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m7",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m7",
+      "m4"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m7",
+        "m5"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m7",
+      "m5"
+    ]
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vbias_p",
+      "vbias_n"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

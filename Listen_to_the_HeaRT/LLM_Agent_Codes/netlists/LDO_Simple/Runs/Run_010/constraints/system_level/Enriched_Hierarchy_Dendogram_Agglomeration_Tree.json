@@ -1,0 +1,126 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_diode_bias_generator",
+      "class_category": "Bias Network",
+      "role_hint": "Bias generation network. M1 is a diode-connected PMOS that establishes the PMOS current-source gate bias at iref_snk, which biases M2 and M5 in the amplifier stages.",
+      "role_description": "Bias generation network. M1 is a diode-connected PMOS that establishes the PMOS current-source gate bias at iref_snk, which biases M2 and M5 in the amplifier stages.",
+      "netlist": ".subckt pmos_diode_bias_generator vdd iref_snk\nM1 iref_snk iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends pmos_diode_bias_generator",
+      "port_info_keyed_by_name": {
+        "iref_snk": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "level_1_cluster_1",
+      "children": [
+        {
+          "unique_name": "error_amplifier_input_stage",
+          "class_category": "Amplifier",
+          "role_hint": "First gain stage of the LDO error amplifier. M4 and M3 form a PMOS differential input pair comparing reference/input vin against feedback fb. M2 supplies tail bias from the iref_snk bias voltage. M8 and M7 form an NMOS current-mirror active load, producing the single-ended first-stage output at net7.",
+          "role_description": "First gain stage of the LDO error amplifier. M4 and M3 form a PMOS differential input pair comparing reference/input vin against feedback fb. M2 supplies tail bias from the iref_snk bias voltage. M8 and M7 form an NMOS current-mirror active load, producing the single-ended first-stage output at net7.",
+          "netlist": ".subckt error_amplifier_input_stage vdd gnd iref_snk vin fb net7\nM4 net7 vin net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM3 net6 fb net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM2 net5 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\nM8 net6 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\nM7 net7 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\n.ends error_amplifier_input_stage",
+          "port_info_keyed_by_name": {
+            "iref_snk": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vin": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "fb": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "net7": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "error_amplifier_second_gain_driver_stage",
+          "class_category": "Amplifier",
+          "role_hint": "Second gain and pass-gate driver stage. M5 is a PMOS current-source load biased by iref_snk, while M6 uses the first-stage output net7 to generate the pass-transistor gate-control voltage net2.",
+          "role_description": "Second gain and pass-gate driver stage. M5 is a PMOS current-source load biased by iref_snk, while M6 uses the first-stage output net7 to generate the pass-transistor gate-control voltage net2.",
+          "netlist": ".subckt error_amplifier_second_gain_driver_stage vdd gnd iref_snk net7 net2\nM6 gnd net7 net2 vdd pmos l=l_eab_p w=w_eab_p*1 m=1 nf=1 sd=220.0n\nM5 net2 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends error_amplifier_second_gain_driver_stage",
+          "port_info_keyed_by_name": {
+            "iref_snk": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "net7": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "net2": {
+              "port_type": "signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "miller_compensation_network",
+          "class_category": "Miller Compensation",
+          "role_hint": "Series RC Miller/feed-forward compensation network between the first-stage error-amplifier output net7 and the regulated output vo. R0 and C0 shape loop stability and introduce compensation zero/pole behavior.",
+          "role_description": "Series RC Miller/feed-forward compensation network between the first-stage error-amplifier output net7 and the regulated output vo. R0 and C0 shape loop stability and introduce compensation zero/pole behavior.",
+          "netlist": ".subckt miller_compensation_network net7 vo\nR0 net1 vo res r0\nC0 net7 net1 cap c0\n.ends miller_compensation_network",
+          "port_info_keyed_by_name": {
+            "net7": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo": {
+              "port_type": "signal",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_load_capacitor",
+          "class_category": "Passive Load",
+          "role_hint": "Output load capacitor connected from the regulated output vo to ground. It represents the LDO load capacitance and contributes to output filtering and loop dynamics.",
+          "role_description": "Output load capacitor connected from the regulated output vo to ground. It represents the LDO load capacitance and contributes to output filtering and loop dynamics.",
+          "netlist": ".subckt output_load_capacitor vo GND\nCL vo GND cap cload\n.ends output_load_capacitor",
+          "port_info_keyed_by_name": {
+            "vo": {
+              "port_type": "signal",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "pmos_pass_device_feedback_divider_stage",
+          "class_category": "Amplifier",
+          "role_hint": "LDO output power stage and feedback sensing network. M0 is the PMOS pass transistor controlled by net2, sourcing current from vdd to the regulated output vo. R1 and R2 form the resistive feedback divider that generates fb from vo for the error amplifier.",
+          "role_description": "LDO output power stage and feedback sensing network. M0 is the PMOS pass transistor controlled by net2, sourcing current from vdd to the regulated output vo. R1 and R2 form the resistive feedback divider that generates fb from vo for the error amplifier.",
+          "netlist": ".subckt pmos_pass_device_feedback_divider_stage vdd gnd net2 vo fb\nM0 vo net2 vdd vdd pmos l=l_power_p w=w_power_p*1 m=1 nf=1\nR1 vo fb res r1\nR2 fb gnd res r2\n.ends pmos_pass_device_feedback_divider_stage",
+          "port_info_keyed_by_name": {
+            "net2": {
+              "port_type": "control_signal",
+              "direction": "input"
+            },
+            "vo": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "fb": {
+              "port_type": "control_signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

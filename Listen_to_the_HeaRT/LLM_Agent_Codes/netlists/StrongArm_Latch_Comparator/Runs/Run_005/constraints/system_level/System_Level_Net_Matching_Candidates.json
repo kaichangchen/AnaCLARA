@@ -1,0 +1,41 @@
+{
+  "level_1_cluster_0": {
+    "net_to_endpoint_blocks": {
+      "vx": [
+        "dynamic_comparator_core",
+        "vop_cmos_output_inverter"
+      ],
+      "vy": [
+        "dynamic_comparator_core",
+        "von_cmos_output_inverter"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "vx": [
+        "orbit_0",
+        "singleton::dynamic_comparator_core"
+      ],
+      "vy": [
+        "orbit_0",
+        "singleton::dynamic_comparator_core"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "vx": "singleton::dynamic_comparator_core",
+      "vy": "singleton::dynamic_comparator_core"
+    },
+    "structural_symmetric_net_candidates": [
+      {
+        "candidate_nets": [
+          "vx",
+          "vy"
+        ],
+        "endpoint_orbit_signature": [
+          "orbit_0",
+          "singleton::dynamic_comparator_core",
+          "driver::singleton::dynamic_comparator_core"
+        ]
+      }
+    ]
+  }
+}

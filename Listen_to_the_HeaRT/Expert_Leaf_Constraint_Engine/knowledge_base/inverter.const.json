@@ -1,0 +1,25 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_INV",
+        "instances": ["MP", "MN"]
+    },
+    {
+        "constraint": "Order",
+        "direction": "top_to_bottom",
+        "instances": ["MP", "MN"]
+    },
+    {
+        "constraint": "Align",
+        "instances": ["MP", "MN"],
+        "line": "v_center"
+    },
+    {
+        "constraint": "PowerPorts",
+        "ports": ["VDD"]
+    },
+    {
+        "constraint": "GroundPorts",
+        "ports": ["VSS"]
+    }
+]

@@ -1,0 +1,289 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M1"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "M1"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "M1"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "M1"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [],
+    "location": "TC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M4",
+        "M3"
+      ],
+      [
+        "M2",
+        "M8"
+      ],
+      [
+        "M7"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "M4",
+      "M3",
+      "M2",
+      "M8",
+      "M7"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "M4",
+      "M3",
+      "M2",
+      "M8",
+      "M7"
+    ],
+    "line": "h_bottom"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "M4",
+      "M3",
+      "M2",
+      "M8",
+      "M7"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "M4",
+      "M3",
+      "M2",
+      "M8",
+      "M7"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "R0",
+        "C0"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "R0",
+      "C0"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "R0",
+      "C0"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "R0",
+      "C0"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "R0",
+      "C0"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M6",
+        "M5"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "M6",
+      "M5"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "M6",
+      "M5"
+    ],
+    "line": "h_bottom"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "M6",
+      "M5"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "M6",
+      "M5"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "CL"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "CL"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "CL"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "CL"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M0",
+        "R1"
+      ],
+      [
+        "R2"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "M0",
+      "R1",
+      "R2"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "R1",
+      "R2"
+    ],
+    "line": "bottom",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "M0",
+      "R1",
+      "R2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "R1",
+      "R2"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "M0",
+      "R1",
+      "R2"
+    ],
+    "guard_ring_primitives": ""
+  }
+]

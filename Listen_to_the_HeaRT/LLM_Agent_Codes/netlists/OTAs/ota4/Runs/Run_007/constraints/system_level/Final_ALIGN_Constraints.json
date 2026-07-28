@@ -1,0 +1,172 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "cascode_mirror",
+    "instances": [
+      "m3",
+      "m2",
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "tgate",
+    "instances": [
+      "m1",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_current_mirror",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m1",
+        "m0"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ],
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m0",
+      "m3"
+    ],
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m1",
+      "m3"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net2",
+    "net2": "vo",
+    "direction": "V"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ib_sink",
+      "vin",
+      "vip"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  }
+]

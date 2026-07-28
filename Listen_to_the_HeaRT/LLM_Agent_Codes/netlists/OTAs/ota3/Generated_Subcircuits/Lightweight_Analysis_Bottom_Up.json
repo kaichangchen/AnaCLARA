@@ -1,0 +1,347 @@
+{
+  "unique_name": "ota3",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "Amplifier Signal Path",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "first_stage_telescopic_diffpair",
+          "children": [],
+          "netlist": ".subckt first_stage_telescopic_diffpair INM INP VOP1 VOM1 VBN1 VBP1 VBN VDD VSS\nM106 VOP1 VBN1 net2 VSS nch l=200n w=6u m=10\nM3 VOM1 VBN1 net4 VSS nch l=200n w=6u m=10\nM4 net1 VBN VSS VSS nch l=400n w=11.0u m=28\nM12 net4 INP net1 VSS nch_25ud18 l=800n w=9u m=10\nM2 net2 INM net1 VSS nch_25ud18 l=800n w=9u m=10\nM7 net07 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM108 net08 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM6 VOM1 VBP1 net07 VDD pch l=200n w=5u m=10\nM107 VOP1 VBP1 net08 VDD pch l=200n w=5u m=10\nR4 VOP1 VCMFB1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nR6 VCMFB1 VOM1 VSS rppolywo_m lr=100.0000u wr=400n m=1\n.ends first_stage_telescopic_diffpair",
+          "signal_ports": [
+            "INM",
+            "INP",
+            "VOP1",
+            "VOM1",
+            "VBN1",
+            "VBP1",
+            "VBN"
+          ],
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "role_hint": "Input telescopic-cascode differential pair with PMOS current-source loads and local CMFB (VCMFB1)",
+          "io_interface_type": "diff-in diff-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "Input gm stage: NMOS differential pair with NMOS cascodes (VBN1) and PMOS cascode loads steered by local CMFB1, converting INP/INM to high\u2011impedance nodes VOP1/VOM1 with high transconductance and gain.",
+          "device_list": [
+            "M106",
+            "M3",
+            "M4",
+            "M12",
+            "M2",
+            "M7",
+            "M108",
+            "M6",
+            "M107",
+            "R4",
+            "R6"
+          ]
+        },
+        {
+          "unique_name": "second_stage_current_mirror_gain",
+          "children": [],
+          "netlist": ".subckt second_stage_current_mirror_gain VOP1 VOM1 VOP2 VOM2 VBN VDD VSS\nM9 VOP2 VOM1 VDD VDD pch l=400n w=10u m=80\nM109 VOM2 VOP1 VDD VDD pch l=400n w=10u m=80\nM18 VOP2 VBN VSS VSS nch l=400n w=11.0u m=4\nM102 VOM2 VBN VSS VSS nch l=400n w=11.0u m=4\nM75 VOP2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nM110 VOM2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nR7 VOP2 VCMFB2 VSS rppolywo_m lr=10u wr=400n m=1\nR8 VCMFB2 VOM2 VSS rppolywo_m lr=10u wr=400n m=1\n.ends second_stage_current_mirror_gain",
+          "signal_ports": [
+            "VOP1",
+            "VOM1",
+            "VOP2",
+            "VOM2",
+            "VBN"
+          ],
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "role_hint": "Second gain stage using PMOS current-mirror loads and NMOS sinks with local CMFB (VCMFB2)",
+          "io_interface_type": "diff-in diff-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "Intermediate gain stage: PMOS current\u2011mirror\u2011loaded differential amplifier with NMOS sinks (VBN) and local CMFB2 that boosts gain and sets the internal common\u2011mode at VOP2/VOM2.",
+          "device_list": [
+            "M9",
+            "M109",
+            "M18",
+            "M102",
+            "M75",
+            "M110",
+            "R7",
+            "R8"
+          ]
+        },
+        {
+          "unique_name": "Output Stage (with CMFB3)",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "output_stage_with_cm_sense",
+              "children": [],
+              "netlist": ".subckt output_stage_with_cm_sense VOP2 VOM2 OUTM OUTP VBP VCMFB3 net056 VDD VSS\nM13 OUTM VOP2 VSS VSS nch l=400n w=2.5u m=16\nM113 OUTP VOM2 VSS VSS nch l=400n w=2.5u m=16\nM111 OUTP VBP VDD VDD pch l=800n w=10u m=40\nM14 OUTM VBP VDD VDD pch l=800n w=10u m=40\nM112 OUTP VCMFB3 VDD VDD pch l=800n w=10u m=40\nM73 OUTM VCMFB3 VDD VDD pch l=800n w=10u m=40\nR9 OUTP net056 VSS rppolywo_m lr=8u wr=400n m=1\nR10 net056 OUTM VSS rppolywo_m lr=8u wr=400n m=1\n.ends output_stage_with_cm_sense",
+              "signal_ports": [
+                "VOP2",
+                "VOM2",
+                "OUTM",
+                "OUTP",
+                "VBP",
+                "VCMFB3",
+                "net056"
+              ],
+              "supply_ports": [
+                "VDD",
+                "VSS"
+              ],
+              "role_hint": "Output driver stage with PMOS pull-ups and NMOS pull-downs; provides output common-mode sensing via resistive divider",
+              "io_interface_type": "diff-in diff-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Fully differential class\u2011A push\u2011pull driver: NMOS pull\u2011downs (gated by VOP2/VOM2) and PMOS current\u2011source pull\u2011ups (VBP/VCMFB3), with R9/R10 sensing the outputs\u2019 average (net056) for the CMFB3 loop.",
+              "device_list": [
+                "M13",
+                "M113",
+                "M111",
+                "M14",
+                "M112",
+                "M73",
+                "R9",
+                "R10"
+              ]
+            },
+            {
+              "unique_name": "cmfb3_error_amplifier",
+              "children": [],
+              "netlist": ".subckt cmfb3_error_amplifier net056 VREF VCMFB3 VBN VDD VSS\nM63 net057 net057 VDD VDD pch l=200n w=2.5u m=4\nM114 VCMFB3 net057 VDD VDD pch l=200n w=2.5u m=4\nM60 net057 net056 net058 VSS nch l=200n w=2.2u m=4\nM93 VCMFB3 VREF net058 VSS nch l=200n w=2.2u m=4\nM105 net058 VBN VSS VSS nch l=400n w=11.0u m=8\n.ends cmfb3_error_amplifier",
+              "signal_ports": [
+                "net056",
+                "VREF",
+                "VCMFB3",
+                "VBN"
+              ],
+              "supply_ports": [
+                "VDD",
+                "VSS"
+              ],
+              "role_hint": "Output common-mode feedback amplifier comparing sensed output CM (net056) to VREF and generating VCMFB3",
+              "io_interface_type": "single-in single-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Output CMFB error amplifier: NMOS transconductor comparing sensed output CM (net056) to VREF with PMOS active load, generating VCMFB3 to bias the PMOS pull\u2011ups and regulate output common\u2011mode.",
+              "device_list": [
+                "M63",
+                "M114",
+                "M60",
+                "M93",
+                "M105"
+              ]
+            }
+          ],
+          "netlist": ".subckt \"Output Stage (with CMFB3)\" VDD VSS OUTM OUTP VREF\nM13 OUTM VOP2 VSS VSS nch l=400n w=2.5u m=16\nM113 OUTP VOM2 VSS VSS nch l=400n w=2.5u m=16\nM111 OUTP VBP VDD VDD pch l=800n w=10u m=40\nM14 OUTM VBP VDD VDD pch l=800n w=10u m=40\nM112 OUTP VCMFB3 VDD VDD pch l=800n w=10u m=40\nM73 OUTM VCMFB3 VDD VDD pch l=800n w=10u m=40\nR9 OUTP net056 VSS rppolywo_m lr=8u wr=400n m=1\nR10 net056 OUTM VSS rppolywo_m lr=8u wr=400n m=1\nM63 net057 net057 VDD VDD pch l=200n w=2.5u m=4\nM114 VCMFB3 net057 VDD VDD pch l=200n w=2.5u m=4\nM60 net057 net056 net058 VSS nch l=200n w=2.2u m=4\nM93 VCMFB3 VREF net058 VSS nch l=200n w=2.2u m=4\nM105 net058 VBN VSS VSS nch l=400n w=11.0u m=8\n.ends \"Output Stage (with CMFB3)\"",
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "signal_ports": [
+            "OUTM",
+            "OUTP",
+            "VREF"
+          ],
+          "role_description": "Output driver plus on\u2011chip CMFB: the push\u2011pull output stage delivers signal current to OUTP/OUTM while a resistive CM sensor and an error amplifier (CMFB3) close a loop to hold the outputs\u2019 common\u2011mode at VREF.",
+          "device_list": [
+            "M13",
+            "M113",
+            "M111",
+            "M14",
+            "M112",
+            "M73",
+            "R9",
+            "R10",
+            "M63",
+            "M114",
+            "M60",
+            "M93",
+            "M105"
+          ]
+        },
+        {
+          "unique_name": "cross_coupled_compensation_network",
+          "children": [],
+          "netlist": ".subckt cross_coupled_compensation_network VOP2 VOM2 OUTM OUTP VOP1 VOM1 VSS\nC5 VOP2 OUTM VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC1 VOM2 OUTP VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC7 VOP1 OUTM VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM1 OUTP VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends cross_coupled_compensation_network",
+          "signal_ports": [
+            "VOP2",
+            "VOM2",
+            "OUTM",
+            "OUTP",
+            "VOP1",
+            "VOM1"
+          ],
+          "supply_ports": [
+            "VSS"
+          ],
+          "role_hint": "Miller/feedforward cross-coupled compensation capacitors between internal nodes and outputs for stability",
+          "io_interface_type": "multiport_passive",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "Cross\u2011coupled Miller/feedforward capacitors from internal nodes (VOP1/VOM1, VOM2) to OUTM/OUTP that shape loop poles/zeros to stabilize the multistage differential path while preserving differential\u2011mode bandwidth.",
+          "device_list": [
+            "C5",
+            "C1",
+            "C7",
+            "C6"
+          ]
+        }
+      ],
+      "netlist": ".subckt \"Amplifier Signal Path\" VDD VSS INM INP OUTM OUTP VBN1 VREF\nM106 VOP1 VBN1 net2 VSS nch l=200n w=6u m=10\nM3 VOM1 VBN1 net4 VSS nch l=200n w=6u m=10\nM4 net1 VBN VSS VSS nch l=400n w=11.0u m=28\nM12 net4 INP net1 VSS nch_25ud18 l=800n w=9u m=10\nM2 net2 INM net1 VSS nch_25ud18 l=800n w=9u m=10\nM7 net07 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM108 net08 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM6 VOM1 VBP1 net07 VDD pch l=200n w=5u m=10\nM107 VOP1 VBP1 net08 VDD pch l=200n w=5u m=10\nR4 VOP1 VCMFB1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nR6 VCMFB1 VOM1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nM9 VOP2 VOM1 VDD VDD pch l=400n w=10u m=80\nM109 VOM2 VOP1 VDD VDD pch l=400n w=10u m=80\nM18 VOP2 VBN VSS VSS nch l=400n w=11.0u m=4\nM102 VOM2 VBN VSS VSS nch l=400n w=11.0u m=4\nM75 VOP2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nM110 VOM2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nR7 VOP2 VCMFB2 VSS rppolywo_m lr=10u wr=400n m=1\nR8 VCMFB2 VOM2 VSS rppolywo_m lr=10u wr=400n m=1\nM13 OUTM VOP2 VSS VSS nch l=400n w=2.5u m=16\nM113 OUTP VOM2 VSS VSS nch l=400n w=2.5u m=16\nM111 OUTP VBP VDD VDD pch l=800n w=10u m=40\nM14 OUTM VBP VDD VDD pch l=800n w=10u m=40\nM112 OUTP VCMFB3 VDD VDD pch l=800n w=10u m=40\nM73 OUTM VCMFB3 VDD VDD pch l=800n w=10u m=40\nR9 OUTP net056 VSS rppolywo_m lr=8u wr=400n m=1\nR10 net056 OUTM VSS rppolywo_m lr=8u wr=400n m=1\nM63 net057 net057 VDD VDD pch l=200n w=2.5u m=4\nM114 VCMFB3 net057 VDD VDD pch l=200n w=2.5u m=4\nM60 net057 net056 net058 VSS nch l=200n w=2.2u m=4\nM93 VCMFB3 VREF net058 VSS nch l=200n w=2.2u m=4\nM105 net058 VBN VSS VSS nch l=400n w=11.0u m=8\nC5 VOP2 OUTM VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC1 VOM2 OUTP VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC7 VOP1 OUTM VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM1 OUTP VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends \"Amplifier Signal Path\"",
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "INM",
+        "INP",
+        "OUTM",
+        "OUTP",
+        "VBN1",
+        "VREF"
+      ],
+      "role_description": "Cascaded fully differential amplifier chain\u2014telescopic NMOS input pair (CMFB1) driving a PMOS current\u2011mirror gain stage (CMFB2) into a push\u2011pull output stage regulated by CMFB3\u2014stabilized by cross\u2011coupled Miller/feedforward capacitors for high gain and stable wideband operation.",
+      "device_list": [
+        "M106",
+        "M3",
+        "M4",
+        "M12",
+        "M2",
+        "M7",
+        "M108",
+        "M6",
+        "M107",
+        "R4",
+        "R6",
+        "M9",
+        "M109",
+        "M18",
+        "M102",
+        "M75",
+        "M110",
+        "R7",
+        "R8",
+        "M13",
+        "M113",
+        "M111",
+        "M14",
+        "M112",
+        "M73",
+        "R9",
+        "R10",
+        "M63",
+        "M114",
+        "M60",
+        "M93",
+        "M105",
+        "C5",
+        "C1",
+        "C7",
+        "C6"
+      ]
+    },
+    {
+      "unique_name": "bias_generator_block_ota3",
+      "children": [],
+      "class_category": "Bias",
+      "netlist": ".subckt bias_generator_block_ota3 VBN1 VBN VBP1 VBP VDD VSS\nM26 VBP1 VBP1 VDD VDD pch l=1.6u w=5u m=10\nM96 VBP1 VBN VSS VSS nch l=400n w=11.0u m=4\nM90 VBP VBP VDD VDD pch l=800n w=10u m=4\nM97 VBP VBN VSS VSS nch l=400n w=11.0u m=4\nM21 VBN VBN VSS VSS nch l=400n w=11.0u m=4\nM24 VBN1 VBN1 VBN VSS nch l=1u w=6u m=10\n.ends bias_generator_block_ota3",
+      "signal_ports": [
+        "VBN1",
+        "VBN",
+        "VBP1",
+        "VBP"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "role_hint": "Bias generation network producing NMOS/PMOS bias voltages (VBN, VBP1, VBP) from VDD/VSS and external VBN1",
+      "io_interface_type": "bias_only",
+      "is_analog": "True",
+      "is_digital": "False",
+      "role_description": "On\u2011chip bias network: self\u2011biased NMOS/PMOS mirror loops generating VBN (tail/sink), VBN1 (cascode), VBP1 and VBP (PMOS load biases) to set operating points and headroom across all amplifier stages.",
+      "device_list": [
+        "M26",
+        "M96",
+        "M90",
+        "M97",
+        "M21",
+        "M24"
+      ]
+    }
+  ],
+  "port_names": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBN1",
+    "VDD",
+    "VREF",
+    "VSS"
+  ],
+  "netlist": ".subckt \"ota3\" VDD VSS INM INP OUTM OUTP VBN1 VREF\nM106 VOP1 VBN1 net2 VSS nch l=200n w=6u m=10\nM3 VOM1 VBN1 net4 VSS nch l=200n w=6u m=10\nM4 net1 VBN VSS VSS nch l=400n w=11.0u m=28\nM12 net4 INP net1 VSS nch_25ud18 l=800n w=9u m=10\nM2 net2 INM net1 VSS nch_25ud18 l=800n w=9u m=10\nM7 net07 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM108 net08 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM6 VOM1 VBP1 net07 VDD pch l=200n w=5u m=10\nM107 VOP1 VBP1 net08 VDD pch l=200n w=5u m=10\nR4 VOP1 VCMFB1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nR6 VCMFB1 VOM1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nM9 VOP2 VOM1 VDD VDD pch l=400n w=10u m=80\nM109 VOM2 VOP1 VDD VDD pch l=400n w=10u m=80\nM18 VOP2 VBN VSS VSS nch l=400n w=11.0u m=4\nM102 VOM2 VBN VSS VSS nch l=400n w=11.0u m=4\nM75 VOP2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nM110 VOM2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nR7 VOP2 VCMFB2 VSS rppolywo_m lr=10u wr=400n m=1\nR8 VCMFB2 VOM2 VSS rppolywo_m lr=10u wr=400n m=1\nM13 OUTM VOP2 VSS VSS nch l=400n w=2.5u m=16\nM113 OUTP VOM2 VSS VSS nch l=400n w=2.5u m=16\nM111 OUTP VBP VDD VDD pch l=800n w=10u m=40\nM14 OUTM VBP VDD VDD pch l=800n w=10u m=40\nM112 OUTP VCMFB3 VDD VDD pch l=800n w=10u m=40\nM73 OUTM VCMFB3 VDD VDD pch l=800n w=10u m=40\nR9 OUTP net056 VSS rppolywo_m lr=8u wr=400n m=1\nR10 net056 OUTM VSS rppolywo_m lr=8u wr=400n m=1\nM63 net057 net057 VDD VDD pch l=200n w=2.5u m=4\nM114 VCMFB3 net057 VDD VDD pch l=200n w=2.5u m=4\nM60 net057 net056 net058 VSS nch l=200n w=2.2u m=4\nM93 VCMFB3 VREF net058 VSS nch l=200n w=2.2u m=4\nM105 net058 VBN VSS VSS nch l=400n w=11.0u m=8\nC5 VOP2 OUTM VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC1 VOM2 OUTP VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC7 VOP1 OUTM VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM1 OUTP VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM26 VBP1 VBP1 VDD VDD pch l=1.6u w=5u m=10\nM96 VBP1 VBN VSS VSS nch l=400n w=11.0u m=4\nM90 VBP VBP VDD VDD pch l=800n w=10u m=4\nM97 VBP VBN VSS VSS nch l=400n w=11.0u m=4\nM21 VBN VBN VSS VSS nch l=400n w=11.0u m=4\nM24 VBN1 VBN1 VBN VSS nch l=1u w=6u m=10\n.ends \"ota3\"",
+  "supply_ports": [
+    "VDD",
+    "VSS"
+  ],
+  "signal_ports": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBN1",
+    "VREF"
+  ],
+  "role_description": "Fully differential, three-stage OTA comprising an NMOS telescopic input, a PMOS current\u2011mirror second stage, and a class\u2011A push\u2011pull output, with multilevel CMFB (CMFB1/2/3) and cross\u2011coupled Miller/feedforward compensation to deliver high open\u2011loop gain, controlled output common\u2011mode at VREF, and load drive capability.",
+  "device_list": [
+    "M106",
+    "M3",
+    "M4",
+    "M12",
+    "M2",
+    "M7",
+    "M108",
+    "M6",
+    "M107",
+    "R4",
+    "R6",
+    "M9",
+    "M109",
+    "M18",
+    "M102",
+    "M75",
+    "M110",
+    "R7",
+    "R8",
+    "M13",
+    "M113",
+    "M111",
+    "M14",
+    "M112",
+    "M73",
+    "R9",
+    "R10",
+    "M63",
+    "M114",
+    "M60",
+    "M93",
+    "M105",
+    "C5",
+    "C1",
+    "C7",
+    "C6",
+    "M26",
+    "M96",
+    "M90",
+    "M97",
+    "M21",
+    "M24"
+  ]
+}

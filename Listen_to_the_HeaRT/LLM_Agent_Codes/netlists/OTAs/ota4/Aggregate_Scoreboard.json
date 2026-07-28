@@ -1,0 +1,863 @@
+{
+  "circuit": "OTAs/ota4",
+  "golden_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Input_Netlist/Golden_ALIGN_Constraints.json",
+  "n_runs": 10,
+  "run_ids": [
+    "Run_001",
+    "Run_002",
+    "Run_003",
+    "Run_004",
+    "Run_005",
+    "Run_006",
+    "Run_007",
+    "Run_008",
+    "Run_009",
+    "Run_010"
+  ],
+  "runs": [
+    {
+      "run_id": "Run_001",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_001/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 2311,
+          "total_tokens": 4386
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2812,
+          "output_tokens": 3210,
+          "total_tokens": 6022,
+          "llm_runtime_seconds": 46.75495362281799
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4887,
+          "output_tokens": 5521,
+          "total_tokens": 10408
+        }
+      }
+    },
+    {
+      "run_id": "Run_002",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_002/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 2307,
+          "total_tokens": 4382
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2797,
+          "output_tokens": 3482,
+          "total_tokens": 6279,
+          "llm_runtime_seconds": 45.322274923324585
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4872,
+          "output_tokens": 5789,
+          "total_tokens": 10661
+        }
+      }
+    },
+    {
+      "run_id": "Run_003",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_003/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 1768,
+          "total_tokens": 3843
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2776,
+          "output_tokens": 2271,
+          "total_tokens": 5047,
+          "llm_runtime_seconds": 34.09085702896118
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4851,
+          "output_tokens": 4039,
+          "total_tokens": 8890
+        }
+      }
+    },
+    {
+      "run_id": "Run_004",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_004/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 1777,
+          "total_tokens": 3852
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2785,
+          "output_tokens": 2761,
+          "total_tokens": 5546,
+          "llm_runtime_seconds": 42.3770055770874
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4860,
+          "output_tokens": 4538,
+          "total_tokens": 9398
+        }
+      }
+    },
+    {
+      "run_id": "Run_005",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_005/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 1810,
+          "total_tokens": 3885
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2818,
+          "output_tokens": 4812,
+          "total_tokens": 7630,
+          "llm_runtime_seconds": 76.09561681747437
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4893,
+          "output_tokens": 6622,
+          "total_tokens": 11515
+        }
+      }
+    },
+    {
+      "run_id": "Run_006",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_006/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 1722,
+          "total_tokens": 3797
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2730,
+          "output_tokens": 4549,
+          "total_tokens": 7279,
+          "llm_runtime_seconds": 67.01635217666626
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4805,
+          "output_tokens": 6271,
+          "total_tokens": 11076
+        }
+      }
+    },
+    {
+      "run_id": "Run_007",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_007/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 2267,
+          "total_tokens": 4342
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2771,
+          "output_tokens": 1750,
+          "total_tokens": 4521,
+          "llm_runtime_seconds": 27.676950216293335
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4846,
+          "output_tokens": 4017,
+          "total_tokens": 8863
+        }
+      }
+    },
+    {
+      "run_id": "Run_008",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_008/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 2265,
+          "total_tokens": 4340
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2798,
+          "output_tokens": 2271,
+          "total_tokens": 5069,
+          "llm_runtime_seconds": 32.81256985664368
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4873,
+          "output_tokens": 4536,
+          "total_tokens": 9409
+        }
+      }
+    },
+    {
+      "run_id": "Run_009",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_009/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 1765,
+          "total_tokens": 3840
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2773,
+          "output_tokens": 2318,
+          "total_tokens": 5091,
+          "llm_runtime_seconds": 35.883957624435425
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4848,
+          "output_tokens": 4083,
+          "total_tokens": 8931
+        }
+      }
+    },
+    {
+      "run_id": "Run_010",
+      "predicted_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/OTAs/ota4/Runs/Run_010/constraints/system_level/Final_ALIGN_Constraints.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MatchDevices": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "SymmetricNets": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "llm_metrics": {
+        "splitter": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2075,
+          "output_tokens": 2285,
+          "total_tokens": 4360
+        },
+        "leaf_engine": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "llm_runtime_seconds": 0.0,
+          "num_leaves": 2,
+          "num_leaves_kb_only": 2,
+          "num_leaves_with_llm": 0,
+          "num_leaves_cached": 0
+        },
+        "bottom_up": {
+          "model": "azure/openai/gpt-5.5",
+          "num_llm_calls": 1,
+          "input_tokens": 2775,
+          "output_tokens": 3480,
+          "total_tokens": 6255,
+          "llm_runtime_seconds": 55.21801733970642
+        },
+        "totals": {
+          "num_llm_calls": 2,
+          "input_tokens": 4850,
+          "output_tokens": 5765,
+          "total_tokens": 10615
+        }
+      }
+    }
+  ],
+  "summary": {
+    "SymmetricBlocks": {
+      "f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "precision": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "recall": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "MatchDevices": {
+      "f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "precision": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "recall": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "SymmetricNets": {
+      "f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "precision": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "recall": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "token_summary": {
+    "total_tokens_per_run": [
+      10408,
+      10661,
+      8890,
+      9398,
+      11515,
+      11076,
+      8863,
+      9409,
+      8931,
+      10615
+    ],
+    "num_calls_per_run": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "statistics": {
+    "SymmetricBlocks": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0
+    },
+    "MatchDevices": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0
+    },
+    "SymmetricNets": {
+      "f1_mean": 1.0,
+      "f1_std": 0.0
+    },
+    "tokens": {
+      "total_tokens_mean": 9976.6,
+      "total_tokens_std": 989.3
+    },
+    "calls": {
+      "num_llm_calls_mean": 2.0,
+      "num_llm_calls_std": 0.0
+    }
+  }
+}

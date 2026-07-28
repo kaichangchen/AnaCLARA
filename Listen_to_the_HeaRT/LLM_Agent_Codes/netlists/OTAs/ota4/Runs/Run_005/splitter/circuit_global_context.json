@@ -1,0 +1,82 @@
+{
+  "model": "azure/openai/gpt-5.5",
+  "top_level_port_names": [
+    "gnd",
+    "ib_sink",
+    "vdd",
+    "vin",
+    "vip",
+    "vo"
+  ],
+  "subcircuits": [
+    {
+      "id": "pmos_diode_bias_generator",
+      "netlist": ".subckt pmos_diode_bias_generator ib_sink vdd\nM6 ib_sink ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\n.ends pmos_diode_bias_generator",
+      "ports": [
+        "ib_sink",
+        "vdd"
+      ],
+      "supply_ports": [
+        "vdd"
+      ],
+      "signal_ports": [
+        "ib_sink"
+      ],
+      "role_hint": "Bias generation network using diode-connected PMOS M6. The node ib_sink is an AC-stiff PMOS gate-bias voltage generated from the external bias current path through M6 and used to bias the PMOS current source M5 in the amplifier core.",
+      "class_category": "Bias Network",
+      "port_annotations": [
+        {
+          "port_name": "ib_sink",
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "complementary_input_single_ended_ota_core",
+      "netlist": ".subckt complementary_input_single_ended_ota_core gnd ib_sink vdd vin vip vo\nM2 net1 net2 gnd gnd nch l=ln_tail w=wn_tail m=1 nf=1\nM1 vo vin net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM0 net2 vip net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM5 net3 ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\nM4 vo vin net3 vdd pch l=lp_input w=wp_input m=1 nf=1\nM3 net2 vip net3 vdd pch l=lp_input w=wp_input m=1 nf=1\n.ends complementary_input_single_ended_ota_core",
+      "ports": [
+        "gnd",
+        "ib_sink",
+        "vdd",
+        "vin",
+        "vip",
+        "vo"
+      ],
+      "supply_ports": [
+        "gnd",
+        "vdd"
+      ],
+      "signal_ports": [
+        "ib_sink",
+        "vin",
+        "vip",
+        "vo"
+      ],
+      "role_hint": "Main complementary-input single-ended OTA signal path. NMOS input devices M1/M0 and PMOS input devices M4/M3 share differential input gates vin/vip. The single-ended output is vo. M5 receives the PMOS bias voltage ib_sink from the bias generator. M2 is an internally controlled NMOS tail/current-control device driven by net2, which is part of the amplifier conduction-linked signal path.",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "ib_sink",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vin",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "vip",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "vo",
+          "port_type": "signal",
+          "direction": "output"
+        }
+      ]
+    }
+  ]
+}

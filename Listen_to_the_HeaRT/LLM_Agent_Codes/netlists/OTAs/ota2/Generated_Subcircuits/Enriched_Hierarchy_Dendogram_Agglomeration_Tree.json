@@ -1,0 +1,150 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "bias_generator_block_ota2",
+      "class_category": "Bias Network",
+      "role_hint": "Bias generation network producing stable bias nodes: NBIAS_TAIL (NMOS bias), PCAS (PMOS cascode bias), and INCM2 (gate bias for output NMOS), derived from IBIAS and VCM using cascoded PMOS/NMOS diode structures.",
+      "role_description": "Bias generation network producing stable bias nodes: NBIAS_TAIL (NMOS bias), PCAS (PMOS cascode bias), and INCM2 (gate bias for output NMOS), derived from IBIAS and VCM using cascoded PMOS/NMOS diode structures.",
+      "netlist": ".subckt bias_generator_block_ota2 GND VDD IBIAS VCM NBIAS_TAIL PCAS INCM2\nM36 net0134 PCAS VDD VDD pch_hvt l=120.0n w=1.2u m=2\nM32 net0136 net077 VDD VDD pch l=120.0n w=1.2u m=6\nM33 net0138 net077 VDD VDD pch l=120.0n w=1.2u m=4\nM24 net077 PCAS net0136 VDD pch_lvt l=120.0n w=1.2u m=6\nM25 INCM2 PCAS net0138 VDD pch_lvt l=120.0n w=1.2u m=4\nM28 PCAS PCAS net0134 VDD pch_lvt l=120.0n w=1.2u m=1\nM2 VN1 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM4 VN2 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM3 net0135 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=5\nM13 net077 VCM net0135 GND nch_lvt l=120.0n w=900n m=5\nM14 INCM2 INCM2 net0137 GND nch_lvt l=240.0n w=600n m=2\nM15 NBIAS_TAIL VCM VN2 GND nch_lvt l=120.0n w=900n m=13\nM16 PCAS VCM VN1 GND nch_lvt l=120.0n w=900n m=13\nM19 IBIAS IBIAS NBIAS_TAIL GND nch_lvt l=120.0n w=900n m=11\nM6 net0137 INCM2 GND GND nch_hvt l=240.0n w=600n m=2\n.ends bias_generator_block_ota2",
+      "port_info_keyed_by_name": {
+        "ibias": {
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        "vcm": {
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        "nbias_tail": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        "pcas": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        "incm2": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "level_1_cluster_1",
+      "children": [
+        {
+          "unique_name": "folded_cascode_core_ota2",
+          "class_category": "Amplifier",
+          "role_hint": "Main amplifier core: PMOS-input folded-cascode differential stage with NMOS cascodes and PMOS current-source loads; includes first-stage CMFB via R5/R12 and M74 controlling PTAIL to set VO1 common-mode.",
+          "role_description": "Main amplifier core: PMOS-input folded-cascode differential stage with NMOS cascodes and PMOS current-source loads; includes first-stage CMFB via R5/R12 and M74 controlling PTAIL to set VO1 common-mode.",
+          "netlist": ".subckt folded_cascode_core_ota2 GND VDD VIP VIM VO1P VO1M IBIAS NBIAS_TAIL PCAS\nM34 net0130 VIM PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM35 net0132 VIP PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM26 VO1M PCAS net0132 VDD pch_lvt l=240.0n w=4.8u m=26\nM27 VO1P PCAS net0130 VDD pch_lvt l=240.0n w=4.8u m=26\nM10 net0131 VIM NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM8 net0133 VIP NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM17 VO1M IBIAS net0133 GND nch_lvt l=240.0n w=3.6u m=33\nM18 VO1P IBIAS net0131 GND nch_lvt l=240.0n w=3.6u m=33\nM1 NTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=104\nM74 PTAIL net0118 VDD VDD pch_lvt l=120.0n w=1.2u m=40\nR12 net0118 VO1P rppolywo l=139.145u w=400n m=1\nR5 VO1M net0118 rppolywo l=139.145u w=400n m=1\nC1 VO1P net0118 GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC0 net0118 VO1M GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends folded_cascode_core_ota2",
+          "port_info_keyed_by_name": {
+            "vip": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vim": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo1p": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "vo1m": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "ibias": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "nbias_tail": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "pcas": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_cmfb_block_ota2",
+          "class_category": "Amplifier",
+          "role_hint": "Output common-mode feedback: senses output CM via net0101 and compares to VCM; controls vtail to set the output stage\u2019s common-mode. Includes internal PMOS bias ladder (M68/M69) and NMOS tail (M7).",
+          "role_description": "Output common-mode feedback: senses output CM via net0101 and compares to VCM; controls vtail to set the output stage\u2019s common-mode. Includes internal PMOS bias ladder (M68/M69) and NMOS tail (M7).",
+          "netlist": ".subckt output_cmfb_block_ota2 GND VDD NBIAS_TAIL VCM net0101 vtail\nM68 vtail net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM69 net0104 net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM21 net0104 net0101 CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM20 vtail VCM CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM7 CMFBTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\n.ends output_cmfb_block_ota2",
+          "port_info_keyed_by_name": {
+            "nbias_tail": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vcm": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "net0101": {
+              "port_type": "control_signal",
+              "direction": "input"
+            },
+            "vtail": {
+              "port_type": "control_signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_stage_pushpull_ota2",
+          "class_category": "Amplifier",
+          "role_hint": "Output push-pull stage: PMOS common-source devices driven by VO1 nodes and NMOS pull-downs AC-coupled from VIP/VIM; includes output CM sensing network (R11/R14, C4/C5) to net0101 and vtail coupling caps (C6/C7).",
+          "role_description": "Output push-pull stage: PMOS common-source devices driven by VO1 nodes and NMOS pull-downs AC-coupled from VIP/VIM; includes output CM sensing network (R11/R14, C4/C5) to net0101 and vtail coupling caps (C6/C7).",
+          "netlist": ".subckt output_stage_pushpull_ota2 GND VDD VIP VIM VO1P VO1M VOP VOM INCM2 vtail net0101\nM70 VOM VO1P VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM71 VOP VO1M VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM12 VOP net096 vs GND nch_lvt l=120.0n w=3.6u m=30\nM9 VOM net092 vs GND nch_lvt l=120.0n w=3.6u m=30\nM50 vs vtail GND GND nch_hvt l=120.0n w=3.6u m=40\nR11 net0101 VOM rppolywo l=21.6u w=400n m=1\nR14 VOP net0101 rppolywo l=21.6u w=400n m=1\nC4 net0101 VOP GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC5 VOM net0101 GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM vtail GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nC7 vtail VOP GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nR0 net092 INCM2 rppolywo l=36.0u w=400n m=1\nR13 net096 INCM2 rppolywo l=36.0u w=400n m=1\nC2 VIP net092 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC3 VIM net096 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends output_stage_pushpull_ota2",
+          "port_info_keyed_by_name": {
+            "vip": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vim": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo1p": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vo1m": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vop": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "vom": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "incm2": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vtail": {
+              "port_type": "control_signal",
+              "direction": "input"
+            },
+            "net0101": {
+              "port_type": "control_signal",
+              "direction": "output"
+            }
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

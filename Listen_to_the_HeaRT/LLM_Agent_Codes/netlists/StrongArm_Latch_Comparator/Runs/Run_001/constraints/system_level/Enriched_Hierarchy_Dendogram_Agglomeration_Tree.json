@@ -1,0 +1,105 @@
+{
+  "unique_name": "level_1_cluster_0",
+  "children": [
+    {
+      "unique_name": "clocked_dynamic_comparator_latch_core",
+      "class_category": "Comparator",
+      "role_hint": "Clocked dynamic comparator core containing the input differential sampling pair, tail clock switch, precharge devices, and regenerative cross-coupled latch nodes. It compares Vip against Vin during the evaluate phase and generates complementary internal decision nodes Vx and Vy, with VP and VQ as intermediate dynamic nodes.",
+      "role_description": "Clocked dynamic comparator core containing the input differential sampling pair, tail clock switch, precharge devices, and regenerative cross-coupled latch nodes. It compares Vip against Vin during the evaluate phase and generates complementary internal decision nodes Vx and Vy, with VP and VQ as intermediate dynamic nodes.",
+      "netlist": ".subckt clocked_dynamic_comparator_latch_core vss vdd Vin Vip clk VP VQ Vx Vy\nMN2 VQ Vin net17 vss nmos w=W2 l=L2 nf=1 m=1\nMN4 Vx Vy VP vss nmos w=W3 l=L3 nf=1 m=1\nMN1 net17 clk vss vss nmos w=W l=L1 nf=1 m=1\nMN3 Vy Vx VQ vss nmos w=W3 l=L3 nf=1 m=1\nMN0 VP Vip net17 vss nmos w=W2 l=L2 nf=1 m=1\nMN10 VP clk vdd vdd pmos w=W6 l=L6 nf=1 m=1\nMN8 Vy clk vdd vdd pmos w=W5 l=L5 nf=1 m=1\nMN6 Vx Vy vdd vdd pmos w=W4 l=L4 nf=1 m=1\nMN5 Vy Vx vdd vdd pmos w=W4 l=L4 nf=1 m=1\nMN7 Vx clk vdd vdd pmos w=W5 l=L5 nf=1 m=1\nMN9 VQ clk vdd vdd pmos w=W6 l=L6 nf=1 m=1\n.ends clocked_dynamic_comparator_latch_core",
+      "port_info_keyed_by_name": {
+        "vin": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vip": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "clk": {
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        "vp": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vq": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vx": {
+          "port_type": "signal",
+          "direction": "output"
+        },
+        "vy": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "dynamic_node_capacitive_loads",
+      "class_category": "Passive Load",
+      "role_hint": "Capacitive loading network on the dynamic internal comparator nodes VP, VQ, Vx, and Vy, representing intentional or parasitic storage/load capacitance to vss.",
+      "role_description": "Capacitive loading network on the dynamic internal comparator nodes VP, VQ, Vx, and Vy, representing intentional or parasitic storage/load capacitance to vss.",
+      "netlist": ".subckt dynamic_node_capacitive_loads vss VP VQ Vx Vy\nC3 Vy vss cap C3\nC2 Vx vss cap C2\nC0 VP vss cap C0\nC1 VQ vss cap C1\n.ends dynamic_node_capacitive_loads",
+      "port_info_keyed_by_name": {
+        "vp": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vq": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vx": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vy": {
+          "port_type": "signal",
+          "direction": "input"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "von_cmos_output_buffer",
+      "class_category": "Comparator",
+      "role_hint": "CMOS inverter output buffer driven by internal latch node Vy, producing the top-level output Von.",
+      "role_description": "CMOS inverter output buffer driven by internal latch node Vy, producing the top-level output Von.",
+      "netlist": ".subckt von_cmos_output_buffer vss vdd Vy Von\nM3 Von Vy vss vss nmos w=120n l=60n nf=1 m=1\nM16 Von Vy vdd vdd pmos w=120n l=60n nf=1 m=1\n.ends von_cmos_output_buffer",
+      "port_info_keyed_by_name": {
+        "vy": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "von": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "vop_cmos_output_buffer",
+      "class_category": "Comparator",
+      "role_hint": "CMOS inverter output buffer driven by internal latch node Vx, producing the top-level output Vop.",
+      "role_description": "CMOS inverter output buffer driven by internal latch node Vx, producing the top-level output Vop.",
+      "netlist": ".subckt vop_cmos_output_buffer vss vdd Vx Vop\nM2 Vop Vx vss vss nmos w=120n l=60n nf=1 m=1\nM17 Vop Vx vdd vdd pmos w=120n l=60n nf=1 m=1\n.ends vop_cmos_output_buffer",
+      "port_info_keyed_by_name": {
+        "vx": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vop": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "capacitive_load",
+    "instances": [
+      "c0",
+      "c1",
+      "c2",
+      "c3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c0",
+      "c1",
+      "c2",
+      "c3"
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "c0",
+        "c1"
+      ],
+      [
+        "c2",
+        "c3"
+      ]
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "comparator_core",
+    "instances": [
+      "mn0",
+      "mn1",
+      "mn2",
+      "mn3",
+      "mn4",
+      "mn5",
+      "mn6",
+      "mn7",
+      "mn8",
+      "mn9",
+      "mn10"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "mn10",
+        "mn9"
+      ],
+      [
+        "mn4",
+        "mn3"
+      ],
+      [
+        "mn0",
+        "mn2"
+      ],
+      [
+        "mn6",
+        "mn5"
+      ],
+      [
+        "mn7",
+        "mn8"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "mn10",
+        "mn9"
+      ],
+      [
+        "mn4",
+        "mn3"
+      ],
+      [
+        "mn0",
+        "mn2"
+      ],
+      [
+        "mn6",
+        "mn5"
+      ],
+      [
+        "mn7",
+        "mn8"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn10",
+      "mn9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn8",
+      "mn7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn6",
+      "mn5"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn4",
+      "mn3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn0",
+      "mn2"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "mn0",
+      "mn4"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "mn2",
+      "mn3"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "von_output_inverter",
+    "instances": [
+      "m16",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "vop_output_inverter",
+    "instances": [
+      "m17",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m16",
+      "m3"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m17",
+      "m2"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m16",
+      "m3"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m17",
+      "m2"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m16",
+        "m17"
+      ],
+      [
+        "m3",
+        "m2"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m16",
+      "m17"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m3",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vp",
+    "net2": "vq",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vx",
+    "net2": "vy",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "von",
+    "net2": "vop",
+    "direction": "V"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "vin",
+      "vip",
+      "vp",
+      "vq",
+      "vx",
+      "vy"
+    ],
+    "shield": "vss",
+    "criticality": 10
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vin",
+      "vip",
+      "clk"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "von",
+      "vop"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vdd"
+    ],
+    "location": "TC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vss"
+    ],
+    "location": "BC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

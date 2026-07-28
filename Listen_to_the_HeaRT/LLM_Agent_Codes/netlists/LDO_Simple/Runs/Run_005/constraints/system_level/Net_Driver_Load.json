@@ -1,0 +1,39 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "fb",
+      "driver_block_name": "pmos_pass_output_feedback_stage",
+      "load_block_names": [
+        "error_amplifier_input_stage"
+      ],
+      "reason": "Splitter annotation: 'pmos_pass_output_feedback_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net2",
+      "driver_block_name": "gate_driver_gain_stage",
+      "load_block_names": [
+        "pmos_pass_output_feedback_stage"
+      ],
+      "reason": "Splitter annotation: 'gate_driver_gain_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net7",
+      "driver_block_name": "error_amplifier_input_stage",
+      "load_block_names": [
+        "gate_driver_gain_stage",
+        "miller_compensation_network"
+      ],
+      "reason": "Splitter annotation: 'error_amplifier_input_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vo",
+      "driver_block_name": "outside_circuit",
+      "load_block_names": [
+        "miller_compensation_network",
+        "output_load_capacitor",
+        "pmos_pass_output_feedback_stage"
+      ],
+      "reason": "Ambiguous: 2 endpoints annotated as output (['miller_compensation_network', 'pmos_pass_output_feedback_stage']); falling back to outside_circuit."
+    }
+  ]
+}

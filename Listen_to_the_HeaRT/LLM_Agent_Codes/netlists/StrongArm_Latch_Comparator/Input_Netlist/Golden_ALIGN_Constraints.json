@@ -1,0 +1,37 @@
+[
+  {
+    "constraint": "SymmetricBlocks",
+    "pairs": [
+        ["mn2", "mn0"],
+        ["mn7", "mn8"],
+        ["mn4", "mn3"],
+        ["mn6", "mn5"],
+        ["mn10", "mn9"],
+        ["m16", "m17"],
+        ["m3", "m2"]
+    ]
+  },
+
+  {
+    "constraint": "MatchDevices",
+    "pairs": [
+      ["mn2", "mn0"],
+      ["mn7", "mn8"],
+      ["mn10", "mn9"],
+      ["mn4", "mn3"],
+      ["mn6", "mn5"],
+      ["c0","c1"],
+      ["c2","c3"]
+    ]
+  },
+
+  {
+    "constraint": "SymmetricNets",
+    "pairs": [
+        ["vx", "vy"],
+        ["vip", "vin"],
+        ["vop", "von"],
+        ["vp", "vq"]
+    ]
+  }
+]

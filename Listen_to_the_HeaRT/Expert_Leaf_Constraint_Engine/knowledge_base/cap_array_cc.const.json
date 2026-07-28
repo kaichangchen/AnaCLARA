@@ -1,0 +1,10 @@
+[
+    {
+        "constraint": "GroupCaps",
+        "name": "CAP_DAC",
+        "instances": ["C0", "C1", "C2", "C3", "C4", "C5", "C6", "C7"],
+        "unit_cap": "100",
+        "num_units": [1, 1, 1, 1, 1, 1, 1, 1],
+        "dummy": true
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_SC_CELL",
+        "instances": ["M1", "C0", "M2"]
+    },
+    {
+        "constraint": "SymmetricBlocks",
+        "direction": "V",
+        "pairs": [["M1", "M2"], ["C0"]]
+    },
+    {
+        "constraint": "ClockPorts",
+        "ports": ["CLK", "CLKB"]
+    },
+    {
+        "constraint": "GroundPorts",
+        "ports": ["VSS"]
+    }
+]

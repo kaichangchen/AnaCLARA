@@ -1,0 +1,196 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "MN0",
+        "MN2"
+      ],
+      [
+        "MN10",
+        "MN5"
+      ],
+      [
+        "MN10",
+        "MN6"
+      ],
+      [
+        "MN10",
+        "MN7"
+      ],
+      [
+        "MN10",
+        "MN8"
+      ],
+      [
+        "MN10",
+        "MN9"
+      ],
+      [
+        "MN5",
+        "MN6"
+      ],
+      [
+        "MN5",
+        "MN7"
+      ],
+      [
+        "MN5",
+        "MN8"
+      ],
+      [
+        "MN5",
+        "MN9"
+      ],
+      [
+        "MN6",
+        "MN7"
+      ],
+      [
+        "MN6",
+        "MN8"
+      ],
+      [
+        "MN6",
+        "MN9"
+      ],
+      [
+        "MN7",
+        "MN8"
+      ],
+      [
+        "MN7",
+        "MN9"
+      ],
+      [
+        "MN8",
+        "MN9"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN0",
+      "MN2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN10",
+      "MN5"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN10",
+      "MN6"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN10",
+      "MN7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN10",
+      "MN8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN10",
+      "MN9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN5",
+      "MN6"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN5",
+      "MN7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN5",
+      "MN8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN5",
+      "MN9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN6",
+      "MN7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN6",
+      "MN8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN6",
+      "MN9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN7",
+      "MN8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN7",
+      "MN9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "MN8",
+      "MN9"
+    ]
+  }
+]

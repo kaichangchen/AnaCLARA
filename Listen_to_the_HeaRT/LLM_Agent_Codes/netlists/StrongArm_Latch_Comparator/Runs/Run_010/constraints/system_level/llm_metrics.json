@@ -1,0 +1,8 @@
+{
+  "model": "azure/openai/gpt-5.5",
+  "num_llm_calls": 1,
+  "input_tokens": 4378,
+  "output_tokens": 3043,
+  "total_tokens": 7421,
+  "llm_runtime_seconds": 43.078041553497314
+}

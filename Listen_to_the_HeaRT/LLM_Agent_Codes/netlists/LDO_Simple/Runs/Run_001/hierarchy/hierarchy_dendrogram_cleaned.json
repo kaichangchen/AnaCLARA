@@ -1,0 +1,34 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_bias_generator",
+      "children": []
+    },
+    {
+      "unique_name": "level_1_cluster_1",
+      "children": [
+        {
+          "unique_name": "error_amplifier_input_stage",
+          "children": []
+        },
+        {
+          "unique_name": "error_amplifier_output_buffer_stage",
+          "children": []
+        },
+        {
+          "unique_name": "miller_lead_compensation_network",
+          "children": []
+        },
+        {
+          "unique_name": "output_load_capacitor",
+          "children": []
+        },
+        {
+          "unique_name": "pmos_pass_regulator_feedback_stage",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

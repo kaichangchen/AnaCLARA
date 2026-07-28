@@ -1,0 +1,12 @@
+{
+  "model": "azure/openai/gpt-5.5",
+  "num_llm_calls": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "total_tokens": 0,
+  "llm_runtime_seconds": 0.0,
+  "num_leaves": 2,
+  "num_leaves_kb_only": 2,
+  "num_leaves_with_llm": 0,
+  "num_leaves_cached": 0
+}

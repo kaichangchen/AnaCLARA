@@ -1,0 +1,20 @@
+{
+  "level_1_cluster_0": {
+    "candidate_system_level_symmetry_groups": [
+      [
+        "output_stage_half_outm",
+        "output_stage_half_outp"
+      ]
+    ],
+    "has_nontrivial_symmetry": true
+  },
+  "level_2_cluster_0": {
+    "candidate_system_level_symmetry_groups": [
+      [
+        "output_stage_half_outm",
+        "output_stage_half_outp"
+      ]
+    ],
+    "has_nontrivial_symmetry": true
+  }
+}

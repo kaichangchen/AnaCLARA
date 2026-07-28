@@ -1,0 +1,187 @@
+{
+  "case": "StrongArm_Latch_Comparator",
+  "golden_path": "/home/scratch.souradipp_vlsi/MLCAD/AnaCLARA_Framework/Listen_to_the_HeaRT/LLM_Agent_Codes/netlists/StrongArm_Latch_Comparator/Input_Netlist/Golden_ALIGN_Constraints.json",
+  "n_baselines": 5,
+  "results": [
+    {
+      "baseline": "Analytical",
+      "file": "Analytical.const.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 5,
+          "fp": 2,
+          "fn": 2,
+          "support": 7,
+          "precision": 0.7143,
+          "recall": 0.7143,
+          "f1": 0.7143,
+          "status": 0.7143
+        },
+        "MatchDevices": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        },
+        "SymmetricNets": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        }
+      }
+    },
+    {
+      "baseline": "AnyGraph_FT",
+      "file": "AnyGraph_FT.const.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 1,
+          "fp": 8,
+          "fn": 6,
+          "support": 7,
+          "precision": 0.1111,
+          "recall": 0.1429,
+          "f1": 0.125,
+          "status": 0.125
+        },
+        "MatchDevices": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        },
+        "SymmetricNets": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        }
+      }
+    },
+    {
+      "baseline": "AnyGraph_ZS",
+      "file": "AnyGraph_ZS.const.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 1,
+          "fp": 8,
+          "fn": 6,
+          "support": 7,
+          "precision": 0.1111,
+          "recall": 0.1429,
+          "f1": 0.125,
+          "status": 0.125
+        },
+        "MatchDevices": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        },
+        "SymmetricNets": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        }
+      }
+    },
+    {
+      "baseline": "Full_LLM",
+      "file": "Full_LLM.const.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 5,
+          "fp": 3,
+          "fn": 2,
+          "support": 7,
+          "precision": 0.625,
+          "recall": 0.7143,
+          "f1": 0.6667,
+          "status": 0.6667
+        },
+        "MatchDevices": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        },
+        "SymmetricNets": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571,
+          "status": 0.8571
+        }
+      }
+    },
+    {
+      "baseline": "GENIE_ASI",
+      "file": "GENIE_ASI.const.json",
+      "scores": {
+        "SymmetricBlocks": {
+          "tp": 4,
+          "fp": 12,
+          "fn": 3,
+          "support": 7,
+          "precision": 0.25,
+          "recall": 0.5714,
+          "f1": 0.3478,
+          "status": 0.3478
+        },
+        "MatchDevices": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        },
+        "SymmetricNets": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "status": "Fail"
+        }
+      }
+    }
+  ]
+}

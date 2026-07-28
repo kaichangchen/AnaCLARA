@@ -1,0 +1,198 @@
+{
+  "level_1_cluster_0": {
+    "lca_name": "level_1_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "cmfb_pmos_diffpair_amp",
+        "node_b": "first_stage_diffpair_active_load",
+        "edge_key": "cmfb_pmos_diffpair_amp|first_stage_diffpair_active_load|vbias_p",
+        "net_name": "vbias_p",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m20",
+            "mp1a",
+            "mp1b",
+            "mp1c"
+          ],
+          "typed_signature": [
+            "pch.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "cmfb_pmos_diffpair_amp",
+        "node_b": "first_stage_diffpair_active_load",
+        "edge_key": "cmfb_pmos_diffpair_amp|first_stage_diffpair_active_load|vcmfb",
+        "net_name": "vcmfb",
+        "port_type": "control_signal",
+        "matching_summary": {
+          "matching_group": [
+            "m11",
+            "m13"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "first_stage_diffpair_active_load",
+        "node_b": "output_stage_half_outm",
+        "edge_key": "first_stage_diffpair_active_load|output_stage_half_outm|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m10",
+            "m9"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "first_stage_diffpair_active_load",
+        "node_b": "output_stage_half_outp",
+        "edge_key": "first_stage_diffpair_active_load|output_stage_half_outp|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m10",
+            "m6"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "output_stage_half_outm",
+        "node_b": "output_stage_half_outp",
+        "edge_key": "output_stage_half_outm|output_stage_half_outp|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m6",
+            "m9"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  },
+  "level_2_cluster_0": {
+    "lca_name": "level_2_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "cmfb_pmos_diffpair_amp",
+        "node_b": "bias_generator_vbiasn",
+        "edge_key": "bias_generator_vbiasn|cmfb_pmos_diffpair_amp|vbias_p",
+        "net_name": "vbias_p",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m20",
+            "m5",
+            "m7",
+            "mp1c"
+          ],
+          "typed_signature": [
+            "pch.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "first_stage_diffpair_active_load",
+        "node_b": "bias_generator_vbiasn",
+        "edge_key": "bias_generator_vbiasn|first_stage_diffpair_active_load|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m10",
+            "m4"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "first_stage_diffpair_active_load",
+        "node_b": "bias_generator_vbiasn",
+        "edge_key": "bias_generator_vbiasn|first_stage_diffpair_active_load|vbias_p",
+        "net_name": "vbias_p",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m5",
+            "m7",
+            "mp1a",
+            "mp1b"
+          ],
+          "typed_signature": [
+            "pch.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "output_stage_half_outm",
+        "node_b": "bias_generator_vbiasn",
+        "edge_key": "bias_generator_vbiasn|output_stage_half_outm|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m4",
+            "m9"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "output_stage_half_outp",
+        "node_b": "bias_generator_vbiasn",
+        "edge_key": "bias_generator_vbiasn|output_stage_half_outp|vbias_n",
+        "net_name": "vbias_n",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "m4",
+            "m6"
+          ],
+          "typed_signature": [
+            "nch_lvt.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  }
+}

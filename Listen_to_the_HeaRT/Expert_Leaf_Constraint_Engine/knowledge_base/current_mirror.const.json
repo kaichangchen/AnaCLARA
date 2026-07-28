@@ -1,0 +1,16 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_MIRROR",
+        "instances": ["M0", "M1"]
+    },
+    {
+        "constraint": "SameTemplate",
+        "instances": ["M0", "M1"]
+    },
+    {
+        "constraint": "Align",
+        "instances": ["M0", "M1"],
+        "line": "h_bottom"
+    }
+]

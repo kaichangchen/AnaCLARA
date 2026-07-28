@@ -1,0 +1,205 @@
+{
+  "blocks": [
+    {
+      "id": "bias_generator_block_ota3",
+      "class_category": "Bias Network",
+      "port_annotations": [
+        {
+          "port_name": "VBN1",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VBN",
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBP1",
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBP",
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "first_stage_telescopic_diffpair",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "INM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "INP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOP1",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VOM1",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBN1",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VBP1",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VBN",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "second_stage_current_mirror_gain",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "VOP1",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOM1",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOP2",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VOM2",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBN",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "output_stage_with_cm_sense",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "VOP2",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOM2",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTM",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "OUTP",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBP",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VCMFB3",
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "net056",
+          "port_type": "signal",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "cmfb3_error_amplifier",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "net056",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VREF",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VCMFB3",
+          "port_type": "control_signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBN",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "cross_coupled_compensation_network",
+      "class_category": "Miller Compensation",
+      "port_annotations": [
+        {
+          "port_name": "VOP2",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOM2",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOP1",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOM1",
+          "port_type": "signal",
+          "direction": "input"
+        }
+      ]
+    }
+  ]
+}

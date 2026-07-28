@@ -1,0 +1,31 @@
+{
+  "level_2_cluster_0": {
+    "lca_name": "level_2_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "pmos_diode_bias_generator",
+        "node_b": "complementary_single_ended_ota_core",
+        "edge_key": "complementary_single_ended_ota_core|pmos_diode_bias_generator|ib_sink",
+        "net_name": "ib_sink",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": {
+            "sym": [
+              "m5",
+              "m6"
+            ],
+            "match": [
+              "m5",
+              "m6"
+            ]
+          },
+          "typed_signature": [
+            "pch.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  }
+}

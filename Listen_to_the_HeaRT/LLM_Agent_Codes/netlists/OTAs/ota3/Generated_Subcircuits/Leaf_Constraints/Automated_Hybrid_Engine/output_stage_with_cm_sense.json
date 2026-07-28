@@ -1,0 +1,145 @@
+[
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vbp",
+    "net2": "vop2",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "outp",
+    "net2": "outm",
+    "direction": "v"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m13",
+      "m113",
+      "m111",
+      "m14"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m13",
+        "m113"
+      ],
+      [
+        "m111",
+        "m14"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m111",
+      "m13"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m13",
+      "m113"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m111",
+      "m14"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m13",
+      "m111"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m13",
+      "m111"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m112",
+        "m73"
+      ],
+      [
+        "m113",
+        "m13"
+      ],
+      [
+        "m111",
+        "m14"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m111",
+      "m14",
+      "m112",
+      "m73"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r9",
+      "r10"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vop2",
+      "vom2",
+      "vbp",
+      "vcmfb3"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "outm",
+      "outp",
+      "net056"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

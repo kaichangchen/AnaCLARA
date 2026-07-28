@@ -1,0 +1,112 @@
+{
+  "cases": [
+    "LDO_Simple",
+    "StrongArm_Latch_Comparator",
+    "OTAs/ota4"
+  ],
+  "n_cases": 3,
+  "per_circuit": [
+    {
+      "case": "LDO_Simple",
+      "n_runs": 10,
+      "statistics": {
+        "SymmetricBlocks": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "MatchDevices": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "SymmetricNets": {
+          "f1_mean": null,
+          "f1_std": null
+        },
+        "tokens": {
+          "total_tokens_mean": 17908.6,
+          "total_tokens_std": 1042.2
+        },
+        "calls": {
+          "num_llm_calls_mean": 2.0,
+          "num_llm_calls_std": 0.0
+        }
+      }
+    },
+    {
+      "case": "StrongArm_Latch_Comparator",
+      "n_runs": 10,
+      "statistics": {
+        "SymmetricBlocks": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "MatchDevices": {
+          "f1_mean": 0.95,
+          "f1_std": 0.0645
+        },
+        "SymmetricNets": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "tokens": {
+          "total_tokens_mean": 14241.4,
+          "total_tokens_std": 940.1,
+          "n_runs_with_data": 7
+        },
+        "calls": {
+          "num_llm_calls_mean": 2.0,
+          "num_llm_calls_std": 0.0,
+          "n_runs_with_data": 7
+        }
+      }
+    },
+    {
+      "case": "OTAs/ota4",
+      "n_runs": 10,
+      "statistics": {
+        "SymmetricBlocks": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "MatchDevices": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "SymmetricNets": {
+          "f1_mean": 1.0,
+          "f1_std": 0.0
+        },
+        "tokens": {
+          "total_tokens_mean": 9976.6,
+          "total_tokens_std": 989.3
+        },
+        "calls": {
+          "num_llm_calls_mean": 2.0,
+          "num_llm_calls_std": 0.0
+        }
+      }
+    }
+  ],
+  "macro": {
+    "SymmetricBlocks": {
+      "f1_mean_macro": 1.0,
+      "f1_std_macro": 0.0
+    },
+    "MatchDevices": {
+      "f1_mean_macro": 0.9833,
+      "f1_std_macro": 0.0289
+    },
+    "SymmetricNets": {
+      "f1_mean_macro": 1.0,
+      "f1_std_macro": 0.0
+    },
+    "tokens": {
+      "total_tokens_mean_macro": 14042.2,
+      "total_tokens_std_macro": 3969.8
+    },
+    "calls": {
+      "num_llm_calls_mean_macro": 2.0,
+      "num_llm_calls_std_macro": 0.0
+    }
+  }
+}

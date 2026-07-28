@@ -1,0 +1,13 @@
+[
+    {
+        "constraint": "SymmetricBlocks",
+        "direction": "V",
+        "pairs": [["M1", "M2"]]
+    },
+    {
+        "constraint": "SymmetricNets",
+        "net1": "OUTP",
+        "net2": "OUTN",
+        "direction": "V"
+    }
+]

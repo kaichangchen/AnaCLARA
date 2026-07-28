@@ -1,0 +1,98 @@
+{
+  "level_1_cluster_1": {
+    "net_to_endpoint_blocks": {
+      "fb": [
+        "error_amplifier_input_stage",
+        "pmos_pass_output_feedback_stage"
+      ],
+      "net2": [
+        "gate_driver_gain_stage",
+        "pmos_pass_output_feedback_stage"
+      ],
+      "net7": [
+        "error_amplifier_input_stage",
+        "gate_driver_gain_stage",
+        "miller_compensation_network"
+      ],
+      "vo": [
+        "miller_compensation_network",
+        "output_load_capacitor",
+        "pmos_pass_output_feedback_stage"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "fb": [
+        "singleton::error_amplifier_input_stage",
+        "singleton::pmos_pass_output_feedback_stage"
+      ],
+      "net2": [
+        "singleton::gate_driver_gain_stage",
+        "singleton::pmos_pass_output_feedback_stage"
+      ],
+      "net7": [
+        "singleton::error_amplifier_input_stage",
+        "singleton::gate_driver_gain_stage",
+        "singleton::miller_compensation_network"
+      ],
+      "vo": [
+        "singleton::miller_compensation_network",
+        "singleton::output_load_capacitor",
+        "singleton::pmos_pass_output_feedback_stage"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "fb": "singleton::pmos_pass_output_feedback_stage",
+      "net2": "singleton::gate_driver_gain_stage",
+      "net7": "singleton::error_amplifier_input_stage"
+    },
+    "structural_symmetric_net_candidates": []
+  },
+  "level_2_cluster_0": {
+    "net_to_endpoint_blocks": {
+      "fb": [
+        "error_amplifier_input_stage",
+        "pmos_pass_output_feedback_stage"
+      ],
+      "net2": [
+        "gate_driver_gain_stage",
+        "pmos_pass_output_feedback_stage"
+      ],
+      "net7": [
+        "error_amplifier_input_stage",
+        "gate_driver_gain_stage",
+        "miller_compensation_network"
+      ],
+      "vo": [
+        "miller_compensation_network",
+        "output_load_capacitor",
+        "pmos_pass_output_feedback_stage"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "fb": [
+        "singleton::error_amplifier_input_stage",
+        "singleton::pmos_pass_output_feedback_stage"
+      ],
+      "net2": [
+        "singleton::gate_driver_gain_stage",
+        "singleton::pmos_pass_output_feedback_stage"
+      ],
+      "net7": [
+        "singleton::error_amplifier_input_stage",
+        "singleton::gate_driver_gain_stage",
+        "singleton::miller_compensation_network"
+      ],
+      "vo": [
+        "singleton::miller_compensation_network",
+        "singleton::output_load_capacitor",
+        "singleton::pmos_pass_output_feedback_stage"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "fb": "singleton::pmos_pass_output_feedback_stage",
+      "net2": "singleton::gate_driver_gain_stage",
+      "net7": "singleton::error_amplifier_input_stage"
+    },
+    "structural_symmetric_net_candidates": []
+  }
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_inv",
+    "instances": [
+      "m17",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m17",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m17",
+      "m2"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m17",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vx"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vop"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

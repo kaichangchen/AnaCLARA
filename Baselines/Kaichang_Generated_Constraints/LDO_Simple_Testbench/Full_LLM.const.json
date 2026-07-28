@@ -1,0 +1,394 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "bias_generator_master_mirror",
+    "instances": [
+      "m1"
+    ]
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vdd"
+    ],
+    "location": "TC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "iref_snk"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "iref_snk"
+    ],
+    "shield": "vdd",
+    "criticality": 10
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_diff_pair",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "nmos_current_mirror_load",
+    "instances": [
+      "m8",
+      "m7"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "front_end_transconductor",
+    "instances": [
+      "pmos_diff_pair",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "active_load_and_output",
+    "instances": [
+      "nmos_current_mirror_load"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m2"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m8",
+      "m7"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m4",
+      "m3"
+    ],
+    "line": "bottom",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m7",
+      "m8"
+    ],
+    "line": "bottom",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m2",
+      "pmos_diff_pair"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "front_end_transconductor",
+      "active_load_and_output"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m4",
+      "m7"
+    ],
+    "line": "v_any"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m3",
+      "m8"
+    ],
+    "line": "v_any"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "fb",
+    "direction": "V"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "vin",
+      "fb",
+      "iref_snk",
+      "net6"
+    ],
+    "shield": "gnd",
+    "criticality": 10
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "net7"
+    ],
+    "shield": "gnd",
+    "criticality": 8
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "gnd"
+    ],
+    "location": "BC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vin"
+    ],
+    "location": "LT"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "fb"
+    ],
+    "location": "RT"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "iref_snk"
+    ],
+    "location": "TC"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "stability_frequency_compensation",
+    "instances": [
+      "r0",
+      "c0"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "c0",
+      "r0"
+    ],
+    "line": "center",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "c0",
+      "r0"
+    ],
+    "direction": "left_to_right",
+    "abut": true
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net7"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "level_shifting_stage",
+    "instances": [
+      "m6"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "bias_and_current_sourcing",
+    "instances": [
+      "m5"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "gate_driver_level_shifter_core",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m5",
+      "m6"
+    ],
+    "direction": "left_to_right",
+    "abut": true
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m5",
+      "m6"
+    ],
+    "line": "h_top"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "net2"
+    ],
+    "shield": "gnd",
+    "criticality": 10
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "net7",
+      "iref_snk"
+    ],
+    "shield": "gnd",
+    "criticality": 7
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "iref_snk"
+    ],
+    "location": "LB"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net2"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "output_load_network",
+    "instances": [
+      "cl"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "cl"
+      ]
+    ]
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "vo"
+    ],
+    "shield": "GND",
+    "criticality": 10
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "fb",
+      "net2"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pass_element",
+    "instances": [
+      "m0"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "feedback_network",
+    "instances": [
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m0",
+      "r1",
+      "r2"
+    ],
+    "line": "center",
+    "direction": "vertical"
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "r1",
+      "r2"
+    ],
+    "direction": "vertical",
+    "abut": true
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "fb"
+    ],
+    "shield": "gnd",
+    "criticality": 7
+  }
+]

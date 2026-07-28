@@ -1,0 +1,60 @@
+{
+  "unique_name": "ota1",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "OTA Core (Differential Signal Path)",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "Input Stage",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "first_stage_diffpair_active_load",
+              "class_category": "Amplifier",
+              "children": []
+            }
+          ]
+        },
+        {
+          "unique_name": "Second Stage Output Drivers",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "output_stage_half_outp",
+              "class_category": "Amplifier",
+              "children": []
+            },
+            {
+              "unique_name": "output_stage_half_outm",
+              "class_category": "Amplifier",
+              "children": []
+            }
+          ]
+        },
+        {
+          "unique_name": "miller_compensation_network",
+          "class_category": "Compensation",
+          "children": []
+        },
+        {
+          "unique_name": "cmfb_pmos_diffpair_amp",
+          "class_category": "Feedback",
+          "children": []
+        }
+      ]
+    },
+    {
+      "unique_name": "Bias Network",
+      "class_category": "Bias",
+      "children": [
+        {
+          "unique_name": "bias_generator_vbiasn",
+          "class_category": "Bias",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "fb",
+      "driver_block_name": "pmos_pass_output_stage_with_feedback_divider",
+      "load_block_names": [
+        "error_amplifier_differential_input_stage"
+      ],
+      "reason": "Splitter annotation: 'pmos_pass_output_stage_with_feedback_divider' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net2",
+      "driver_block_name": "pmos_gate_driver_gain_stage",
+      "load_block_names": [
+        "pmos_pass_output_stage_with_feedback_divider"
+      ],
+      "reason": "Splitter annotation: 'pmos_gate_driver_gain_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net7",
+      "driver_block_name": "error_amplifier_differential_input_stage",
+      "load_block_names": [
+        "miller_compensation_rc_network",
+        "pmos_gate_driver_gain_stage"
+      ],
+      "reason": "Splitter annotation: 'error_amplifier_differential_input_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vo",
+      "driver_block_name": "pmos_pass_output_stage_with_feedback_divider",
+      "load_block_names": [
+        "miller_compensation_rc_network",
+        "output_load_capacitor"
+      ],
+      "reason": "Splitter annotation: 'pmos_pass_output_stage_with_feedback_divider' has direction=output; others are inputs/unknown."
+    }
+  ]
+}

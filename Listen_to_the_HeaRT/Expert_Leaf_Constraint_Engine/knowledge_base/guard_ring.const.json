@@ -1,0 +1,21 @@
+[
+    {
+        "constraint": "SymmetricBlocks",
+        "direction": "V",
+        "pairs": [["M1", "M2"], ["M0"]]
+    },
+    {
+        "constraint": "GuardRing",
+        "guard_ring_primitives": "guard_ring",
+        "global_pin": "VSS",
+        "block_name": "GUARD_RING_EXAMPLE"
+    },
+    {
+        "constraint": "PowerPorts",
+        "ports": ["VDD"]
+    },
+    {
+        "constraint": "GroundPorts",
+        "ports": ["VSS"]
+    }
+]

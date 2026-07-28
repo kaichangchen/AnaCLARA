@@ -1,0 +1,115 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m68",
+      "m7",
+      "m20",
+      "m21"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m20",
+        "m21"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m20",
+      "m68"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m68",
+      "m7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m20",
+      "m21"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "gnd",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vcm",
+    "net2": "net0101",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vtail",
+    "net2": "net0104",
+    "direction": "v"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m68",
+        "m69"
+      ],
+      [
+        "m20",
+        "m21"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m68",
+      "m69"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "nbias_tail",
+      "vcm",
+      "net0101"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vtail"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

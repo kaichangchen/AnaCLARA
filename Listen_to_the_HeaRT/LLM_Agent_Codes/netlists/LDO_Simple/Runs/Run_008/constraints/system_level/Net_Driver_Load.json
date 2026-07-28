@@ -1,0 +1,38 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "fb",
+      "driver_block_name": "ldo_pmos_pass_feedback_stage",
+      "load_block_names": [
+        "ldo_error_amplifier_input_stage"
+      ],
+      "reason": "Splitter annotation: 'ldo_pmos_pass_feedback_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net2",
+      "driver_block_name": "ldo_pmos_gate_driver_stage",
+      "load_block_names": [
+        "ldo_pmos_pass_feedback_stage"
+      ],
+      "reason": "Splitter annotation: 'ldo_pmos_gate_driver_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "net7",
+      "driver_block_name": "ldo_error_amplifier_input_stage",
+      "load_block_names": [
+        "ldo_miller_compensation_network",
+        "ldo_pmos_gate_driver_stage"
+      ],
+      "reason": "Splitter annotation: 'ldo_error_amplifier_input_stage' has direction=output; others are inputs/unknown."
+    },
+    {
+      "net_name": "vo",
+      "driver_block_name": "ldo_pmos_pass_feedback_stage",
+      "load_block_names": [
+        "ldo_miller_compensation_network",
+        "ldo_output_load_capacitor"
+      ],
+      "reason": "Splitter annotation: 'ldo_pmos_pass_feedback_stage' has direction=output; others are inputs/unknown."
+    }
+  ]
+}

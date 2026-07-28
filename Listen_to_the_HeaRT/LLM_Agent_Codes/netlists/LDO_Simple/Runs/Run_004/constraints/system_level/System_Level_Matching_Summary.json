@@ -1,0 +1,84 @@
+{
+  "level_2_cluster_0": {
+    "lca_name": "level_2_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "pmos_bias_generator_reference",
+        "node_b": "error_amplifier_input_stage",
+        "edge_key": "error_amplifier_input_stage|pmos_bias_generator_reference|iref_snk",
+        "net_name": "iref_snk",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": {
+            "sym": [
+              "m1",
+              "m2"
+            ],
+            "match": [
+              "m1",
+              "m2"
+            ]
+          },
+          "typed_signature": [
+            "pmos.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "pmos_bias_generator_reference",
+        "node_b": "pmos_gate_driver_stage",
+        "edge_key": "pmos_bias_generator_reference|pmos_gate_driver_stage|iref_snk",
+        "net_name": "iref_snk",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": {
+            "sym": [
+              "m1",
+              "m5"
+            ],
+            "match": [
+              "m1",
+              "m5"
+            ]
+          },
+          "typed_signature": [
+            "pmos.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  },
+  "level_1_cluster_1": {
+    "lca_name": "level_1_cluster_1",
+    "matching_edge_summaries": [
+      {
+        "node_a": "error_amplifier_input_stage",
+        "node_b": "pmos_gate_driver_stage",
+        "edge_key": "error_amplifier_input_stage|pmos_gate_driver_stage|iref_snk",
+        "net_name": "iref_snk",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": {
+            "sym": [
+              "m2",
+              "m5"
+            ],
+            "match": [
+              "m2",
+              "m5"
+            ]
+          },
+          "typed_signature": [
+            "pmos.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  }
+}

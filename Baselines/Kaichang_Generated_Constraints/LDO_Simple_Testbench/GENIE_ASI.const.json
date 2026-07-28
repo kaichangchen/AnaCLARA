@@ -1,0 +1,42 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M3",
+        "M4"
+      ],
+      [
+        "M7",
+        "M8"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "M7",
+      "M8"
+    ]
+  }
+]

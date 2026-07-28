@@ -1,0 +1,17 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_RDIV",
+        "instances": ["R0", "R1"]
+    },
+    {
+        "constraint": "AlignInOrder",
+        "instances": ["R0", "R1"],
+        "line": "bottom",
+        "direction": "vertical"
+    },
+    {
+        "constraint": "SameTemplate",
+        "instances": ["R0", "R1"]
+    }
+]

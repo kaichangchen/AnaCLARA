@@ -1,0 +1,27 @@
+[
+  {
+    "constraint": "SymmetricBlocks",
+    "pairs": [
+      ["m8", "m7"],
+      ["m3", "m4"],
+      ["m1", "m2"],
+      ["m2", "m5"]
+    ]
+  },
+
+  {
+    "constraint": "MatchDevices",
+    "pairs": [
+      ["m8", "m7"],
+      ["m3", "m4"],
+      ["m1", "m2"],
+      ["m2", "m5"],
+      ["r2", "r1"]
+    ]
+  },
+
+  {
+    "constraint": "SymmetricNets",
+    "pairs": []
+  }
+]

@@ -1,0 +1,148 @@
+{
+  "level_1_cluster_1": {
+    "net_to_endpoint_blocks": {
+      "net0101": [
+        "output_cmfb_block_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vim": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vip": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vo1m": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vo1p": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vtail": [
+        "output_cmfb_block_ota2",
+        "output_stage_pushpull_ota2"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "net0101": [
+        "singleton::output_cmfb_block_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vim": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vip": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vo1m": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vo1p": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vtail": [
+        "singleton::output_cmfb_block_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "net0101": "singleton::output_stage_pushpull_ota2",
+      "vo1m": "singleton::folded_cascode_core_ota2",
+      "vo1p": "singleton::folded_cascode_core_ota2",
+      "vtail": "singleton::output_cmfb_block_ota2"
+    },
+    "structural_symmetric_net_candidates": [
+      {
+        "candidate_nets": [
+          "vo1m",
+          "vo1p"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::folded_cascode_core_ota2",
+          "singleton::output_stage_pushpull_ota2",
+          "driver::singleton::folded_cascode_core_ota2"
+        ]
+      }
+    ]
+  },
+  "level_2_cluster_0": {
+    "net_to_endpoint_blocks": {
+      "net0101": [
+        "output_cmfb_block_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vim": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vip": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vo1m": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vo1p": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "vtail": [
+        "output_cmfb_block_ota2",
+        "output_stage_pushpull_ota2"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "net0101": [
+        "singleton::output_cmfb_block_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vim": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vip": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vo1m": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vo1p": [
+        "singleton::folded_cascode_core_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ],
+      "vtail": [
+        "singleton::output_cmfb_block_ota2",
+        "singleton::output_stage_pushpull_ota2"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "net0101": "singleton::output_stage_pushpull_ota2",
+      "vo1m": "singleton::folded_cascode_core_ota2",
+      "vo1p": "singleton::folded_cascode_core_ota2",
+      "vtail": "singleton::output_cmfb_block_ota2"
+    },
+    "structural_symmetric_net_candidates": [
+      {
+        "candidate_nets": [
+          "vo1m",
+          "vo1p"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::folded_cascode_core_ota2",
+          "singleton::output_stage_pushpull_ota2",
+          "driver::singleton::folded_cascode_core_ota2"
+        ]
+      }
+    ]
+  }
+}

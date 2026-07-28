@@ -1,0 +1,196 @@
+{
+  "top_level_port_names": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBN1",
+    "VDD",
+    "VREF",
+    "VSS"
+  ],
+  "mixed_signal_flag": "False",
+  "subcircuits": [
+    {
+      "id": "bias_generator_block_ota3",
+      "netlist": ".subckt bias_generator_block_ota3 VBN1 VBN VBP1 VBP VDD VSS\nM26 VBP1 VBP1 VDD VDD pch l=1.6u w=5u m=10\nM96 VBP1 VBN VSS VSS nch l=400n w=11.0u m=4\nM90 VBP VBP VDD VDD pch l=800n w=10u m=4\nM97 VBP VBN VSS VSS nch l=400n w=11.0u m=4\nM21 VBN VBN VSS VSS nch l=400n w=11.0u m=4\nM24 VBN1 VBN1 VBN VSS nch l=1u w=6u m=10\n.ends bias_generator_block_ota3",
+      "ports": [
+        "VBN1",
+        "VBN",
+        "VBP1",
+        "VBP",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "VBN1",
+        "VBN",
+        "VBP1",
+        "VBP"
+      ],
+      "role_hint": "Bias generation network producing NMOS/PMOS bias voltages (VBN, VBP1, VBP) from VDD/VSS and external VBN1",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "bias_only",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "first_stage_telescopic_diffpair",
+      "netlist": ".subckt first_stage_telescopic_diffpair INM INP VOP1 VOM1 VBN1 VBP1 VBN VDD VSS\nM106 VOP1 VBN1 net2 VSS nch l=200n w=6u m=10\nM3 VOM1 VBN1 net4 VSS nch l=200n w=6u m=10\nM4 net1 VBN VSS VSS nch l=400n w=11.0u m=28\nM12 net4 INP net1 VSS nch_25ud18 l=800n w=9u m=10\nM2 net2 INM net1 VSS nch_25ud18 l=800n w=9u m=10\nM7 net07 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM108 net08 VCMFB1 VDD VDD pch l=800n w=10u m=4\nM6 VOM1 VBP1 net07 VDD pch l=200n w=5u m=10\nM107 VOP1 VBP1 net08 VDD pch l=200n w=5u m=10\nR4 VOP1 VCMFB1 VSS rppolywo_m lr=100.0000u wr=400n m=1\nR6 VCMFB1 VOM1 VSS rppolywo_m lr=100.0000u wr=400n m=1\n.ends first_stage_telescopic_diffpair",
+      "ports": [
+        "INM",
+        "INP",
+        "VOP1",
+        "VOM1",
+        "VBN1",
+        "VBP1",
+        "VBN",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "INM",
+        "INP",
+        "VOP1",
+        "VOM1",
+        "VBN1",
+        "VBP1",
+        "VBN"
+      ],
+      "role_hint": "Input telescopic-cascode differential pair with PMOS current-source loads and local CMFB (VCMFB1)",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in diff-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "second_stage_current_mirror_gain",
+      "netlist": ".subckt second_stage_current_mirror_gain VOP1 VOM1 VOP2 VOM2 VBN VDD VSS\nM9 VOP2 VOM1 VDD VDD pch l=400n w=10u m=80\nM109 VOM2 VOP1 VDD VDD pch l=400n w=10u m=80\nM18 VOP2 VBN VSS VSS nch l=400n w=11.0u m=4\nM102 VOM2 VBN VSS VSS nch l=400n w=11.0u m=4\nM75 VOP2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nM110 VOM2 VCMFB2 VSS VSS nch l=400n w=2.5u m=8\nR7 VOP2 VCMFB2 VSS rppolywo_m lr=10u wr=400n m=1\nR8 VCMFB2 VOM2 VSS rppolywo_m lr=10u wr=400n m=1\n.ends second_stage_current_mirror_gain",
+      "ports": [
+        "VOP1",
+        "VOM1",
+        "VOP2",
+        "VOM2",
+        "VBN",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "VOP1",
+        "VOM1",
+        "VOP2",
+        "VOM2",
+        "VBN"
+      ],
+      "role_hint": "Second gain stage using PMOS current-mirror loads and NMOS sinks with local CMFB (VCMFB2)",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in diff-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "output_stage_with_cm_sense",
+      "netlist": ".subckt output_stage_with_cm_sense VOP2 VOM2 OUTM OUTP VBP VCMFB3 net056 VDD VSS\nM13 OUTM VOP2 VSS VSS nch l=400n w=2.5u m=16\nM113 OUTP VOM2 VSS VSS nch l=400n w=2.5u m=16\nM111 OUTP VBP VDD VDD pch l=800n w=10u m=40\nM14 OUTM VBP VDD VDD pch l=800n w=10u m=40\nM112 OUTP VCMFB3 VDD VDD pch l=800n w=10u m=40\nM73 OUTM VCMFB3 VDD VDD pch l=800n w=10u m=40\nR9 OUTP net056 VSS rppolywo_m lr=8u wr=400n m=1\nR10 net056 OUTM VSS rppolywo_m lr=8u wr=400n m=1\n.ends output_stage_with_cm_sense",
+      "ports": [
+        "VOP2",
+        "VOM2",
+        "OUTM",
+        "OUTP",
+        "VBP",
+        "VCMFB3",
+        "net056",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "VOP2",
+        "VOM2",
+        "OUTM",
+        "OUTP",
+        "VBP",
+        "VCMFB3",
+        "net056"
+      ],
+      "role_hint": "Output driver stage with PMOS pull-ups and NMOS pull-downs; provides output common-mode sensing via resistive divider",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "diff-in diff-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "cmfb3_error_amplifier",
+      "netlist": ".subckt cmfb3_error_amplifier net056 VREF VCMFB3 VBN VDD VSS\nM63 net057 net057 VDD VDD pch l=200n w=2.5u m=4\nM114 VCMFB3 net057 VDD VDD pch l=200n w=2.5u m=4\nM60 net057 net056 net058 VSS nch l=200n w=2.2u m=4\nM93 VCMFB3 VREF net058 VSS nch l=200n w=2.2u m=4\nM105 net058 VBN VSS VSS nch l=400n w=11.0u m=8\n.ends cmfb3_error_amplifier",
+      "ports": [
+        "net056",
+        "VREF",
+        "VCMFB3",
+        "VBN",
+        "VDD",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "net056",
+        "VREF",
+        "VCMFB3",
+        "VBN"
+      ],
+      "role_hint": "Output common-mode feedback amplifier comparing sensed output CM (net056) to VREF and generating VCMFB3",
+      "modeling_depth": "detailed_core",
+      "io_interface_type": "single-in single-out",
+      "is_analog": "True",
+      "is_digital": "False"
+    },
+    {
+      "id": "cross_coupled_compensation_network",
+      "netlist": ".subckt cross_coupled_compensation_network VOP2 VOM2 OUTM OUTP VOP1 VOM1 VSS\nC5 VOP2 OUTM VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC1 VOM2 OUTP VSS cfmom nr=88 lr=10u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC7 VOP1 OUTM VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM1 OUTP VSS cfmom nr=50 lr=6u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends cross_coupled_compensation_network",
+      "ports": [
+        "VOP2",
+        "VOM2",
+        "OUTM",
+        "OUTP",
+        "VOP1",
+        "VOM1",
+        "VSS"
+      ],
+      "supply_ports": [
+        "VSS"
+      ],
+      "signal_ports": [
+        "VOP2",
+        "VOM2",
+        "OUTM",
+        "OUTP",
+        "VOP1",
+        "VOM1"
+      ],
+      "role_hint": "Miller/feedforward cross-coupled compensation capacitors between internal nodes and outputs for stability",
+      "modeling_depth": "simple_passive",
+      "io_interface_type": "multiport_passive",
+      "is_analog": "True",
+      "is_digital": "False"
+    }
+  ],
+  "Verilog_A_Wrapper_Full_Circuit": null,
+  "Full_Circuit_Role_Class": null,
+  "Loops": null
+}

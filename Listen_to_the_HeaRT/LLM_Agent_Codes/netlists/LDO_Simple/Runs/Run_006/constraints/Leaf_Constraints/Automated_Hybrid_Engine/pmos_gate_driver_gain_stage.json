@@ -1,0 +1,64 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m6",
+      "m5"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m6",
+      "m5"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "iref_snk",
+      "net7"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net2"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

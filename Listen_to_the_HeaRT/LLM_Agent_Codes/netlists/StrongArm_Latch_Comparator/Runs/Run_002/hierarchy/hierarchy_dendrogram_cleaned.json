@@ -1,0 +1,21 @@
+{
+  "unique_name": "level_1_cluster_0",
+  "children": [
+    {
+      "unique_name": "dynamic_comparator_regenerative_core",
+      "children": []
+    },
+    {
+      "unique_name": "dynamic_node_capacitive_loads",
+      "children": []
+    },
+    {
+      "unique_name": "von_output_inverter_buffer",
+      "children": []
+    },
+    {
+      "unique_name": "vop_output_inverter_buffer",
+      "children": []
+    }
+  ]
+}

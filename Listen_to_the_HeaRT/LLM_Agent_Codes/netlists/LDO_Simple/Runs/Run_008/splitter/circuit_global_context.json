@@ -1,0 +1,209 @@
+{
+  "model": "azure/openai/gpt-5.5",
+  "top_level_port_names": [
+    "gnd",
+    "iref_snk",
+    "vdd",
+    "vin",
+    "vo"
+  ],
+  "subcircuits": [
+    {
+      "id": "pmos_bias_generation_network",
+      "netlist": ".subckt pmos_bias_generation_network iref_snk vdd\nM1 iref_snk iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends pmos_bias_generation_network",
+      "ports": [
+        "iref_snk",
+        "vdd"
+      ],
+      "supply_ports": [
+        "vdd"
+      ],
+      "signal_ports": [
+        "iref_snk"
+      ],
+      "role_hint": "Diode-connected PMOS bias generation network establishing the iref_snk PMOS current-source gate bias used by the error amplifier and driver current sources.",
+      "class_category": "Bias Network",
+      "port_annotations": [
+        {
+          "port_name": "iref_snk",
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "ldo_error_amplifier_input_stage",
+      "netlist": ".subckt ldo_error_amplifier_input_stage gnd iref_snk vdd vin fb net7\nM4 net7 vin net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM3 net6 fb net5 vdd pmos l=l_eai_p w=w_eai_p*1 m=1 nf=1 sd=220.0n\nM2 net5 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\nM8 net6 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\nM7 net7 net6 gnd gnd nmos l=l_eal_n w=w_eal_n*1 m=1 nf=1 sd=220.0n\n.ends ldo_error_amplifier_input_stage",
+      "ports": [
+        "gnd",
+        "iref_snk",
+        "vdd",
+        "vin",
+        "fb",
+        "net7"
+      ],
+      "supply_ports": [
+        "gnd",
+        "vdd"
+      ],
+      "signal_ports": [
+        "iref_snk",
+        "vin",
+        "fb",
+        "net7"
+      ],
+      "role_hint": "PMOS differential error-amplifier input stage comparing reference input vin against feedback fb, with NMOS current-mirror active load producing the first high-gain node net7.",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "iref_snk",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vin",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "fb",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "net7",
+          "port_type": "signal",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "ldo_pmos_gate_driver_stage",
+      "netlist": ".subckt ldo_pmos_gate_driver_stage gnd iref_snk vdd net7 net2\nM6 gnd net7 net2 vdd pmos l=l_eab_p w=w_eab_p*1 m=1 nf=1 sd=220.0n\nM5 net2 iref_snk vdd vdd pmos l=l_cs_p w=w_cs_p*1 m=1 nf=1\n.ends ldo_pmos_gate_driver_stage",
+      "ports": [
+        "gnd",
+        "iref_snk",
+        "vdd",
+        "net7",
+        "net2"
+      ],
+      "supply_ports": [
+        "gnd",
+        "vdd"
+      ],
+      "signal_ports": [
+        "iref_snk",
+        "net7",
+        "net2"
+      ],
+      "role_hint": "Second-stage PMOS driver converting the error-amplifier output net7 into the pass-device gate-drive node net2, biased by the iref_snk PMOS current-source bias.",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "iref_snk",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "net7",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "net2",
+          "port_type": "signal",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "ldo_pmos_pass_feedback_stage",
+      "netlist": ".subckt ldo_pmos_pass_feedback_stage gnd vdd net2 vo fb\nM0 vo net2 vdd vdd pmos l=l_power_p w=w_power_p*1 m=1 nf=1\nR1 vo fb res r1\nR2 fb gnd res r2\n.ends ldo_pmos_pass_feedback_stage",
+      "ports": [
+        "gnd",
+        "vdd",
+        "net2",
+        "vo",
+        "fb"
+      ],
+      "supply_ports": [
+        "gnd",
+        "vdd"
+      ],
+      "signal_ports": [
+        "net2",
+        "vo",
+        "fb"
+      ],
+      "role_hint": "PMOS power pass/output stage of the LDO with integrated resistive feedback divider generating fb from the regulated output vo.",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "net2",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "vo",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "fb",
+          "port_type": "signal",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "ldo_miller_compensation_network",
+      "netlist": ".subckt ldo_miller_compensation_network net7 vo\nR0 net1 vo res r0\nC0 net7 net1 cap c0\n.ends ldo_miller_compensation_network",
+      "ports": [
+        "net7",
+        "vo"
+      ],
+      "supply_ports": [],
+      "signal_ports": [
+        "net7",
+        "vo"
+      ],
+      "role_hint": "Series RC Miller compensation network between the error-amplifier high-gain node net7 and the LDO output vo for loop stability and zero placement.",
+      "class_category": "Miller Compensation",
+      "port_annotations": [
+        {
+          "port_name": "net7",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "vo",
+          "port_type": "signal",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "ldo_output_load_capacitor",
+      "netlist": ".subckt ldo_output_load_capacitor vo GND\nCL vo GND cap cload\n.ends ldo_output_load_capacitor",
+      "ports": [
+        "vo",
+        "GND"
+      ],
+      "supply_ports": [
+        "GND"
+      ],
+      "signal_ports": [
+        "vo"
+      ],
+      "role_hint": "Output load capacitor connected at the regulated output node vo, representing the capacitive load and output filtering element.",
+      "class_category": "Passive Load",
+      "port_annotations": [
+        {
+          "port_name": "vo",
+          "port_type": "signal",
+          "direction": "input"
+        }
+      ]
+    }
+  ]
+}

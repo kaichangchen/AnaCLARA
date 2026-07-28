@@ -1,0 +1,28 @@
+{
+  "matching_groups": [
+    {
+      "group_id": "match_group_0",
+      "devices": ["M34", "M35"]
+    },
+    {
+      "group_id": "match_group_1",
+      "devices": ["M26", "M27"]
+    },
+    {
+      "group_id": "match_group_2",
+      "devices": ["M17", "M18"]
+    },
+    {
+      "group_id": "match_group_3",
+      "devices": ["M8", "M10"]
+    },
+    {
+      "group_id": "match_group_4",
+      "devices": ["R12", "R5"]
+    },
+    {
+      "group_id": "match_group_5",
+      "devices": ["C0", "C1"]
+    }
+  ]
+}

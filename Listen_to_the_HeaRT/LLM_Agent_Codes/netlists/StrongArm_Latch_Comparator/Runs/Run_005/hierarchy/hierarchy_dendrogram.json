@@ -1,0 +1,55 @@
+{
+  "level_1": {
+    "node_ids": [
+      "dynamic_comparator_core",
+      "von_cmos_output_inverter",
+      "vop_cmos_output_inverter"
+    ],
+    "clusters": [
+      {
+        "cluster_id": "level_1_cluster_0",
+        "level": 1,
+        "children": [
+          "dynamic_comparator_core",
+          "von_cmos_output_inverter",
+          "vop_cmos_output_inverter"
+        ],
+        "avg_internal_similarity": 0.6666666666666666
+      }
+    ],
+    "affinity_matrix": [
+      [
+        1.0,
+        0.36538516256280246,
+        0.36538516256280246
+      ],
+      [
+        0.36538516256280246,
+        1.0,
+        0.23140989165772743
+      ],
+      [
+        0.36538516256280246,
+        0.23140989165772743,
+        1.0
+      ]
+    ],
+    "normalized_affinity_matrix": [
+      [
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        1.0
+      ]
+    ]
+  }
+}

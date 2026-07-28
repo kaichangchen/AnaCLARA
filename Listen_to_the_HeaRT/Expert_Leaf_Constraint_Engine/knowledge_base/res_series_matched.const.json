@@ -1,0 +1,17 @@
+[
+    {
+        "constraint": "GroupBlocks",
+        "instance_name": "X_RES_CHAIN",
+        "instances": ["R0", "R1", "R2"]
+    },
+    {
+        "constraint": "AlignInOrder",
+        "instances": ["R0", "R1", "R2"],
+        "line": "bottom",
+        "direction": "horizontal"
+    },
+    {
+        "constraint": "SameTemplate",
+        "instances": ["R0", "R1", "R2"]
+    }
+]

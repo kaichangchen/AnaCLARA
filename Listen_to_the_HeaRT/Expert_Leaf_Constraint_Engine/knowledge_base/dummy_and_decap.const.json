@@ -1,0 +1,18 @@
+[
+    {
+        "constraint": "DoNotIdentify",
+        "instances": ["MDUMMY", "MDECAP"]
+    },
+    {
+        "constraint": "ConfigureCompiler",
+        "remove_dummy_devices": false
+    },
+    {
+        "constraint": "PowerPorts",
+        "ports": ["VDD"]
+    },
+    {
+        "constraint": "GroundPorts",
+        "ports": ["VSS"]
+    }
+]

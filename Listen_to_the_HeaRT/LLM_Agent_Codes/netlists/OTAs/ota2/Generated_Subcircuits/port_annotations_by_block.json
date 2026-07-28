@@ -1,0 +1,153 @@
+{
+  "blocks": [
+    {
+      "id": "bias_generator_block_ota2",
+      "class_category": "Bias Network",
+      "port_annotations": [
+        {
+          "port_name": "IBIAS",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VCM",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "NBIAS_TAIL",
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        {
+          "port_name": "PCAS",
+          "port_type": "dc_bias",
+          "direction": "output"
+        },
+        {
+          "port_name": "INCM2",
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "folded_cascode_core_ota2",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "VIP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VIM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VO1P",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VO1M",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "IBIAS",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "NBIAS_TAIL",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "PCAS",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "output_stage_pushpull_ota2",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "VIP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VIM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VO1P",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VO1M",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VOP",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VOM",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "INCM2",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vtail",
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "net0101",
+          "port_type": "control_signal",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "output_cmfb_block_ota2",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "NBIAS_TAIL",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "VCM",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "net0101",
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "vtail",
+          "port_type": "control_signal",
+          "direction": "output"
+        }
+      ]
+    }
+  ]
+}

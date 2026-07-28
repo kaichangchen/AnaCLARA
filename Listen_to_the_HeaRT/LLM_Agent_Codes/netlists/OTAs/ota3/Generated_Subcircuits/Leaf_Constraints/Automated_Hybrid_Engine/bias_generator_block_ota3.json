@@ -1,0 +1,96 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m24",
+      "m21",
+      "m97",
+      "m96"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m97",
+        "m96"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m97",
+      "m24"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m24",
+      "m21"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m97",
+      "m96"
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vbn1",
+    "net2": "vbn",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vbn1",
+    "net2": "vbp",
+    "direction": "v"
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "vss",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m96",
+      "m97",
+      "m21"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vbn1",
+      "vbn",
+      "vbp1",
+      "vbp"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

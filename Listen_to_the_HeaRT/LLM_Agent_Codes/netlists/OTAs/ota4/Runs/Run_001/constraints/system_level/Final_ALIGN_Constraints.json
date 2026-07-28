@@ -1,0 +1,161 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m1",
+        "m0"
+      ],
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m1",
+        "m0"
+      ],
+      [
+        "m4",
+        "m3"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net2",
+    "net2": "vo",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "nmos_input_pair",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_input_pair",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "bias_current_mirror",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ib_sink",
+      "vin",
+      "vip"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vdd"
+    ],
+    "location": "TC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "gnd"
+    ],
+    "location": "BC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "M2",
+        "M1"
+      ],
+      [
+        "M0",
+        "M6"
+      ],
+      [
+        "M5",
+        "M4"
+      ],
+      [
+        "M3"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "M2",
+      "M1",
+      "M0",
+      "M6",
+      "M5",
+      "M4",
+      "M3"
+    ],
+    "direction": "horizontal",
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "M2",
+      "M1",
+      "M0",
+      "M6",
+      "M5",
+      "M4",
+      "M3"
+    ],
+    "line": "h_bottom"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "anygraph_group",
+    "instances": [
+      "M2",
+      "M1",
+      "M0",
+      "M6",
+      "M5",
+      "M4",
+      "M3"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "instances": [
+      "M2",
+      "M1",
+      "M0",
+      "M6",
+      "M5",
+      "M4",
+      "M3"
+    ],
+    "guard_ring_primitives": ""
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [],
+    "location": "TC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

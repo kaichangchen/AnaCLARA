@@ -1,0 +1,12 @@
+{
+  "matching_groups": [
+    {
+      "group_id": "match_group_0",
+      "devices": ["M21", "M20"]
+    },
+    {
+      "group_id": "match_group_1",
+      "devices": ["M69", "M68"]
+    }
+  ]
+}

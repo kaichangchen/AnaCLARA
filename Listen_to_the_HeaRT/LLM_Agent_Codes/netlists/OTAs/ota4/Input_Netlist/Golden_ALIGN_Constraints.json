@@ -1,0 +1,27 @@
+[
+  {
+    "constraint": "SymmetricBlocks",
+    "pairs": [
+      ["m1","m0"],
+      ["m4","m3"],
+      ["m5","m6"]
+    ]
+  },
+
+  {
+    "constraint": "MatchDevices",
+    "pairs": [
+      ["m1","m0"],
+      ["m4","m3"],
+      ["m5","m6"]
+    ]
+  },
+
+  {
+    "constraint": "SymmetricNets",
+    "pairs": [
+        ["vip", "vin"],
+        ["net2", "vo"]
+    ]
+  }
+]

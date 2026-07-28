@@ -1,0 +1,234 @@
+{
+  "level_1_cluster_1": {
+    "net_to_endpoint_blocks": {
+      "outm": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "outp": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "vom1": [
+        "cross_coupled_compensation_network",
+        "first_stage_telescopic_diffpair",
+        "second_stage_current_mirror_gain"
+      ],
+      "vom2": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense",
+        "second_stage_current_mirror_gain"
+      ],
+      "vop1": [
+        "cross_coupled_compensation_network",
+        "first_stage_telescopic_diffpair",
+        "second_stage_current_mirror_gain"
+      ],
+      "vop2": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense",
+        "second_stage_current_mirror_gain"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "outm": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "outp": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "vom1": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::first_stage_telescopic_diffpair",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vom2": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vop1": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::first_stage_telescopic_diffpair",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vop2": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense",
+        "singleton::second_stage_current_mirror_gain"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "outm": "singleton::output_stage_with_cm_sense",
+      "outp": "singleton::output_stage_with_cm_sense",
+      "vom1": "singleton::first_stage_telescopic_diffpair",
+      "vom2": "singleton::second_stage_current_mirror_gain",
+      "vop1": "singleton::first_stage_telescopic_diffpair",
+      "vop2": "singleton::second_stage_current_mirror_gain"
+    },
+    "structural_symmetric_net_candidates": [
+      {
+        "candidate_nets": [
+          "vom1",
+          "vop1"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::first_stage_telescopic_diffpair",
+          "singleton::second_stage_current_mirror_gain",
+          "driver::singleton::first_stage_telescopic_diffpair"
+        ]
+      },
+      {
+        "candidate_nets": [
+          "outm",
+          "outp"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::output_stage_with_cm_sense",
+          "driver::singleton::output_stage_with_cm_sense"
+        ]
+      },
+      {
+        "candidate_nets": [
+          "vom2",
+          "vop2"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::output_stage_with_cm_sense",
+          "singleton::second_stage_current_mirror_gain",
+          "driver::singleton::second_stage_current_mirror_gain"
+        ]
+      }
+    ]
+  },
+  "level_2_cluster_0": {
+    "net_to_endpoint_blocks": {
+      "net056": [
+        "cmfb3_error_amplifier",
+        "output_stage_with_cm_sense"
+      ],
+      "outm": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "outp": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "vcmfb3": [
+        "cmfb3_error_amplifier",
+        "output_stage_with_cm_sense"
+      ],
+      "vom1": [
+        "cross_coupled_compensation_network",
+        "first_stage_telescopic_diffpair",
+        "second_stage_current_mirror_gain"
+      ],
+      "vom2": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense",
+        "second_stage_current_mirror_gain"
+      ],
+      "vop1": [
+        "cross_coupled_compensation_network",
+        "first_stage_telescopic_diffpair",
+        "second_stage_current_mirror_gain"
+      ],
+      "vop2": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense",
+        "second_stage_current_mirror_gain"
+      ]
+    },
+    "net_to_endpoint_orbit_signature": {
+      "net056": [
+        "singleton::cmfb3_error_amplifier",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "outm": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "outp": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "vcmfb3": [
+        "singleton::cmfb3_error_amplifier",
+        "singleton::output_stage_with_cm_sense"
+      ],
+      "vom1": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::first_stage_telescopic_diffpair",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vom2": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vop1": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::first_stage_telescopic_diffpair",
+        "singleton::second_stage_current_mirror_gain"
+      ],
+      "vop2": [
+        "singleton::cross_coupled_compensation_network",
+        "singleton::output_stage_with_cm_sense",
+        "singleton::second_stage_current_mirror_gain"
+      ]
+    },
+    "net_to_driver_orbit_signature": {
+      "net056": "singleton::output_stage_with_cm_sense",
+      "outm": "singleton::output_stage_with_cm_sense",
+      "outp": "singleton::output_stage_with_cm_sense",
+      "vcmfb3": "singleton::cmfb3_error_amplifier",
+      "vom1": "singleton::first_stage_telescopic_diffpair",
+      "vom2": "singleton::second_stage_current_mirror_gain",
+      "vop1": "singleton::first_stage_telescopic_diffpair",
+      "vop2": "singleton::second_stage_current_mirror_gain"
+    },
+    "structural_symmetric_net_candidates": [
+      {
+        "candidate_nets": [
+          "vom1",
+          "vop1"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::first_stage_telescopic_diffpair",
+          "singleton::second_stage_current_mirror_gain",
+          "driver::singleton::first_stage_telescopic_diffpair"
+        ]
+      },
+      {
+        "candidate_nets": [
+          "outm",
+          "outp"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::output_stage_with_cm_sense",
+          "driver::singleton::output_stage_with_cm_sense"
+        ]
+      },
+      {
+        "candidate_nets": [
+          "vom2",
+          "vop2"
+        ],
+        "endpoint_orbit_signature": [
+          "singleton::cross_coupled_compensation_network",
+          "singleton::output_stage_with_cm_sense",
+          "singleton::second_stage_current_mirror_gain",
+          "driver::singleton::second_stage_current_mirror_gain"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unique_name": "level_1_cluster_0",
+  "children": [
+    {
+      "unique_name": "clocked_dynamic_comparator_latch_core",
+      "children": []
+    },
+    {
+      "unique_name": "dynamic_node_capacitive_loads",
+      "children": []
+    },
+    {
+      "unique_name": "von_cmos_output_buffer",
+      "children": []
+    },
+    {
+      "unique_name": "vop_cmos_output_buffer",
+      "children": []
+    }
+  ]
+}

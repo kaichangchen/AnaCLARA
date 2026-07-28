@@ -1,0 +1,66 @@
+{
+  "level_1": {
+    "node_ids": [
+      "pmos_bias_generator",
+      "complementary_differential_ota_core"
+    ],
+    "clusters": [
+      {
+        "cluster_id": "level_1_cluster_0",
+        "level": 1,
+        "children": [
+          "pmos_bias_generator"
+        ],
+        "avg_internal_similarity": 1.0
+      },
+      {
+        "cluster_id": "level_1_cluster_1",
+        "level": 1,
+        "children": [
+          "complementary_differential_ota_core"
+        ],
+        "avg_internal_similarity": 1.0
+      }
+    ],
+    "affinity_matrix": [
+      [
+        1.0,
+        0.4871790141340586
+      ],
+      [
+        0.4871790141340586,
+        1.0
+      ]
+    ],
+    "normalized_affinity_matrix": [
+      [
+        1.0,
+        0.4871790141340586
+      ],
+      [
+        0.4871790141340586,
+        1.0
+      ]
+    ]
+  },
+  "level_2": {
+    "node_ids": [
+      "level_1_cluster_0",
+      "level_1_cluster_1"
+    ],
+    "clusters": [
+      {
+        "cluster_id": "level_2_cluster_0",
+        "level": 2,
+        "children": [
+          "level_1_cluster_0",
+          "level_1_cluster_1"
+        ],
+        "avg_internal_similarity": null,
+        "synthetic_root": true
+      }
+    ],
+    "affinity_matrix": [],
+    "normalized_affinity_matrix": []
+  }
+}

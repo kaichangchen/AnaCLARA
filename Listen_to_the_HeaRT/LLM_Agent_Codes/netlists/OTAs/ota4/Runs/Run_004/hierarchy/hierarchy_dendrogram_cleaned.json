@@ -1,0 +1,13 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_diode_bias_generator",
+      "children": []
+    },
+    {
+      "unique_name": "complementary_single_ended_ota_core",
+      "children": []
+    }
+  ]
+}

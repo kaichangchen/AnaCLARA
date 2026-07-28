@@ -1,0 +1,148 @@
+{
+  "level_2_cluster_0": {
+    "lca_name": "level_2_cluster_0",
+    "matching_edge_summaries": [
+      {
+        "node_a": "bias_generator_block_ota3",
+        "node_b": "first_stage_telescopic_diffpair",
+        "edge_key": "bias_generator_block_ota3|first_stage_telescopic_diffpair|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M21",
+            "M4",
+            "M96",
+            "M97"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota3",
+        "node_b": "output_stage_with_cm_sense",
+        "edge_key": "bias_generator_block_ota3|output_stage_with_cm_sense|vbp",
+        "net_name": "vbp",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M111",
+            "M14",
+            "M90"
+          ],
+          "typed_signature": [
+            "pch.G-S",
+            "SUPPLY:vdd"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota3",
+        "node_b": "second_stage_current_mirror_gain",
+        "edge_key": "bias_generator_block_ota3|second_stage_current_mirror_gain|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M102",
+            "M18",
+            "M21",
+            "M96",
+            "M97"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "bias_generator_block_ota3",
+        "node_b": "cmfb3_error_amplifier",
+        "edge_key": "bias_generator_block_ota3|cmfb3_error_amplifier|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M105",
+            "M21",
+            "M96",
+            "M97"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "first_stage_telescopic_diffpair",
+        "node_b": "cmfb3_error_amplifier",
+        "edge_key": "cmfb3_error_amplifier|first_stage_telescopic_diffpair|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M105",
+            "M4"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      },
+      {
+        "node_a": "second_stage_current_mirror_gain",
+        "node_b": "cmfb3_error_amplifier",
+        "edge_key": "cmfb3_error_amplifier|second_stage_current_mirror_gain|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M102",
+            "M105",
+            "M18"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  },
+  "level_1_cluster_1": {
+    "lca_name": "level_1_cluster_1",
+    "matching_edge_summaries": [
+      {
+        "node_a": "first_stage_telescopic_diffpair",
+        "node_b": "second_stage_current_mirror_gain",
+        "edge_key": "first_stage_telescopic_diffpair|second_stage_current_mirror_gain|vbn",
+        "net_name": "vbn",
+        "port_type": "dc_bias",
+        "matching_summary": {
+          "matching_group": [
+            "M102",
+            "M18",
+            "M4"
+          ],
+          "typed_signature": [
+            "nch.G-S",
+            "SUPPLY:vss"
+          ],
+          "matched": true
+        }
+      }
+    ]
+  }
+}

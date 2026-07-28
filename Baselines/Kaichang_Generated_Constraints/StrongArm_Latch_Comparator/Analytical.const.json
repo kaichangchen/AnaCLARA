@@ -1,0 +1,48 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "MN2",
+        "MN0"
+      ],
+      [
+        "MN4",
+        "MN3"
+      ],
+      [
+        "MN6",
+        "MN5"
+      ],
+      [
+        "MN7",
+        "MN8"
+      ],
+      [
+        "MN10",
+        "MN9"
+      ],
+      [
+        "C0",
+        "C1"
+      ],
+      [
+        "C2",
+        "C3"
+      ]
+    ]
+  }
+]

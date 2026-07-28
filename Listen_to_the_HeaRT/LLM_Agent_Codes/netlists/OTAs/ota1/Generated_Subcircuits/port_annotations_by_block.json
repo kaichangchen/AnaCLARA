@@ -1,0 +1,160 @@
+{
+  "blocks": [
+    {
+      "id": "first_stage_diffpair_active_load",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "INM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "INP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "intp",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "intm",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "vbias_n",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vcmfb",
+          "port_type": "control_signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VBIAS_P",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "output_stage_half_outm",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "intp",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTM",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "vbias_n",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "output_stage_half_outp",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "intm",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTP",
+          "port_type": "signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "vbias_n",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "cmfb_pmos_diffpair_amp",
+      "class_category": "Amplifier",
+      "port_annotations": [
+        {
+          "port_name": "OUTM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "VREF",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vcmfb",
+          "port_type": "control_signal",
+          "direction": "output"
+        },
+        {
+          "port_name": "VBIAS_P",
+          "port_type": "dc_bias",
+          "direction": "input"
+        }
+      ]
+    },
+    {
+      "id": "bias_generator_vbiasn",
+      "class_category": "Bias Network",
+      "port_annotations": [
+        {
+          "port_name": "VBIAS_P",
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        {
+          "port_name": "vbias_n",
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      ]
+    },
+    {
+      "id": "miller_compensation_network",
+      "class_category": "Miller Compensation",
+      "port_annotations": [
+        {
+          "port_name": "OUTP",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "OUTM",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "intm",
+          "port_type": "signal",
+          "direction": "input"
+        },
+        {
+          "port_name": "intp",
+          "port_type": "signal",
+          "direction": "input"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_diode_bias_generator",
+      "class_category": "Bias Network",
+      "role_hint": "Bias generation network using diode-connected PMOS M6 to establish the PMOS bias voltage ib_sink for the OTA core current-source device.",
+      "role_description": "Bias generation network using diode-connected PMOS M6 to establish the PMOS bias voltage ib_sink for the OTA core current-source device.",
+      "netlist": ".subckt pmos_diode_bias_generator ib_sink vdd\nM6 ib_sink ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\n.ends pmos_diode_bias_generator",
+      "port_info_keyed_by_name": {
+        "ib_sink": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "self_biased_complementary_ota_core",
+      "class_category": "Amplifier",
+      "role_hint": "Main single-ended complementary OTA core. NMOS and PMOS differential input devices process vin and vip, with vo as the single-ended output. M5 receives the external PMOS bias ib_sink, while M2 is an internal self-biased NMOS tail/control device driven by net2.",
+      "role_description": "Main single-ended complementary OTA core. NMOS and PMOS differential input devices process vin and vip, with vo as the single-ended output. M5 receives the external PMOS bias ib_sink, while M2 is an internal self-biased NMOS tail/control device driven by net2.",
+      "netlist": ".subckt self_biased_complementary_ota_core gnd ib_sink vdd vin vip vo\nM2 net1 net2 gnd gnd nch l=ln_tail w=wn_tail m=1 nf=1\nM1 vo vin net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM0 net2 vip net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM5 net3 ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\nM4 vo vin net3 vdd pch l=lp_input w=wp_input m=1 nf=1\nM3 net2 vip net3 vdd pch l=lp_input w=wp_input m=1 nf=1\n.ends self_biased_complementary_ota_core",
+      "port_info_keyed_by_name": {
+        "ib_sink": {
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        "vin": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vip": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vo": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "unique_name": "ota3",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "Fully-Differential OTA Core",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "Amplifier Signal Path",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "first_stage_telescopic_diffpair",
+              "class_category": "Amplifier",
+              "children": []
+            },
+            {
+              "unique_name": "second_stage_current_mirror_gain",
+              "class_category": "Amplifier",
+              "children": []
+            },
+            {
+              "unique_name": "Output Stage (with CMFB3)",
+              "class_category": "Amplifier",
+              "children": [
+                {
+                  "unique_name": "output_stage_with_cm_sense",
+                  "class_category": "Amplifier",
+                  "children": []
+                },
+                {
+                  "unique_name": "cmfb3_error_amplifier",
+                  "class_category": "Feedback",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "unique_name": "cross_coupled_compensation_network",
+              "class_category": "Compensation",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unique_name": "Bias Network",
+      "class_category": "Bias",
+      "children": [
+        {
+          "unique_name": "bias_generator_block_ota3",
+          "class_category": "Bias",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

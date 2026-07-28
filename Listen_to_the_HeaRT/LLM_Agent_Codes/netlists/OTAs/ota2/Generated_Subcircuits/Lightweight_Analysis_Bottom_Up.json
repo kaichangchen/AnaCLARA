@@ -1,0 +1,325 @@
+{
+  "unique_name": "ota2 (Top-Level OTA)",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "Amplifier Signal Path",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "folded_cascode_core_ota2",
+          "children": [],
+          "netlist": ".subckt folded_cascode_core_ota2 GND VDD VIP VIM VO1P VO1M IBIAS NBIAS_TAIL PCAS\nM34 net0130 VIM PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM35 net0132 VIP PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM26 VO1M PCAS net0132 VDD pch_lvt l=240.0n w=4.8u m=26\nM27 VO1P PCAS net0130 VDD pch_lvt l=240.0n w=4.8u m=26\nM10 net0131 VIM NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM8 net0133 VIP NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM17 VO1M IBIAS net0133 GND nch_lvt l=240.0n w=3.6u m=33\nM18 VO1P IBIAS net0131 GND nch_lvt l=240.0n w=3.6u m=33\nM1 NTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=104\nM74 PTAIL net0118 VDD VDD pch_lvt l=120.0n w=1.2u m=40\nR12 net0118 VO1P rppolywo l=139.145u w=400n m=1\nR5 VO1M net0118 rppolywo l=139.145u w=400n m=1\nC1 VO1P net0118 GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC0 net0118 VO1M GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends folded_cascode_core_ota2",
+          "signal_ports": [
+            "VIP",
+            "VIM",
+            "VO1P",
+            "VO1M",
+            "IBIAS",
+            "NBIAS_TAIL",
+            "PCAS"
+          ],
+          "supply_ports": [
+            "VDD",
+            "GND"
+          ],
+          "role_hint": "Main amplifier core: PMOS-input folded-cascode differential stage with NMOS cascodes and PMOS current-source loads; includes first-stage CMFB via R5/R12 and M74 controlling PTAIL to set VO1 common-mode.",
+          "io_interface_type": "diff-in diff-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "Provides the high\u2011gain first stage: a complementary (rail\u2011to\u2011rail) folded\u2011cascode core where PMOS and NMOS input pairs (PTAIL/NTAIL) are folded via PMOS/NMOS cascodes (M26/M27, M17/M18) into high\u2011impedance VO1P/M, with first\u2011stage CMFB (R5/R12, C0/C1) driving PTAIL (M74) to set the internal common\u2011mode.",
+          "device_list": [
+            "M34",
+            "M35",
+            "M26",
+            "M27",
+            "M10",
+            "M8",
+            "M17",
+            "M18",
+            "M1",
+            "M74",
+            "R12",
+            "R5",
+            "C1",
+            "C0"
+          ]
+        },
+        {
+          "unique_name": "Output Stage with CMFB (Closed-Loop)",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "output_stage_pushpull_ota2",
+              "children": [],
+              "netlist": ".subckt output_stage_pushpull_ota2 GND VDD VIP VIM VO1P VO1M VOP VOM INCM2 vtail net0101\nM70 VOM VO1P VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM71 VOP VO1M VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM12 VOP net096 vs GND nch_lvt l=120.0n w=3.6u m=30\nM9 VOM net092 vs GND nch_lvt l=120.0n w=3.6u m=30\nM50 vs vtail GND GND nch_hvt l=120.0n w=3.6u m=40\nR11 net0101 VOM rppolywo l=21.6u w=400n m=1\nR14 VOP net0101 rppolywo l=21.6u w=400n m=1\nC4 net0101 VOP GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC5 VOM net0101 GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM vtail GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nC7 vtail VOP GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nR0 net092 INCM2 rppolywo l=36.0u w=400n m=1\nR13 net096 INCM2 rppolywo l=36.0u w=400n m=1\nC2 VIP net092 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC3 VIM net096 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\n.ends output_stage_pushpull_ota2",
+              "signal_ports": [
+                "VIP",
+                "VIM",
+                "VO1P",
+                "VO1M",
+                "VOP",
+                "VOM",
+                "INCM2",
+                "vtail",
+                "net0101"
+              ],
+              "supply_ports": [
+                "VDD",
+                "GND"
+              ],
+              "role_hint": "Output push-pull stage: PMOS common-source devices driven by VO1 nodes and NMOS pull-downs AC-coupled from VIP/VIM; includes output CM sensing network (R11/R14, C4/C5) to net0101 and vtail coupling caps (C6/C7).",
+              "io_interface_type": "multi-in diff-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Push\u2011pull output driver for the signal path: PMOS common\u2011source pull\u2011ups (M70/M71) driven from VO1P/M and NMOS pull\u2011downs (M9/M12) sharing a controlled tail (M50 via vtail), with NMOS gates AC\u2011coupled from VIP/VIM around INCM2 (R0/R13 with C2/C3) for feed\u2011forward slew/linearity; outputs\u2019 CM is exported to net0101 (R11/R14, C4/C5) and coupled to vtail (C6/C7) for CMFB stability.",
+              "device_list": [
+                "M70",
+                "M71",
+                "M12",
+                "M9",
+                "M50",
+                "R11",
+                "R14",
+                "C4",
+                "C5",
+                "C6",
+                "C7",
+                "R0",
+                "R13",
+                "C2",
+                "C3"
+              ]
+            },
+            {
+              "unique_name": "output_cmfb_block_ota2",
+              "children": [],
+              "netlist": ".subckt output_cmfb_block_ota2 GND VDD NBIAS_TAIL VCM net0101 vtail\nM68 vtail net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM69 net0104 net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM21 net0104 net0101 CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM20 vtail VCM CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM7 CMFBTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\n.ends output_cmfb_block_ota2",
+              "signal_ports": [
+                "NBIAS_TAIL",
+                "VCM",
+                "net0101",
+                "vtail"
+              ],
+              "supply_ports": [
+                "VDD",
+                "GND"
+              ],
+              "role_hint": "Output common-mode feedback: senses output CM via net0101 and compares to VCM; controls vtail to set the output stage\u2019s common-mode. Includes internal PMOS bias ladder (M68/M69) and NMOS tail (M7).",
+              "io_interface_type": "multi-in single-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Output common\u2011mode feedback loop that compares the sensed output CM (net0101) to VCM using an NMOS gain path with tail (M7) and PMOS load ladder (M68/M69), and drives vtail through M20/M21 to regulate the output stage\u2019s common\u2011mode.",
+              "device_list": [
+                "M68",
+                "M69",
+                "M21",
+                "M20",
+                "M7"
+              ]
+            }
+          ],
+          "netlist": ".subckt \"Output Stage with CMFB (Closed-Loop)\" GND VDD VCM VIM VIP VOM VOP\nM70 VOM VO1P VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM71 VOP VO1M VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM12 VOP net096 vs GND nch_lvt l=120.0n w=3.6u m=30\nM9 VOM net092 vs GND nch_lvt l=120.0n w=3.6u m=30\nM50 vs vtail GND GND nch_hvt l=120.0n w=3.6u m=40\nR11 net0101 VOM rppolywo l=21.6u w=400n m=1\nR14 VOP net0101 rppolywo l=21.6u w=400n m=1\nC4 net0101 VOP GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC5 VOM net0101 GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM vtail GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nC7 vtail VOP GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nR0 net092 INCM2 rppolywo l=36.0u w=400n m=1\nR13 net096 INCM2 rppolywo l=36.0u w=400n m=1\nC2 VIP net092 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC3 VIM net096 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM68 vtail net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM69 net0104 net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM21 net0104 net0101 CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM20 vtail VCM CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM7 CMFBTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\n.ends \"Output Stage with CMFB (Closed-Loop)\"",
+          "supply_ports": [
+            "GND",
+            "VDD"
+          ],
+          "signal_ports": [
+            "VCM",
+            "VIM",
+            "VIP",
+            "VOM",
+            "VOP"
+          ],
+          "role_description": "Takes VO1P/M and delivers large\u2011swing differential outputs via PMOS pull\u2011ups and NMOS pull\u2011downs with a shared tail (M50), while a closed\u2011loop CMFB senses the averaged outputs (R11/R14, C4/C5 \u2192 net0101) and adjusts vtail to force the output common\u2011mode to VCM.",
+          "device_list": [
+            "M70",
+            "M71",
+            "M12",
+            "M9",
+            "M50",
+            "R11",
+            "R14",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "R0",
+            "R13",
+            "C2",
+            "C3",
+            "M68",
+            "M69",
+            "M21",
+            "M20",
+            "M7"
+          ]
+        }
+      ],
+      "netlist": ".subckt \"Amplifier Signal Path\" GND VDD IBIAS VCM VIM VIP VOM VOP\nM34 net0130 VIM PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM35 net0132 VIP PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM26 VO1M PCAS net0132 VDD pch_lvt l=240.0n w=4.8u m=26\nM27 VO1P PCAS net0130 VDD pch_lvt l=240.0n w=4.8u m=26\nM10 net0131 VIM NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM8 net0133 VIP NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM17 VO1M IBIAS net0133 GND nch_lvt l=240.0n w=3.6u m=33\nM18 VO1P IBIAS net0131 GND nch_lvt l=240.0n w=3.6u m=33\nM1 NTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=104\nM74 PTAIL net0118 VDD VDD pch_lvt l=120.0n w=1.2u m=40\nR12 net0118 VO1P rppolywo l=139.145u w=400n m=1\nR5 VO1M net0118 rppolywo l=139.145u w=400n m=1\nC1 VO1P net0118 GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC0 net0118 VO1M GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM70 VOM VO1P VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM71 VOP VO1M VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM12 VOP net096 vs GND nch_lvt l=120.0n w=3.6u m=30\nM9 VOM net092 vs GND nch_lvt l=120.0n w=3.6u m=30\nM50 vs vtail GND GND nch_hvt l=120.0n w=3.6u m=40\nR11 net0101 VOM rppolywo l=21.6u w=400n m=1\nR14 VOP net0101 rppolywo l=21.6u w=400n m=1\nC4 net0101 VOP GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC5 VOM net0101 GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM vtail GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nC7 vtail VOP GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nR0 net092 INCM2 rppolywo l=36.0u w=400n m=1\nR13 net096 INCM2 rppolywo l=36.0u w=400n m=1\nC2 VIP net092 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC3 VIM net096 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM68 vtail net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM69 net0104 net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM21 net0104 net0101 CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM20 vtail VCM CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM7 CMFBTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\n.ends \"Amplifier Signal Path\"",
+      "supply_ports": [
+        "GND",
+        "VDD"
+      ],
+      "signal_ports": [
+        "IBIAS",
+        "VCM",
+        "VIM",
+        "VIP",
+        "VOM",
+        "VOP"
+      ],
+      "role_description": "Main signal chain that converts VIP/VIM to VOP/VOM by cascading a high\u2011gain rail\u2011to\u2011rail folded\u2011cascode core (VO1 nodes) with a push\u2011pull output driver, closed by local CMFB at VO1 (PTAIL) and at outputs (vtail) and stabilized by dedicated compensation capacitors.",
+      "device_list": [
+        "M34",
+        "M35",
+        "M26",
+        "M27",
+        "M10",
+        "M8",
+        "M17",
+        "M18",
+        "M1",
+        "M74",
+        "R12",
+        "R5",
+        "C1",
+        "C0",
+        "M70",
+        "M71",
+        "M12",
+        "M9",
+        "M50",
+        "R11",
+        "R14",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "R0",
+        "R13",
+        "C2",
+        "C3",
+        "M68",
+        "M69",
+        "M21",
+        "M20",
+        "M7"
+      ]
+    },
+    {
+      "unique_name": "bias_generator_block_ota2",
+      "children": [],
+      "class_category": "Bias",
+      "netlist": ".subckt bias_generator_block_ota2 GND VDD IBIAS VCM NBIAS_TAIL PCAS INCM2\nM36 net0134 PCAS VDD VDD pch_hvt l=120.0n w=1.2u m=2\nM32 net0136 net077 VDD VDD pch l=120.0n w=1.2u m=6\nM33 net0138 net077 VDD VDD pch l=120.0n w=1.2u m=4\nM24 net077 PCAS net0136 VDD pch_lvt l=120.0n w=1.2u m=6\nM25 INCM2 PCAS net0138 VDD pch_lvt l=120.0n w=1.2u m=4\nM28 PCAS PCAS net0134 VDD pch_lvt l=120.0n w=1.2u m=1\nM2 VN1 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM4 VN2 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM3 net0135 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=5\nM13 net077 VCM net0135 GND nch_lvt l=120.0n w=900n m=5\nM14 INCM2 INCM2 net0137 GND nch_lvt l=240.0n w=600n m=2\nM15 NBIAS_TAIL VCM VN2 GND nch_lvt l=120.0n w=900n m=13\nM16 PCAS VCM VN1 GND nch_lvt l=120.0n w=900n m=13\nM19 IBIAS IBIAS NBIAS_TAIL GND nch_lvt l=120.0n w=900n m=11\nM6 net0137 INCM2 GND GND nch_hvt l=240.0n w=600n m=2\n.ends bias_generator_block_ota2",
+      "signal_ports": [
+        "IBIAS",
+        "VCM",
+        "NBIAS_TAIL",
+        "PCAS",
+        "INCM2"
+      ],
+      "supply_ports": [
+        "VDD",
+        "GND"
+      ],
+      "role_hint": "Bias generation network producing stable bias nodes: NBIAS_TAIL (NMOS bias), PCAS (PMOS cascode bias), and INCM2 (gate bias for output NMOS), derived from IBIAS and VCM using cascoded PMOS/NMOS diode structures.",
+      "io_interface_type": "bias_only",
+      "is_analog": "True",
+      "is_digital": "False",
+      "role_description": "On\u2011chip bias network generating NBIAS_TAIL (NMOS tails), PCAS (PMOS cascode bias), and INCM2 (output NMOS gate bias) from IBIAS and VCM via cascoded diode\u2011connected NMOS/PMOS stacks, ensuring tracking, headroom control, and stable operating points for all amplifier stages.",
+      "device_list": [
+        "M36",
+        "M32",
+        "M33",
+        "M24",
+        "M25",
+        "M28",
+        "M2",
+        "M4",
+        "M3",
+        "M13",
+        "M14",
+        "M15",
+        "M16",
+        "M19",
+        "M6"
+      ]
+    }
+  ],
+  "port_names": [
+    "GND",
+    "IBIAS",
+    "VCM",
+    "VDD",
+    "VIM",
+    "VIP",
+    "VOM",
+    "VOP"
+  ],
+  "netlist": ".subckt \"ota2 (Top-Level OTA)\" GND VDD IBIAS VCM VIM VIP VOM VOP\nM34 net0130 VIM PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM35 net0132 VIP PTAIL VDD pch_lvt l=240.0n w=3.6u m=24\nM26 VO1M PCAS net0132 VDD pch_lvt l=240.0n w=4.8u m=26\nM27 VO1P PCAS net0130 VDD pch_lvt l=240.0n w=4.8u m=26\nM10 net0131 VIM NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM8 net0133 VIP NTAIL GND nch_lvt l=240.0n w=3.6u m=32\nM17 VO1M IBIAS net0133 GND nch_lvt l=240.0n w=3.6u m=33\nM18 VO1P IBIAS net0131 GND nch_lvt l=240.0n w=3.6u m=33\nM1 NTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=104\nM74 PTAIL net0118 VDD VDD pch_lvt l=120.0n w=1.2u m=40\nR12 net0118 VO1P rppolywo l=139.145u w=400n m=1\nR5 VO1M net0118 rppolywo l=139.145u w=400n m=1\nC1 VO1P net0118 GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC0 net0118 VO1M GND cfmom nr=60 lr=8.2u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM70 VOM VO1P VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM71 VOP VO1M VDD VDD pch_lvt l=120.0n w=2.4u m=20\nM12 VOP net096 vs GND nch_lvt l=120.0n w=3.6u m=30\nM9 VOM net092 vs GND nch_lvt l=120.0n w=3.6u m=30\nM50 vs vtail GND GND nch_hvt l=120.0n w=3.6u m=40\nR11 net0101 VOM rppolywo l=21.6u w=400n m=1\nR14 VOP net0101 rppolywo l=21.6u w=400n m=1\nC4 net0101 VOP GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC5 VOM net0101 GND cfmom nr=32 lr=1.5u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC6 VOM vtail GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nC7 vtail VOP GND cfmom nr=32 lr=2.7u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n \nR0 net092 INCM2 rppolywo l=36.0u w=400n m=1\nR13 net096 INCM2 rppolywo l=36.0u w=400n m=1\nC2 VIP net092 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nC3 VIM net096 GND cfmom nr=120 lr=18.0u w=70n s=70n stm=1 spm=6 m=1 ftip=140.0n\nM68 vtail net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM69 net0104 net0104 VDD VDD pch_lvt l=120.0n w=1.2u m=6\nM21 net0104 net0101 CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM20 vtail VCM CMFBTAIL GND nch_lvt l=120.0n w=900n m=6\nM7 CMFBTAIL NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM36 net0134 PCAS VDD VDD pch_hvt l=120.0n w=1.2u m=2\nM32 net0136 net077 VDD VDD pch l=120.0n w=1.2u m=6\nM33 net0138 net077 VDD VDD pch l=120.0n w=1.2u m=4\nM24 net077 PCAS net0136 VDD pch_lvt l=120.0n w=1.2u m=6\nM25 INCM2 PCAS net0138 VDD pch_lvt l=120.0n w=1.2u m=4\nM28 PCAS PCAS net0134 VDD pch_lvt l=120.0n w=1.2u m=1\nM2 VN1 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM4 VN2 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=13\nM3 net0135 NBIAS_TAIL GND GND nch_lvt l=120.0n w=900n m=5\nM13 net077 VCM net0135 GND nch_lvt l=120.0n w=900n m=5\nM14 INCM2 INCM2 net0137 GND nch_lvt l=240.0n w=600n m=2\nM15 NBIAS_TAIL VCM VN2 GND nch_lvt l=120.0n w=900n m=13\nM16 PCAS VCM VN1 GND nch_lvt l=120.0n w=900n m=13\nM19 IBIAS IBIAS NBIAS_TAIL GND nch_lvt l=120.0n w=900n m=11\nM6 net0137 INCM2 GND GND nch_hvt l=240.0n w=600n m=2\n.ends \"ota2 (Top-Level OTA)\"",
+  "supply_ports": [
+    "GND",
+    "VDD"
+  ],
+  "signal_ports": [
+    "IBIAS",
+    "VCM",
+    "VIM",
+    "VIP",
+    "VOM",
+    "VOP"
+  ],
+  "role_description": "Fully differential, rail-to-rail input OTA using a complementary folded-cascode front end followed by a push\u2013pull output stage, with dual common\u2011mode feedback loops and on\u2011chip biasing to achieve high open\u2011loop gain, wide output swing, and regulated output common\u2011mode.",
+  "device_list": [
+    "M34",
+    "M35",
+    "M26",
+    "M27",
+    "M10",
+    "M8",
+    "M17",
+    "M18",
+    "M1",
+    "M74",
+    "R12",
+    "R5",
+    "C1",
+    "C0",
+    "M70",
+    "M71",
+    "M12",
+    "M9",
+    "M50",
+    "R11",
+    "R14",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "R0",
+    "R13",
+    "C2",
+    "C3",
+    "M68",
+    "M69",
+    "M21",
+    "M20",
+    "M7",
+    "M36",
+    "M32",
+    "M33",
+    "M24",
+    "M25",
+    "M28",
+    "M2",
+    "M4",
+    "M3",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M19",
+    "M6"
+  ]
+}

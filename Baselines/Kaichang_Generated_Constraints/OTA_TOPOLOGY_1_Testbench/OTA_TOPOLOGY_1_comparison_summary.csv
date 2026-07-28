@@ -1,0 +1,7 @@
+Method,# Constraints,# Constraint Types,LLM Calls,Total Tokens,Runtime (s)
+This work,29,9,1,9886,70.89472794532776
+Graph-based,2,2,0,0,0.0
+Full LLM,28,12,0,10701,78.70425176620483
+GENIE-ASI,6,4,0,0,0.0015568733215332031
+AnyGraph ZS,9,9,0,0,0.07479476928710938
+AnyGraph FT,9,9,0,0,0.0

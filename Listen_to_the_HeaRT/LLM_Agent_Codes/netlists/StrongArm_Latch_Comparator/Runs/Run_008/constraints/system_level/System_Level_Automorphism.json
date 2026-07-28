@@ -1,0 +1,11 @@
+{
+  "level_1_cluster_0": {
+    "candidate_system_level_symmetry_groups": [
+      [
+        "von_cmos_output_inverter",
+        "vop_cmos_output_inverter"
+      ]
+    ],
+    "has_nontrivial_symmetry": true
+  }
+}

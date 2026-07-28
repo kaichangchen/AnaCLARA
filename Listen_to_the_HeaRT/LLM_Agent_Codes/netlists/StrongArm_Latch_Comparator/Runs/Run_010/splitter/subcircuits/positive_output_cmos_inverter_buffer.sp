@@ -1,0 +1,4 @@
+.subckt positive_output_cmos_inverter_buffer vss vdd Vx Vop
+M17 Vop Vx vdd vdd pmos w=120n l=60n nf=1 m=1
+M2 Vop Vx vss vss nmos w=120n l=60n nf=1 m=1
+.ends positive_output_cmos_inverter_buffer

@@ -1,0 +1,80 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_sc_cell",
+    "instances": [
+      "m23",
+      "c0",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "ClockPorts",
+    "ports": [
+      "vss",
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "outp",
+    "net2": "outm",
+    "direction": "v"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m23",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m23",
+      "m25"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m23",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c0",
+      "c1"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "outp",
+      "outm",
+      "intm",
+      "intp"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

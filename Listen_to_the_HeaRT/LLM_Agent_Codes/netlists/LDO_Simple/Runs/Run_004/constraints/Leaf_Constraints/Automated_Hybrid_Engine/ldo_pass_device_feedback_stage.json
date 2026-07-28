@@ -1,0 +1,100 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_rdiv",
+    "instances": [
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "r1",
+      "r2"
+    ],
+    "line": "bottom",
+    "direction": "vertical"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_res_chain",
+    "instances": [
+      "r1",
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "r1",
+      "r1",
+      "r2"
+    ],
+    "line": "bottom",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r1",
+      "r1",
+      "r2"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_sc_cell",
+    "instances": [
+      "m0",
+      "c0",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "ClockPorts",
+    "ports": [
+      "net2",
+      "clkb"
+    ]
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net2"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo",
+      "fb"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

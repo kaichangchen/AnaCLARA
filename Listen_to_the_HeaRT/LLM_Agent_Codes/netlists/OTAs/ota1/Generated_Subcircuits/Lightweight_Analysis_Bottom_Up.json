@@ -1,0 +1,282 @@
+{
+  "unique_name": "ota1",
+  "class_category": "Amplifier",
+  "children": [
+    {
+      "unique_name": "OTA Core (Differential Signal Path)",
+      "class_category": "Amplifier",
+      "children": [
+        {
+          "unique_name": "first_stage_diffpair_active_load",
+          "children": [],
+          "class_category": "Amplifier",
+          "netlist": ".subckt first_stage_diffpair_active_load INM INP intp intm vbias_n vcmfb VBIAS_P VDD VSS\nMP1b intp VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nMP1a intm VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nM10 net7 vbias_n VSS VSS nch_lvt l=120.0n w=2u m=16\nM11 net7 vcmfb VSS VSS nch_lvt l=120.0n w=2u m=4\nM0 intp INM net7 VSS nch_25ud18 l=500n w=5u m=12\nM2 intm INP net7 VSS nch_25ud18 l=500n w=5u m=12\n.ends first_stage_diffpair_active_load",
+          "signal_ports": [
+            "INM",
+            "INP",
+            "intp",
+            "intm",
+            "vbias_n",
+            "vcmfb",
+            "VBIAS_P"
+          ],
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "role_hint": "Differential NMOS input stage with PMOS active-load current sources; tail current includes CMFB-controlled branch.",
+          "io_interface_type": "diff-in diff-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "NMOS differential input pair with PMOS current-source active loads generating high-impedance nodes intp/intm; tail current set by vbias_n and modulated by vcmfb for common-mode control.",
+          "device_list": [
+            "MP1b",
+            "MP1a",
+            "M10",
+            "M11",
+            "M0",
+            "M2"
+          ]
+        },
+        {
+          "unique_name": "Second Stage Output Drivers",
+          "class_category": "Amplifier",
+          "children": [
+            {
+              "unique_name": "output_stage_half_outp",
+              "children": [],
+              "netlist": ".subckt output_stage_half_outp intm OUTP vbias_n VDD VSS\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outp",
+              "signal_ports": [
+                "intm",
+                "OUTP",
+                "vbias_n"
+              ],
+              "supply_ports": [
+                "VDD",
+                "VSS"
+              ],
+              "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTP.",
+              "io_interface_type": "single-in single-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Per-half PMOS common-source second stage that amplifies intm and sources current to OUTP; an NMOS sink at vbias_n provides pull-down and bias, yielding gain and drive capability.",
+              "device_list": [
+                "M3",
+                "M6"
+              ]
+            },
+            {
+              "unique_name": "output_stage_half_outm",
+              "children": [],
+              "netlist": ".subckt output_stage_half_outm intp OUTM vbias_n VDD VSS\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outm",
+              "signal_ports": [
+                "intp",
+                "OUTM",
+                "vbias_n"
+              ],
+              "supply_ports": [
+                "VDD",
+                "VSS"
+              ],
+              "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTM.",
+              "io_interface_type": "single-in single-out",
+              "is_analog": "True",
+              "is_digital": "False",
+              "role_description": "Per-half PMOS common-source second stage that amplifies intp and sources current to OUTM; an NMOS sink at vbias_n provides pull-down and bias, yielding gain and drive capability.",
+              "device_list": [
+                "M1",
+                "M9"
+              ]
+            }
+          ],
+          "netlist": ".subckt \"Second Stage Output Drivers\" VDD VSS OUTM OUTP\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends \"Second Stage Output Drivers\"",
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "signal_ports": [
+            "OUTM",
+            "OUTP"
+          ],
+          "role_description": "Differential PMOS common-source second stage providing additional gain and output drive; each half uses a PMOS driver and constant NMOS sink (vbias_n) to convert intp/intm into rail-referenced OUTM/OUTP.",
+          "device_list": [
+            "M3",
+            "M6",
+            "M1",
+            "M9"
+          ]
+        },
+        {
+          "unique_name": "miller_compensation_network",
+          "children": [],
+          "netlist": ".subckt miller_compensation_network OUTP OUTM intm intp VDD VSS\nM23 net047 VSS intm VDD pch_lvt l=120.0n w=2u m=12\nM25 net037 VSS intp VDD pch_lvt l=120.0n w=2u m=12\nC0 OUTP net047 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nC1 OUTM net037 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\n.ends miller_compensation_network",
+          "signal_ports": [
+            "OUTP",
+            "OUTM",
+            "intm",
+            "intp"
+          ],
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "role_hint": "Miller compensation network coupling outputs to internal high-impedance nodes via always-on PMOS pass devices and metal capacitors.",
+          "io_interface_type": "diff-in diff-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "Dual Miller capacitors from OUTP/OUTM to intm/intp via always-on PMOS pseudo-resistors, implementing pole-splitting and a controlled zero for stable two-stage OTA operation.",
+          "device_list": [
+            "M23",
+            "M25",
+            "C0",
+            "C1"
+          ]
+        },
+        {
+          "unique_name": "cmfb_pmos_diffpair_amp",
+          "children": [],
+          "netlist": ".subckt cmfb_pmos_diffpair_amp OUTM OUTP VREF vcmfb VBIAS_P VDD VSS\nM20 net028 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nMP1c net020 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM18 vcmfb OUTM net028 VDD pch_lvt l=120.0n w=2u m=8\nM15 vcmfb OUTP net020 VDD pch_lvt l=120.0n w=2u m=8\nM19 net025 VREF net028 VDD pch_lvt l=120.0n w=2u m=8\nM17 net025 VREF net020 VDD pch_lvt l=120.0n w=2u m=8\nM13 vcmfb vcmfb VSS VSS nch_lvt l=120.0n w=2u m=2\nM12 net025 net025 VSS VSS nch_lvt l=120.0n w=2u m=2\n.ends cmfb_pmos_diffpair_amp",
+          "signal_ports": [
+            "OUTM",
+            "OUTP",
+            "VREF",
+            "vcmfb",
+            "VBIAS_P"
+          ],
+          "supply_ports": [
+            "VDD",
+            "VSS"
+          ],
+          "role_hint": "Common-mode feedback engine using duplicated PMOS differential pairs comparing OUTP/OUTM against VREF to generate vcmfb; includes local PMOS current sources.",
+          "io_interface_type": "diff-in single-out",
+          "is_analog": "True",
+          "is_digital": "False",
+          "role_description": "PMOS-sensing CMFB amplifier that compares output common-mode against VREF and drives vcmfb to adjust the first-stage tail current, centering OUTP/OUTM around VREF with local PMOS current sources and a MOS pseudo-reference clamp.",
+          "device_list": [
+            "M20",
+            "MP1c",
+            "M18",
+            "M15",
+            "M19",
+            "M17",
+            "M13",
+            "M12"
+          ]
+        }
+      ],
+      "netlist": ".subckt \"OTA Core (Differential Signal Path)\" VDD VSS INM INP OUTM OUTP VBIAS_P VREF\nMP1b intp VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nMP1a intm VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nM10 net7 vbias_n VSS VSS nch_lvt l=120.0n w=2u m=16\nM11 net7 vcmfb VSS VSS nch_lvt l=120.0n w=2u m=4\nM0 intp INM net7 VSS nch_25ud18 l=500n w=5u m=12\nM2 intm INP net7 VSS nch_25ud18 l=500n w=5u m=12\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\nM23 net047 VSS intm VDD pch_lvt l=120.0n w=2u m=12\nM25 net037 VSS intp VDD pch_lvt l=120.0n w=2u m=12\nC0 OUTP net047 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nC1 OUTM net037 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nM20 net028 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nMP1c net020 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM18 vcmfb OUTM net028 VDD pch_lvt l=120.0n w=2u m=8\nM15 vcmfb OUTP net020 VDD pch_lvt l=120.0n w=2u m=8\nM19 net025 VREF net028 VDD pch_lvt l=120.0n w=2u m=8\nM17 net025 VREF net020 VDD pch_lvt l=120.0n w=2u m=8\nM13 vcmfb vcmfb VSS VSS nch_lvt l=120.0n w=2u m=2\nM12 net025 net025 VSS VSS nch_lvt l=120.0n w=2u m=2\n.ends \"OTA Core (Differential Signal Path)\"",
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "signal_ports": [
+        "INM",
+        "INP",
+        "OUTM",
+        "OUTP",
+        "VBIAS_P",
+        "VREF"
+      ],
+      "role_description": "Main differential signal path of a fully differential two-stage OTA: NMOS input pair with PMOS active loads feeds PMOS common-source output drivers; Miller RC compensation ensures stability and a PMOS-based CMFB loop sets output common-mode to VREF.",
+      "device_list": [
+        "MP1b",
+        "MP1a",
+        "M10",
+        "M11",
+        "M0",
+        "M2",
+        "M3",
+        "M6",
+        "M1",
+        "M9",
+        "M23",
+        "M25",
+        "C0",
+        "C1",
+        "M20",
+        "MP1c",
+        "M18",
+        "M15",
+        "M19",
+        "M17",
+        "M13",
+        "M12"
+      ]
+    },
+    {
+      "unique_name": "bias_generator_vbiasn",
+      "children": [],
+      "class_category": "Bias",
+      "netlist": ".subckt bias_generator_vbiasn VBIAS_P vbias_n VDD VSS\nM5 VBIAS_P VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM7 vbias_n VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM4 vbias_n vbias_n VSS VSS nch_lvt l=120.0n w=2u m=4\n.ends bias_generator_vbiasn",
+      "signal_ports": [
+        "VBIAS_P",
+        "vbias_n"
+      ],
+      "supply_ports": [
+        "VDD",
+        "VSS"
+      ],
+      "role_hint": "Generates NMOS bias voltage vbias_n from external PMOS bias VBIAS_P via a PMOS mirror into a diode-connected NMOS.",
+      "io_interface_type": "bias_only",
+      "is_analog": "True",
+      "is_digital": "False",
+      "role_description": "On-chip bias that mirrors external VBIAS_P through a PMOS into a diode-connected NMOS to produce vbias_n, setting NMOS sink currents for the OTA stages.",
+      "device_list": [
+        "M5",
+        "M7",
+        "M4"
+      ]
+    }
+  ],
+  "port_names": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBIAS_P",
+    "VDD",
+    "VREF",
+    "VSS"
+  ],
+  "netlist": ".subckt \"ota1\" VDD VSS INM INP OUTM OUTP VBIAS_P VREF\nMP1b intp VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nMP1a intm VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nM10 net7 vbias_n VSS VSS nch_lvt l=120.0n w=2u m=16\nM11 net7 vcmfb VSS VSS nch_lvt l=120.0n w=2u m=4\nM0 intp INM net7 VSS nch_25ud18 l=500n w=5u m=12\nM2 intm INP net7 VSS nch_25ud18 l=500n w=5u m=12\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\nM23 net047 VSS intm VDD pch_lvt l=120.0n w=2u m=12\nM25 net037 VSS intp VDD pch_lvt l=120.0n w=2u m=12\nC0 OUTP net047 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nC1 OUTM net037 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nM20 net028 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nMP1c net020 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM18 vcmfb OUTM net028 VDD pch_lvt l=120.0n w=2u m=8\nM15 vcmfb OUTP net020 VDD pch_lvt l=120.0n w=2u m=8\nM19 net025 VREF net028 VDD pch_lvt l=120.0n w=2u m=8\nM17 net025 VREF net020 VDD pch_lvt l=120.0n w=2u m=8\nM13 vcmfb vcmfb VSS VSS nch_lvt l=120.0n w=2u m=2\nM12 net025 net025 VSS VSS nch_lvt l=120.0n w=2u m=2\nM5 VBIAS_P VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM7 vbias_n VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM4 vbias_n vbias_n VSS VSS nch_lvt l=120.0n w=2u m=4\n.ends \"ota1\"",
+  "supply_ports": [
+    "VDD",
+    "VSS"
+  ],
+  "signal_ports": [
+    "INM",
+    "INP",
+    "OUTM",
+    "OUTP",
+    "VBIAS_P",
+    "VREF"
+  ],
+  "role_description": "Fully differential two-stage OTA with PMOS second stage, Miller RC compensation, and PMOS-sensing CMFB (referenced to VREF), including an on-chip generator for vbias_n from VBIAS_P.",
+  "device_list": [
+    "MP1b",
+    "MP1a",
+    "M10",
+    "M11",
+    "M0",
+    "M2",
+    "M3",
+    "M6",
+    "M1",
+    "M9",
+    "M23",
+    "M25",
+    "C0",
+    "C1",
+    "M20",
+    "MP1c",
+    "M18",
+    "M15",
+    "M19",
+    "M17",
+    "M13",
+    "M12",
+    "M5",
+    "M7",
+    "M4"
+  ]
+}

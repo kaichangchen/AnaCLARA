@@ -1,0 +1,145 @@
+[
+  {
+    "constraint": "GroupCaps",
+    "name": "cap_dac",
+    "instances": [
+      "c4",
+      "c5",
+      "c6",
+      "c7",
+      "c2",
+      "c3",
+      "c6",
+      "c7"
+    ],
+    "unit_cap": "100",
+    "num_units": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dummy": true
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_sc_cell",
+    "instances": [
+      "m12",
+      "c2",
+      "m9"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m12",
+        "m9"
+      ]
+    ]
+  },
+  {
+    "constraint": "ClockPorts",
+    "ports": [
+      "net096",
+      "net092"
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net092",
+    "net2": "net096",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vom",
+    "net2": "vop",
+    "direction": "v"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m70",
+        "m71"
+      ],
+      [
+        "m9",
+        "m12"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m70",
+      "m71"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m12",
+      "m9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r11",
+      "r14"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r0",
+      "r13"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo1p",
+      "vo1m",
+      "vtail"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vip",
+      "vim",
+      "vop",
+      "vom",
+      "incm2",
+      "net0101"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

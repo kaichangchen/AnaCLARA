@@ -1,0 +1,72 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "net056",
+      "driver_block_name": "output_stage_with_cm_sense",
+      "load_block_names": [
+        "cmfb3_error_amplifier"
+      ],
+      "reason": "Output stage provides the sensed output common-mode via its divider; the CMFB error amplifier receives it."
+    },
+    {
+      "net_name": "outm",
+      "driver_block_name": "output_stage_with_cm_sense",
+      "load_block_names": [
+        "cross_coupled_compensation_network"
+      ],
+      "reason": "Output stage drives the output node; the cross-coupled compensation network is a passive load."
+    },
+    {
+      "net_name": "outp",
+      "driver_block_name": "output_stage_with_cm_sense",
+      "load_block_names": [
+        "cross_coupled_compensation_network"
+      ],
+      "reason": "Output stage drives the output node; the cross-coupled compensation network is a passive load."
+    },
+    {
+      "net_name": "vcmfb3",
+      "driver_block_name": "cmfb3_error_amplifier",
+      "load_block_names": [
+        "output_stage_with_cm_sense"
+      ],
+      "reason": "The CMFB3 error amplifier generates VCMFB3 to control the output stage."
+    },
+    {
+      "net_name": "vom1",
+      "driver_block_name": "first_stage_telescopic_diffpair",
+      "load_block_names": [
+        "cross_coupled_compensation_network",
+        "second_stage_current_mirror_gain"
+      ],
+      "reason": "First stage outputs feed the second stage; compensation network is passive."
+    },
+    {
+      "net_name": "vom2",
+      "driver_block_name": "second_stage_current_mirror_gain",
+      "load_block_names": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "reason": "Second stage outputs drive the output stage inputs; compensation network is passive."
+    },
+    {
+      "net_name": "vop1",
+      "driver_block_name": "first_stage_telescopic_diffpair",
+      "load_block_names": [
+        "cross_coupled_compensation_network",
+        "second_stage_current_mirror_gain"
+      ],
+      "reason": "First stage outputs feed the second stage; compensation network is passive."
+    },
+    {
+      "net_name": "vop2",
+      "driver_block_name": "second_stage_current_mirror_gain",
+      "load_block_names": [
+        "cross_coupled_compensation_network",
+        "output_stage_with_cm_sense"
+      ],
+      "reason": "Second stage outputs drive the output stage inputs; compensation network is passive."
+    }
+  ]
+}

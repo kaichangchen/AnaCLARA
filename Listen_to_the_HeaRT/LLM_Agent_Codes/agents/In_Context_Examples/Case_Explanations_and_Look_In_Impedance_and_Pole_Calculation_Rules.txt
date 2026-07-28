@@ -1,0 +1,198 @@
+## REFERENCE (GUIDE) SHEET FOR POLE CALCULATION AT EACH NODE:
+
+Assumptions (unless stated): devices in saturation, AC test at low freq, supplies and stiff biases are AC-ground/AC-stiff, gm*ro >> 1, body effect optional (use gm_eff = gm + gmb if needed).
+Notation: “||” = parallel, “~” = first-order/approximately equal to, ro(MK) = output resistance of MK, gm(MK) = transconductance of MK, r_look(X -> rail) = collapsed effective small-signal resistance seen from node X toward the rail or some node AC-stiff wrt X. 
+
+
+# Given we are computing the look-in resistance for a branch at node N:
+
+*# Important Notes: #*
+    * Only perturb node N for look-in resistance calculation at N. Ignore perturbations at other nodes or differential inputs.
+    * "AC-stiff” means does not respond to a perturbation at N. Same as "AC-Stiff" wrt N.
+    * Rails (VDD/VSS, DC bias sources, ideal supplies) are always AC-stiff wrt N.
+    * When applying these rules, focus only on one branch at a time. Ignore devices in other branches until the very end when branches are combined in parallel.
+
+
+** Branch-by-branch look-in resistance evaluation rule: Always compute the look-in resistance along one branch at a time.
+
+### GENERAL REDUCTION IDEA IN A GIVEN BRANCH (use everywhere):
+
+- If a branch from node N to a rail has more than one element, first collapse everything between the nearest device and the rail into an effective resistance seen at that device’s source/drain node.
+- Name that collapsed value r_look(X -> rail): the small-signal resistance seen from node X toward a rail or a node AC-stiff wrt X (with the opposite side opened/ turned off).
+- Do this recursively for 2, 3, … N stacked devices or folded paths.
+- Then apply the appropriate two-device case at node N using r_look between the device and the rail.
+
+### ** Case-by-Case Resistance Formulas ** ###
+
+* Case `CASE_SUPPLY`:
+Topology: Node tied to rail
+
+Formula:
+R_branch = 0
+
+
+* Case `CASE_SINGLE_RO`: 
+Example (Looking into node N = drain of MK):
+MK N G S B type ; G and S are AC-stiff wrt N
+
+Formula:
+R_branch(N -> rail) ~ ro(MK)
+
+Notes:
+- Gate and Source AC-stiff w.r.t. N (doesn’t move when N is small-signal perturbed).
+- If the gate is tied (directly/indirectly) to N, treat this MOSFET as diode connected and refer to Case `CASE_DIODE_CONNECTED_MOSFET` for look-in resisance calculation.
+
+
+* Case `CASE_CLASSIC_CASCODE`:
+Topology (look into N = drain of C; source(C)=drain(D)=X):
+Md X Gd S rail type
+Mc N Gc X rail type; (Gc, Gd and S are AC-stiff wrt N)
+
+Key point about node S and “what’s between D and rail”:
+- If S is the rail (or any node AC-stiff wrt N), then r_look(X -> rail) ~ ro(Md)
+- If S is not AC-stiff wrt N (i.e., more circuitry between D and rail), first compute r_look(X -> rail) by collapsing the network between X and rail (finite tails -> see Case `CASE_SOURCE_DEGENERATION`; longer stacks -> see Case `CASE_RECURSIVE_COLLAPSE`):
+
+General two-device expression:
+R_branch(N -> rail) ~ ro(Mc) + (1 + gm(Mc)*ro(Mc)) * r_look(X -> rail)
+
+Engineer’s approximation (gm(Mc)*ro(Mc) >> 1):
+R_branch(N -> rail) ~ gm(Mc)*ro(Mc)*r_look(X -> rail)
+
+
+Gate(D) condition:
+For Case `CASE_CLASSIC_CASCODE`, Gate(D) is not driven by N (it is AC-stiff w.r.t. N). If Gate(D) = N (feedback) use Case `CASE_GATE_FEEDBACK_CASCODE`.
+
+
+* Case `CASE_GATE_FEEDBACK_CASCODE`:
+Topology (look into N; N also drives Gd; NOT diode-connected):
+Md X Gd=N S rail type
+Mc N Gc X rail type ; Gc AC-stiff
+
+Key point about node S and “what’s between D and rail”:
+- If S is AC-stiff wrt N, then r_look(X -> rail) ~ ro(Md).
+Clarification: r_look is defined as the resistance of the lower network alone seen from X toward the rail. It is computed before accounting for the feedback from N. The feedback effect of D’s transconductance appears later as the *(1 + gm(Md)r_look) divisor as explained below.
+
+- If S is not AC-stiff wrt N -> compute r_look(X -> rail) for the lower network first (includes tails/folds/etc.).
+
+General expression (use r_look below Mc):
+R_branch(N -> rail) ~ [ gm(Mc)*ro(Mc)*r_look(X -> rail) ] / [ 1 + gm(Md)*r_look(X -> rail) ]
+
+Useful limits (Engineering Approximations):
+- Weak feedback: gm(Md)*r_look << 1 -> R_branch ~ gm(Mc)*ro(Mc)*r_look (reduces to Case `CASE_CLASSIC_CASCODE`)
+- Strong feedback: gm(Md)*r_look >> 1 -> R_branch ~ (gm(Mc)/gm(Md)) * ro(Mc) (boost is clamped)
+
+Common occurrence: mirror-gate nodes (e.g., telescopic/folded OTA bias-gate nodes).
+If gate of C is not AC-stiff and also driven by N, then C becomes diode-connected. Refer to Case`CASE_DIODE_CONNECTED_MOSFET` for such cases.
+
+* Case `CASE_DIODE_CONNECTED_MOSFET`:
+Topology (look into N at the diode node):
+MK N N S rail type ; Drain = Gate and 
+
+- Sub-case 1: When S is AC-stiff wrt N:
+
+Formula:
+R_branch(N -> rail) ~ (1 / (gm(MK) + gmb(MK) (if body bias applicable))) || ro(MK) ~ 1 / gm(MK)
+
+Very low Rin; quickly collapses would-be high-Z nodes.
+
+- Sub-case 2: If the diode-connected MOSFET has a source non-AC-stiff wrt N:
+If Source not AC-stiff wrt N, first collapse the network from S -> rail to get r_look(S -> rail) := ro_tail.
+
+Formula: 
+The effective small-signal resistance seen at the diode node (drain=gate) then becomes:
+R_branch ~ ro_tail  +  1 / (gm(Md))
+
+Intuition: a diode-connected MOS acts like ~1/gm in series with whatever the source “sees” (ro_tail).
+
+
+* Case `CASE_SOURCE_DEGENERATION`:
+
+Topology (N seen through Md; Md’s source S has ro_tail to the rail):
+Md N G S rail type
+ro_tail from S to rail (or an equivalent lower network)
+
+Small-signal reduction (drain view of Md):
+R_branch = ro_eff(at drain of Md) ~ ro(Md) + (1 + gm(Md)*ro(Md)) * ro_tail
+
+
+Notes:
+- ro_tail can itself be a collapsed network (e.g., finite current-source ro, folded branch, resistor, etc.).
+- Use this formula whenever there are multiple devices between the first device in the branch and the rail.
+- When computing the branch’s resistance to the rail via the collapse technique, replace ro(Md) with ro_eff as the effective r_look(X -> rail) seen from Md’s source junction (X).
+
+Important:
+- This ro_eff formula assumes Gate(Md) is AC-stiff w.r.t. N.
+- If Gate(Md) is driven by N (Gate(Md)=N), you are in Case `CASE_DIODE_CONNECTED_MOSFET`: 
+    Use ro_eff(at drain of Md) = ro_tail + 1/gm(Md) as stated in Sub-case 2 in detail.
+
+
+* Case `CASE_SOURCE_FOLLOWER`: 
+
+Topology (look into S of Mf; gate G is AC-stiff; drain D may or may not be AC-stiff):
+Mf D G S rail type ; test at S
+
+Rules of thumb:
+* Drain D AC-stiff Case:
+
+Rin_into_source (stiff drain) ~ 1 / (gm(Mf) + gmb(Mf))
+(If body tied to source → gmb ~ 0 -> Rin ~ 1/gm.)
+
+* Non-AC-stiff drain (finite resistance from D to a rail or network):
+Let r_look(D -> rail) be the look-in external small-signal resistance seen from the drain to the rail (i.e., excluding the device’s own ro):
+	
+Source follower look-in imepedance:
+R_branch = Rin_into_source ~ (ro + r_look(D -> rail))/(1 + gm*ro)
+
+Following small signal equivalent circuit analysis.
+
+
+* Case `CASE_RECURSIVE_COLLAPSE`: More than two MOS devices stacked in series; recursively collapse and reapply rules.
+N-device cascode stack (quick collapse recipe):
+
+Assume an NMOS stack to the bottom rail (for PMOS, swap “top” <-> “bottom” and “VSS”rail <-> “VDD” rail).
+
+For a stack toward a rail: C1 over C2 over … over D (top to bottom), with cascode gates AC-stiff and no gate-feedback ties:
+
+** Initialize from the bottom device (device closest to the rail):
+
+- If D’s source is the rail:
+r_below := ro(D) (or ro_eff(D) if there is a finite tail -> use Case `CASE_SOURCE_DEGENERATION`).
+
+** Move upward (farther from the rail) one device at a time (from bottom -> top (farther from the rail and closer to the perturbation node)):
+For each upper device Mk (k from D+1 to top (going farther from the rail)):
+r_below := ro(Mk) + (1 + gm(Mk)*ro(Mk)) * r_look(bottom -> rail)
+Engineer’s approximation: r_below ~ gm(Mk)*ro(Mk)*r_look(bottom -> rail) each step.
+Update: r_look(bottom -> rail) := r_below and repeat till you arrive at any of the listed general 2 device cases., and then compute R_branch.
+
+Notes:
+- Side loads at intermediate nodes: fold them in parallel into r_below before moving up.
+- If at any level Gate(lower) = top-node (perturbed) i.e. feedback, switch that step to Case `CASE_GATE_FEEDBACK_CASCODE` by dividing by [1 + gm(lower)*r_below].
+
+
+* Case `CASE_DEFAULT`: 
+
+Topology (Looking into node N that is connected to the gate of one or more MOSFETs)
+Mk D  G=N  S  rail  type
+
+Explanation:
+For an ideal MOS gate in saturation or triode, no DC conduction path exists from gate to channel -> the small-signal gate current is ~ 0. Thus the small-signal resistance seen into a MOS gate is effectively infinite:
+R_branch = Rin_gate(N) -> infinity (ignore branch)
+
+
+## ** Combining Branches & Pole Calculation: ** ##
+
+1. Identify node N. Split all paths from N into branches toward AC-stiff nodes (VDD, VSS, bias refs, etc.).
+Typical: an up branch (to VDD side), a down branch (to VSS side), plus any side branches to stiff biases.
+
+2. For each branch:
+a) Collapse from the rail inward to form r_look at the device directly under N (use the cases above as needed).
+b) Apply the correct two-device case at the topmost step and get the R_branch value
+
+3. Combine all branches from node N in parallel:
+R_eff_look_in(N) ~ ( R_branch_1 || R_branch_2 || … )
+
+Pole at N:
+p_N ~ 1 / ( R_eff_look_in(N) * C_N )
+With C_N = sum of caps from N to AC-stiff nodes:
+C_N ~ Σ Cgs(gates tied to N) + Σ Cdb(at N) + Σ Cgd(to AC-stiff drains/gates) + wiring/fringe + Cext (if any external loading at node N)
+If the other plate isn’t stiff, scale the parasitics by η ∈ [0,1].

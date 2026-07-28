@@ -1,0 +1,32 @@
+{
+  "matching_groups": [
+    {
+      "group_id": "match_group_0",
+      "devices": ["R0", "R13"]
+    },
+    {
+      "group_id": "match_group_1",
+      "devices": ["C2", "C3"]
+    },
+    {
+      "group_id": "match_group_2",
+      "devices": ["M9", "M12"]
+    },
+    {
+      "group_id": "match_group_3",
+      "devices": ["M70", "M71"]
+    },
+    {
+      "group_id": "match_group_4",
+      "devices": ["R11", "R14"]
+    },
+    {
+      "group_id": "match_group_5",
+      "devices": ["C4", "C5"]
+    },
+    {
+      "group_id": "match_group_6",
+      "devices": ["C6", "C7"]
+    }
+  ]
+}

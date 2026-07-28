@@ -1,0 +1,79 @@
+[
+  {
+    "constraint": "GroupCaps",
+    "name": "cap_dac",
+    "instances": [
+      "c3",
+      "c2",
+      "c0",
+      "c1",
+      "c4",
+      "c5",
+      "c6",
+      "c7"
+    ],
+    "unit_cap": "100",
+    "num_units": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dummy": true
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vy",
+    "net2": "vx",
+    "direction": "v"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_sc_cell",
+    "instances": [
+      "m1",
+      "c2",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "ClockPorts",
+    "ports": [
+      "clk",
+      "clkb"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c3",
+      "c2",
+      "c0",
+      "c1"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vp",
+      "vq",
+      "vx",
+      "vy"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

@@ -1,0 +1,345 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "mn10",
+        "mn9"
+      ],
+      [
+        "mn4",
+        "mn3"
+      ],
+      [
+        "mn0",
+        "mn2"
+      ],
+      [
+        "mn6",
+        "mn5"
+      ],
+      [
+        "mn7",
+        "mn8"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "mn10",
+        "mn9"
+      ],
+      [
+        "mn4",
+        "mn3"
+      ],
+      [
+        "mn0",
+        "mn2"
+      ],
+      [
+        "mn6",
+        "mn5"
+      ],
+      [
+        "mn7",
+        "mn8"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn10",
+      "mn9"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn4",
+      "mn3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn0",
+      "mn2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn6",
+      "mn5"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mn7",
+      "mn8"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "input_diff_pair",
+    "instances": [
+      "mn0",
+      "mn2",
+      "mn1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "regenerative_latch_core",
+    "instances": [
+      "mn4",
+      "mn3",
+      "mn6",
+      "mn5"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "precharge_pair",
+    "instances": [
+      "mn10",
+      "mn9"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "dynamic_node_reset_pair",
+    "instances": [
+      "mn7",
+      "mn8"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "mn4",
+      "mn0",
+      "mn1"
+    ],
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "mn3",
+      "mn2",
+      "mn1"
+    ],
+    "abut": false
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "c0",
+        "c1"
+      ],
+      [
+        "c2",
+        "c3"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c0",
+      "c1",
+      "c2",
+      "c3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "matched_dynamic_load_caps",
+    "instances": [
+      "c0",
+      "c1",
+      "c2",
+      "c3"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m16",
+        "m17"
+      ],
+      [
+        "m3",
+        "m2"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m16",
+        "m17"
+      ],
+      [
+        "m3",
+        "m2"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m16",
+      "m17"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m3",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "von_output_inverter",
+    "instances": [
+      "m16",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "vop_output_inverter",
+    "instances": [
+      "m17",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "matched_output_buffers",
+    "instances": [
+      "m16",
+      "m17",
+      "m3",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m16",
+      "m3"
+    ],
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m17",
+      "m2"
+    ],
+    "abut": false
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m16",
+      "m3"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m17",
+      "m2"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vp",
+    "net2": "vq",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vx",
+    "net2": "vy",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vop",
+    "net2": "von",
+    "direction": "V"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "vin",
+      "vip"
+    ],
+    "shield": "vss",
+    "criticality": 10
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vin",
+      "vip",
+      "clk"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vop",
+      "von"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]

@@ -1,0 +1,401 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "outm",
+    "net2": "outp",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "intm",
+    "net2": "intp",
+    "direction": "V"
+  },
+  {
+    "constraint": "NetConst",
+    "nets": [
+      "outm",
+      "outp",
+      "intm",
+      "intp"
+    ],
+    "shield": "vss",
+    "criticality": 10
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "first_stage_core",
+    "instances": [
+      "m0",
+      "m2",
+      "m10",
+      "m11",
+      "mp1a",
+      "mp1b"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "output_stage_outm",
+    "instances": [
+      "m1",
+      "m9"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "output_stage_outp",
+    "instances": [
+      "m3",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "miller_comp",
+    "instances": [
+      "m23",
+      "m25",
+      "c0",
+      "c1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "cmfb_engine",
+    "instances": [
+      "m20",
+      "mp1c",
+      "m18",
+      "m15",
+      "m19",
+      "m17",
+      "m13",
+      "m12"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "bias_gen_vbiasn",
+    "instances": [
+      "m5",
+      "m7",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m0",
+        "m2"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "mp1a",
+        "mp1b"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m1",
+        "m3"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m9",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m18",
+        "m15"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m19",
+        "m17"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m20",
+        "mp1c"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m1",
+      "m9"
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m3",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m1",
+      "m9"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m3",
+      "m6"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m23",
+      "m25"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m0",
+      "m2"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m11",
+      "m10"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "mp1a",
+      "mp1b"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m1",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m9",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m23",
+      "m25"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "c0",
+      "c1"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m18",
+      "m15"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m19",
+      "m17"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m13",
+      "m12"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m20",
+      "mp1c"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "inm",
+      "inp",
+      "vref",
+      "vbias_p",
+      "vbias_n"
+    ],
+    "location": "LB"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "outm",
+      "outp"
+    ],
+    "location": "RB"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "level_1_cluster_0",
+    "instances": [
+      "m20",
+      "mp1c",
+      "m18",
+      "m15",
+      "m19",
+      "m17",
+      "m13",
+      "m12",
+      "mp1b",
+      "mp1a",
+      "m10",
+      "m11",
+      "m0",
+      "m2",
+      "m23",
+      "m25",
+      "c0",
+      "c1",
+      "m1",
+      "m9",
+      "m3",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m20",
+        "m5"
+      ],
+      [
+        "m20",
+        "m7"
+      ],
+      [
+        "m20",
+        "mp1c"
+      ],
+      [
+        "m5",
+        "m7"
+      ],
+      [
+        "m5",
+        "mp1c"
+      ],
+      [
+        "m7",
+        "mp1c"
+      ],
+      [
+        "mp1a",
+        "mp1b"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m12",
+        "m13"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m1",
+        "m3"
+      ],
+      [
+        "m9",
+        "m6"
+      ]
+    ]
+  }
+]

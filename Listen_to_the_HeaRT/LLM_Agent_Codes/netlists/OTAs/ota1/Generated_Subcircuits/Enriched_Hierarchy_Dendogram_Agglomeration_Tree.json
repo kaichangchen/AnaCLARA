@@ -1,0 +1,166 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "level_1_cluster_0",
+      "children": [
+        {
+          "unique_name": "cmfb_pmos_diffpair_amp",
+          "class_category": "Amplifier",
+          "role_hint": "Common-mode feedback engine using duplicated PMOS differential pairs comparing OUTP/OUTM against VREF to generate vcmfb; includes local PMOS current sources.",
+          "role_description": "Common-mode feedback engine using duplicated PMOS differential pairs comparing OUTP/OUTM against VREF to generate vcmfb; includes local PMOS current sources.",
+          "netlist": ".subckt cmfb_pmos_diffpair_amp OUTM OUTP VREF vcmfb VBIAS_P VDD VSS\nM20 net028 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nMP1c net020 VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM18 vcmfb OUTM net028 VDD pch_lvt l=120.0n w=2u m=8\nM15 vcmfb OUTP net020 VDD pch_lvt l=120.0n w=2u m=8\nM19 net025 VREF net028 VDD pch_lvt l=120.0n w=2u m=8\nM17 net025 VREF net020 VDD pch_lvt l=120.0n w=2u m=8\nM13 vcmfb vcmfb VSS VSS nch_lvt l=120.0n w=2u m=2\nM12 net025 net025 VSS VSS nch_lvt l=120.0n w=2u m=2\n.ends cmfb_pmos_diffpair_amp",
+          "port_info_keyed_by_name": {
+            "outm": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "outp": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "vref": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vcmfb": {
+              "port_type": "control_signal",
+              "direction": "output"
+            },
+            "vbias_p": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "first_stage_diffpair_active_load",
+          "class_category": "Amplifier",
+          "role_hint": "Differential NMOS input stage with PMOS active-load current sources; tail current includes CMFB-controlled branch.",
+          "role_description": "Differential NMOS input stage with PMOS active-load current sources; tail current includes CMFB-controlled branch.",
+          "netlist": ".subckt first_stage_diffpair_active_load INM INP intp intm vbias_n vcmfb VBIAS_P VDD VSS\nMP1b intp VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nMP1a intm VBIAS_P VDD VDD pch l=120.0n w=2u m=20\nM10 net7 vbias_n VSS VSS nch_lvt l=120.0n w=2u m=16\nM11 net7 vcmfb VSS VSS nch_lvt l=120.0n w=2u m=4\nM0 intp INM net7 VSS nch_25ud18 l=500n w=5u m=12\nM2 intm INP net7 VSS nch_25ud18 l=500n w=5u m=12\n.ends first_stage_diffpair_active_load",
+          "port_info_keyed_by_name": {
+            "inm": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "inp": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "intp": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "intm": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "vbias_n": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            },
+            "vcmfb": {
+              "port_type": "control_signal",
+              "direction": "input"
+            },
+            "vbias_p": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "miller_compensation_network",
+          "class_category": "Miller Compensation",
+          "role_hint": "Miller compensation network coupling outputs to internal high-impedance nodes via always-on PMOS pass devices and metal capacitors.",
+          "role_description": "Miller compensation network coupling outputs to internal high-impedance nodes via always-on PMOS pass devices and metal capacitors.",
+          "netlist": ".subckt miller_compensation_network OUTP OUTM intm intp VDD VSS\nM23 net047 VSS intm VDD pch_lvt l=120.0n w=2u m=12\nM25 net037 VSS intp VDD pch_lvt l=120.0n w=2u m=12\nC0 OUTP net047 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\nC1 OUTM net037 cfmom_2t nr=210 lr=13.0u w=70n s=70n stm=3 spm=6 m=1\n.ends miller_compensation_network",
+          "port_info_keyed_by_name": {
+            "outp": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "outm": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "intm": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "intp": {
+              "port_type": "signal",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_stage_half_outm",
+          "class_category": "Amplifier",
+          "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTM.",
+          "role_description": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTM.",
+          "netlist": ".subckt output_stage_half_outm intp OUTM vbias_n VDD VSS\nM1 OUTM intp VDD VDD pch_lvt l=120.0n w=2u m=12\nM9 OUTM vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outm",
+          "port_info_keyed_by_name": {
+            "intp": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "outm": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "vbias_n": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            }
+          },
+          "children": []
+        },
+        {
+          "unique_name": "output_stage_half_outp",
+          "class_category": "Amplifier",
+          "role_hint": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTP.",
+          "role_description": "Second-stage PMOS common-source amplifier with NMOS sink load driving OUTP.",
+          "netlist": ".subckt output_stage_half_outp intm OUTP vbias_n VDD VSS\nM3 OUTP intm VDD VDD pch_lvt l=120.0n w=2u m=12\nM6 OUTP vbias_n VSS VSS nch_lvt l=120.0n w=2u m=6\n.ends output_stage_half_outp",
+          "port_info_keyed_by_name": {
+            "intm": {
+              "port_type": "signal",
+              "direction": "input"
+            },
+            "outp": {
+              "port_type": "signal",
+              "direction": "output"
+            },
+            "vbias_n": {
+              "port_type": "dc_bias",
+              "direction": "input"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "unique_name": "bias_generator_vbiasn",
+      "class_category": "Bias Network",
+      "role_hint": "Generates NMOS bias voltage vbias_n from external PMOS bias VBIAS_P via a PMOS mirror into a diode-connected NMOS.",
+      "role_description": "Generates NMOS bias voltage vbias_n from external PMOS bias VBIAS_P via a PMOS mirror into a diode-connected NMOS.",
+      "netlist": ".subckt bias_generator_vbiasn VBIAS_P vbias_n VDD VSS\nM5 VBIAS_P VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM7 vbias_n VBIAS_P VDD VDD pch l=120.0n w=2u m=8\nM4 vbias_n vbias_n VSS VSS nch_lvt l=120.0n w=2u m=4\n.ends bias_generator_vbiasn",
+      "port_info_keyed_by_name": {
+        "vbias_p": {
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        "vbias_n": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    }
+  ]
+}

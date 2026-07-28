@@ -1,0 +1,54 @@
+{
+  "net_driver_metadata": [
+    {
+      "net_name": "net0101",
+      "driver_block_name": "output_stage_pushpull_ota2",
+      "load_block_names": [
+        "output_cmfb_block_ota2"
+      ],
+      "reason": "Output-stage includes the CM sensing network that forms this node; the CMFB block only senses it."
+    },
+    {
+      "net_name": "vim",
+      "driver_block_name": "outside_circuit",
+      "load_block_names": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "reason": "Differential input; both blocks receive it, no internal source indicated."
+    },
+    {
+      "net_name": "vip",
+      "driver_block_name": "outside_circuit",
+      "load_block_names": [
+        "folded_cascode_core_ota2",
+        "output_stage_pushpull_ota2"
+      ],
+      "reason": "Differential input; both blocks receive it, no internal source indicated."
+    },
+    {
+      "net_name": "vo1m",
+      "driver_block_name": "folded_cascode_core_ota2",
+      "load_block_names": [
+        "output_stage_pushpull_ota2"
+      ],
+      "reason": "First-stage (folded cascode) produces VO1 nodes that drive the output stage."
+    },
+    {
+      "net_name": "vo1p",
+      "driver_block_name": "folded_cascode_core_ota2",
+      "load_block_names": [
+        "output_stage_pushpull_ota2"
+      ],
+      "reason": "First-stage (folded cascode) produces VO1 nodes that drive the output stage."
+    },
+    {
+      "net_name": "vtail",
+      "driver_block_name": "output_cmfb_block_ota2",
+      "load_block_names": [
+        "output_stage_pushpull_ota2"
+      ],
+      "reason": "Output CMFB drives the tail/control node to set output-stage common-mode; output stage uses it."
+    }
+  ]
+}

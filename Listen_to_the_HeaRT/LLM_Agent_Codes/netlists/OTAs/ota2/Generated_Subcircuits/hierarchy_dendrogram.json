@@ -1,0 +1,119 @@
+{
+  "level_1": {
+    "node_ids": [
+      "bias_generator_block_ota2",
+      "folded_cascode_core_ota2",
+      "output_stage_pushpull_ota2",
+      "output_cmfb_block_ota2"
+    ],
+    "clusters": [
+      {
+        "cluster_id": "level_1_cluster_0",
+        "level": 1,
+        "children": [
+          "bias_generator_block_ota2"
+        ],
+        "avg_internal_similarity": 1.0
+      },
+      {
+        "cluster_id": "level_1_cluster_1",
+        "level": 1,
+        "children": [
+          "folded_cascode_core_ota2",
+          "output_cmfb_block_ota2",
+          "output_stage_pushpull_ota2"
+        ],
+        "avg_internal_similarity": 0.669266313271642
+      }
+    ],
+    "affinity_matrix": [
+      [
+        1.0,
+        0.22844153710882414,
+        0.23473865827753457,
+        0.16679211894870283
+      ],
+      [
+        0.22844153710882414,
+        1.0,
+        0.32105030799018164,
+        0.2345423946813172
+      ],
+      [
+        0.23473865827753457,
+        0.32105030799018164,
+        1.0,
+        0.25450308258986126
+      ],
+      [
+        0.16679211894870283,
+        0.2345423946813172,
+        0.25450308258986126,
+        1.0
+      ]
+    ],
+    "normalized_affinity_matrix": [
+      [
+        1.0,
+        0.39965086160543656,
+        0.4404728186622329,
+        0.0
+      ],
+      [
+        0.39965086160543656,
+        1.0,
+        1.0,
+        0.4392005128129494
+      ],
+      [
+        0.4404728186622329,
+        1.0,
+        1.0,
+        0.5685984270019768
+      ],
+      [
+        0.0,
+        0.4392005128129494,
+        0.5685984270019768,
+        1.0
+      ]
+    ]
+  },
+  "level_2": {
+    "node_ids": [
+      "level_1_cluster_0",
+      "level_1_cluster_1"
+    ],
+    "clusters": [
+      {
+        "cluster_id": "level_2_cluster_0",
+        "level": 2,
+        "children": [
+          "level_1_cluster_0",
+          "level_1_cluster_1"
+        ],
+        "avg_internal_similarity": 0.4871790141340586
+      }
+    ],
+    "affinity_matrix": [
+      [
+        1.0,
+        0.4871790141340586
+      ],
+      [
+        0.4871790141340586,
+        1.0
+      ]
+    ],
+    "normalized_affinity_matrix": [
+      [
+        1.0,
+        0.4871790141340586
+      ],
+      [
+        0.4871790141340586,
+        1.0
+      ]
+    ]
+  }
+}

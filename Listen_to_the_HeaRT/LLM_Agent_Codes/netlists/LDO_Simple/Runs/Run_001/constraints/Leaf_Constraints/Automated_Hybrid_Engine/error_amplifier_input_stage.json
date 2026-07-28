@@ -1,0 +1,116 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m7",
+      "m8",
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m7",
+        "m8"
+      ],
+      [
+        "m4",
+        "m3"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m4",
+      "m7"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m7",
+      "m8"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m4",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_tgate",
+    "instances": [
+      "m7",
+      "m3"
+    ]
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m7",
+      "m3"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "gnd",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "iref_snk",
+      "vin",
+      "fb"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "net7"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "v",
+    "pairs": [
+      [
+        "m7",
+        "m8"
+      ],
+      [
+        "m4",
+        "m3"
+      ]
+    ]
+  }
+]

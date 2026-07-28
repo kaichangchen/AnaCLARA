@@ -1,0 +1,220 @@
+[
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "gnd"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m3",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ],
+      [
+        "m3",
+        "m4"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m0",
+        "m1"
+      ],
+      [
+        "m3",
+        "m4"
+      ],
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vin",
+    "net2": "vip",
+    "direction": "V"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "net2",
+    "net2": "vo",
+    "direction": "V"
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "nmos_diff_pair",
+    "instances": [
+      "m0",
+      "m1"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_diff_pair",
+    "instances": [
+      "m3",
+      "m4"
+    ]
+  },
+  {
+    "constraint": "GroupBlocks",
+    "name": "pmos_bias_mirror",
+    "instances": [
+      "m5",
+      "m6"
+    ]
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m3",
+      "m4"
+    ],
+    "line": "center",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "AlignInOrder",
+    "instances": [
+      "m0",
+      "m1"
+    ],
+    "line": "center",
+    "direction": "horizontal"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m3",
+      "m0"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m4",
+      "m1"
+    ],
+    "line": "v_center"
+  },
+  {
+    "constraint": "Align",
+    "instances": [
+      "m6",
+      "m5"
+    ],
+    "line": "h_center"
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m5",
+      "m3",
+      "m0",
+      "m2"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m5",
+      "m4",
+      "m1",
+      "m2"
+    ],
+    "direction": "top_to_bottom",
+    "abut": false
+  },
+  {
+    "constraint": "Order",
+    "instances": [
+      "m6",
+      "m5"
+    ],
+    "direction": "left_to_right",
+    "abut": false
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "ib_sink",
+      "vin",
+      "vip"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vo"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  },
+  {
+    "constraint": "MatchDevices",
+    "direction": "V",
+    "pairs": [
+      [
+        "m5",
+        "m6"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,77 @@
+## REFERENCE (GUIDE) SHEET FOR LOOK-IN RESISTANCE COMPUTATION FOR A GIVEN BRANCH:
+
+Assumptions (unless stated): devices in saturation, AC test at low freq, supplies and stiff biases are AC-ground/AC-stiff, gm*ro >> 1, body effect optional (use gm_eff = gm + gmb if needed).
+Notation: “||” = parallel, “~” = first-order/approximately equal to, ro(MK) = output resistance of MK, gm(MK) = transconductance of MK.
+
+** For a given branch ** in an analog circuit, use the decision tree below to assign the correct case number for look-in resistance calculation for the branch at node N.
+Do NOT invent alternative cases, merge rules, or make assumptions beyond the rules stated.
+
+Your answer must follow the strict step-by-step logic in the decision flow below.
+
+# Important Notes:
+    * Only perturb node N for look-in resistance calculation at N. Ignore perturbations at other nodes or differential inputs.
+    * Consider only the single branch being evaluated, ignoring other branches or global context.
+    * "AC-stiff” means does not respond to a perturbation at N. Same as "AC-Stiff" wrt N.
+    * Rails (VDD/VSS, DC bias sources, ideal supplies) are always AC-stiff wrt N.
+    * When applying these rules, focus only on one branch at a time. Ignore devices in other branches until the very end when branches are combined in parallel.
+
+
+# Instructions:
+    - Follow the decision flow strictly and step-by-step as stated below.
+    - Do not invent new cases, merge rules, or make assumptions beyond what is explicitly listed.
+    - When in doubt, default to CASE_DEFAULT.
+    - Assign the appropriate CASE_ID for the given branch starting at node N and STOP at the first matching condition.
+
+List of the Case IDs (Select from these to use as Output Labels):
+> CASE_SUPPLY
+> CASE_SINGLE_RO
+> CASE_CLASSIC_CASCODE
+> CASE_GATE_FEEDBACK_CASCODE
+> CASE_DIODE_CONNECTED_MOSFET
+> CASE_SOURCE_DEGENERATION
+> CASE_SOURCE_FOLLOWER
+> CASE_RECURSIVE_COLLAPSE: More than two MOS devices stacked in series; recursively collapse and reapply rules.
+> CASE_DEFAULT
+
+* Select the appropriate CASE_ID for each branch only from the list given above. Do not generate or use any case ID not present in the list.
+
+** DECISION FLOW (STRICT STEPWISE LOGIC): 
+- Is N an Ideal Voltage Supply Node (VDD or VSS)?
+    -> If YES, **assign `CASE_SUPPLY` to ALL branches connected at N**. ** STOP ** further evaluation.
+    -> If NO, Proceed to the next condition check.
+- When looking into the branch from N, is the very first thing you encounter a MOSFET gate or to-be-specified external circuitry?
+    -> If YES, **assign `CASE_DEFAULT` (purely capacitive load)**. All gate-only look-ins fall under `CASE_DEFAULT`. ** STOP ** further evaluation.
+    -> If NO, Proceed to the next condition check.
+- When looking into the branch from N, is the very first thing you encounter a drain terminal of a MOSFET?
+    -> If YES, proceed to the following subcondition checks:
+        - Is the MOSFET diode-connected (drain = gate = N)?
+            -> If YES, **assign `CASE_DIODE_CONNECTED_MOSFET`**. ** STOP ** further evaluation.
+            -> If NO (AC-stiff gate), Proceed to the next subcondition check.
+        - Are the MOSFET’s source and gate AC-stiff wrt N?
+        (Note: Only a single MOSFET lies between N and the AC-stiff node (Supply Voltage Node or a stable voltage bias point), and the look-in point is its drain.)
+            -> If YES, **assign `CASE_SINGLE_RO`**. ** STOP ** further evaluation.
+            -> If NO, Proceed to the next subcondition check.
+        - Is the MOSFET’s source connected to a finite tail or folded network while the gate is AC-stiff?
+        (Note: This applies when looking into the drain of a MOSFET with a finite tail resistance at its source. This is distinct from source follower cases (Case `CASE_SOURCE_FOLLOWER`), which applies when the look-in point is the source terminal of the MOSFET.)
+        - Is the MOSFET stacked with another MOSFET?
+            -> If YES, further evaluate the following sub-subcondition checks:
+                -> If both cascode gates are AC-stiff wrt N?
+                    -> If YES, **assign `CASE_CLASSIC_CASCODE`**. ** STOP ** further evaluation.
+                    -> If NO, Proceed to the next sub-subcondition check.
+                -> If the next stacked MOS has its gate connected to N (and hence not AC-stiff wrt N)?
+                    -> If YES, **assign `CASE_GATE_FEEDBACK_CASCODE`**. ** STOP ** further evaluation.
+                    -> If NO, Proceed to the next subcondition check.
+        - Does the branch contain more than two MOS devices stacked in series?
+            -> If YES, **assign `CASE_RECURSIVE_COLLAPSE`**. Recursively collapse the stack bottom-up into an effective resistance, then reapply the decision rules at the collapsed node. ** STOP ** further evaluation.
+            -> If NO, Proceed to the next subcondition check.
+- When looking into the branch from N, is the very first thing you encounter a source terminal of a MOSFET?
+(Note: This applies whenever you are looking into the source terminal of a MOSFET.)
+    -> If YES, **assign `CASE_SOURCE_FOLLOWER`**. ** STOP ** further evaluation.
+
+
+### GENERAL REDUCTION IDEA IN A GIVEN BRANCH (use everywhere):
+
+- If a branch from node N to a rail has more than one element, first collapse everything between the nearest device and the rail into an effective resistance seen at that device’s source/drain node.
+- Name that collapsed value r_look(X -> rail): the small-signal resistance seen from node X toward a rail (with the opposite side opened/ turned off).
+- Do this recursively for 2, 3, … N stacked devices or folded paths.
+- Then apply the appropriate two-device case at node N using r_look between the device and the rail.

@@ -1,0 +1,45 @@
+{
+  "unique_name": "level_2_cluster_0",
+  "children": [
+    {
+      "unique_name": "pmos_bias_generator",
+      "class_category": "Bias Network",
+      "role_hint": "Diode-connected PMOS bias generation device that converts the externally forced sink current at ib_sink into a PMOS gate bias voltage for the amplifier core current source.",
+      "role_description": "Diode-connected PMOS bias generation device that converts the externally forced sink current at ib_sink into a PMOS gate bias voltage for the amplifier core current source.",
+      "netlist": ".subckt pmos_bias_generator ib_sink vdd\nM6 ib_sink ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\n.ends pmos_bias_generator",
+      "port_info_keyed_by_name": {
+        "ib_sink": {
+          "port_type": "dc_bias",
+          "direction": "output"
+        }
+      },
+      "children": []
+    },
+    {
+      "unique_name": "complementary_self_biased_ota_core",
+      "class_category": "Amplifier",
+      "role_hint": "Single-ended complementary CMOS OTA core. The NMOS and PMOS input devices form complementary transconductance paths driven by vin and vip, with vo as the single-ended output. M5 is the PMOS current source biased by ib_sink, while M2 is an internally self-controlled NMOS tail device whose gate is driven by net2.",
+      "role_description": "Single-ended complementary CMOS OTA core. The NMOS and PMOS input devices form complementary transconductance paths driven by vin and vip, with vo as the single-ended output. M5 is the PMOS current source biased by ib_sink, while M2 is an internally self-controlled NMOS tail device whose gate is driven by net2.",
+      "netlist": ".subckt complementary_self_biased_ota_core gnd ib_sink vdd vin vip vo\nM2 net1 net2 gnd gnd nch l=ln_tail w=wn_tail m=1 nf=1\nM1 vo vin net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM0 net2 vip net1 gnd nch l=ln_input w=wn_input m=1 nf=1\nM5 net3 ib_sink vdd vdd pch l=lp_tail w=wp_tail m=1 nf=1\nM4 vo vin net3 vdd pch l=lp_input w=wp_input m=1 nf=1\nM3 net2 vip net3 vdd pch l=lp_input w=wp_input m=1 nf=1\n.ends complementary_self_biased_ota_core",
+      "port_info_keyed_by_name": {
+        "ib_sink": {
+          "port_type": "dc_bias",
+          "direction": "input"
+        },
+        "vin": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vip": {
+          "port_type": "signal",
+          "direction": "input"
+        },
+        "vo": {
+          "port_type": "signal",
+          "direction": "output"
+        }
+      },
+      "children": []
+    }
+  ]
+}

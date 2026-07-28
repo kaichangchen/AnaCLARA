@@ -1,0 +1,141 @@
+[
+  {
+    "constraint": "GroupBlocks",
+    "instance_name": "x_cascode_mirror",
+    "instances": [
+      "m18",
+      "m102",
+      "m75",
+      "m110"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m18",
+        "m102"
+      ],
+      [
+        "m75",
+        "m110"
+      ]
+    ]
+  },
+  {
+    "constraint": "Order",
+    "direction": "top_to_bottom",
+    "instances": [
+      "m75",
+      "m18"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m18",
+      "m102"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m75",
+      "m110"
+    ]
+  },
+  {
+    "constraint": "GuardRing",
+    "guard_ring_primitives": "guard_ring",
+    "global_pin": "vss",
+    "block_name": "guard_ring_example"
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "v",
+    "pairs": [
+      [
+        "m18",
+        "m102"
+      ]
+    ]
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vbn",
+    "net2": "vbn",
+    "direction": "v"
+  },
+  {
+    "constraint": "SymmetricNets",
+    "net1": "vop2",
+    "net2": "vom2",
+    "direction": "v"
+  },
+  {
+    "constraint": "PowerPorts",
+    "ports": [
+      "vdd"
+    ]
+  },
+  {
+    "constraint": "GroundPorts",
+    "ports": [
+      "vss"
+    ]
+  },
+  {
+    "constraint": "SymmetricBlocks",
+    "direction": "V",
+    "pairs": [
+      [
+        "m9",
+        "m109"
+      ],
+      [
+        "m18",
+        "m102"
+      ],
+      [
+        "m75",
+        "m110"
+      ]
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "m9",
+      "m109"
+    ]
+  },
+  {
+    "constraint": "SameTemplate",
+    "instances": [
+      "r7",
+      "r8"
+    ]
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vop1",
+      "vom1",
+      "vbn"
+    ],
+    "location": "LC"
+  },
+  {
+    "constraint": "PortLocation",
+    "ports": [
+      "vop2",
+      "vom2"
+    ],
+    "location": "RC"
+  },
+  {
+    "constraint": "CompactPlacement",
+    "style": "center"
+  }
+]
