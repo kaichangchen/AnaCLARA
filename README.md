@@ -3,8 +3,6 @@
 [![Paper](https://img.shields.io/badge/MLCAD'26-Paper-blue)](https://doi.org/10.1145/PLACEHOLDER)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Artifact Evaluation](https://img.shields.io/badge/ACM-Artifact%20Evaluated-brightgreen)](https://www.acm.org/publications/policies/artifact-review-and-badging-current)
-
 ---
 
 **AnaCLARA** is a circuit- and tool-agnostic, hierarchical reasoning-driven agentic framework that automatically generates multi-level layout constraints from SPICE netlists for analog/mixed-signal layout automation. It bridges front-end circuit understanding and back-end layout design by translating design intent into comprehensive, tool-specific constraints.
