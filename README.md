@@ -163,4 +163,4 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-This work has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant Nᵒ101019982 - AnalogCreate), NSF under grants CCF-1704758 and CCF-2112665, SRC under task 3160.007, and an equipment donation from Nvidia.
+This work has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant nᵒ101019982 - AnalogCreate), NSF under grants CCF-1704758 and CCF-2112665, SRC under task 3160.007, and an equipment donation from Nvidia.
