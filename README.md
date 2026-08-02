@@ -132,18 +132,18 @@ python scorer_baseline.py
 
 This repository is the artifact for the MLCAD'26 paper. Two validation paths are supported:
 
-**Path A: Full Rerun** (requires LLM API key)
+**Full Rerun** (requires LLM API key)
 ```bash
 python run_all_benchmarks.py --variation 0 --runs 10
+```
+
+**Scorer Code** (does not require LLM API key)
+```bash
 python Baselines/Kaichang_Generated_Constraints/scorer_baseline.py
 ```
-
-**Path B: Cached-Output Validation** (no API needed)
-```bash
-python Baselines/Kaichang_Generated_Constraints/scorer_baseline.py --cached
-```
-
 Expected results: F1_sym^dev = 1.000, F1_sym^net = 1.000, F1_matching = 0.983 (tolerance: +/-0.05 for LLM variability).
+
+Results from past baseline runs are stored in the corresponding directories.
 
 ## Citation
 
