@@ -127,6 +127,8 @@ python scorer_baseline.py
 | `CLAUDE_SONNET` | Claude-4.5-Sonnet | Validated in Table 6 |
 | `GEMINI_STABLE` | Gemini-2.5 Pro | Validated in Table 6 |
 
+Switch between GPT-5.5, Claude Sonnet, Claude Opus, or Gemini Pro by editing {DEFAULT\_MODEL\_ENDPOINT} in  the {base\_agent.py} (line 21).
+
 ## Artifact Evaluation
 
 This repository is the artifact for the MLCAD'26 paper. Two validation paths are supported:
