@@ -117,7 +117,6 @@ python scorer_baseline.py
 | `kb_only_threshold` (theta) | Min similarity for KB-only path | 0.70 | Section 3.1, Algorithm 1 |
 | `complexity_cap` (C) | Max device count for KB-only path | 15 | Section 3.1, Algorithm 1 |
 | `variation` | LLM mode: 0=auto, 1=single-shot, 2=audit, 3=debate | 0 | Section 3.1 |
-| `model` | LLM backbone | GPT_BEST | Table 6 |
 | `top_k` | Number of KB templates to match | 3 | -- |
 
 ## Supported LLM Backends
@@ -132,10 +131,12 @@ python scorer_baseline.py
 
 This repository is the artifact for the MLCAD'26 paper. Two validation paths are supported:
 
-**Full Rerun** (requires LLM API key)
+**Full AnaCLARA Pipeline Rerun** (requires LLM API key)
 ```bash
-python run_all_benchmarks.py --variation 0 --runs 10
+cd Listen_to_the_HeaRT/LLM_Agent_Codes
+source AnaCLARA_pipeline.csh <N_RUNS> <CASE>
 ```
+where <N\_RUNS> is the number of independent runs and <CASE> is the circuit benchmark.
 
 **Scorer Code** (does not require LLM API key)
 ```bash
