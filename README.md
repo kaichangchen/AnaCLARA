@@ -138,7 +138,7 @@ This repository is the artifact for the MLCAD'26 paper. Two validation paths are
 cd Listen_to_the_HeaRT/LLM_Agent_Codes
 source AnaCLARA_pipeline.csh <N_RUNS> <CASE>
 ```
-where <N\_RUNS> is the number of independent runs and <CASE> is the circuit benchmark.
+where `<N_RUNS>` is the number of independent runs and `<CASE>` is the circuit benchmark.
 
 **Scorer Code** (does not require LLM API key)
 ```bash
